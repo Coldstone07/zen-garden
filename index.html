@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatin Alla - Clarity, Illuminated by AI</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Kairos - A journey to clarity, focus, and resilience, guided by evidence and illuminated by AI.">
+    
+    <!-- Preconnect for Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- NOTE FOR PRODUCTION: For a true SPA/Next.js build, these meta tags would be dynamically generated for each page. -->
+    <!-- JSON-LD Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kairos",
+      "url": "https://www.kairos.com",
+      "logo": "https://placehold.co/200x200/191035/FFFBEB?text=K",
+      "founder": {
+        "@type": "Person",
+        "name": "Jatin Alla"
+      },
+      "description": "A coaching program designed for professionals and leaders ready to align external success with deep inner satisfaction.",
+      "serviceType": "Coaching"
+    }
+    </script>
+    
+    <style>
+        :root {
+            --color-base: #191035; /* Deep Indigo */
+            --color-text: #FFFBEB; /* Cream */
+            --color-text-muted: #d1ccc0; /* Softer Cream/Gray */
+            --color-primary-accent: #F2CB61; /* Soft Gold */
+            --color-secondary-accent: #6A0DAD; /* Royal Purple */
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+
+        body {
+            background-color: var(--color-base);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            overscroll-behavior: none;
+        }
+        
+        #lottie-fallback {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: none; /* Hidden by default */
+        }
+
+        .lottie-active #zen-garden-canvas {
+            display: none;
+        }
+        .lottie-active #lottie-fallback {
+            display: block;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            #zen-garden-canvas { display: none !important; }
+            #lottie-fallback { display: block !important; }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+        }
+
+        #zen-garden-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .content-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+        }
+
+        .page-content {
+            padding-top: 120px;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .page-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            border: 2px solid var(--color-primary-accent);
+            color: var(--color-primary-accent);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary-accent);
+            color: var(--color-base);
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--color-text-muted);
+            transition: color 0.3s;
+        }
+        .nav-link:hover { color: var(--color-text); }
+        .nav-link.active { color: var(--color-text); }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--color-primary-accent);
+            border-radius: 50%;
+        }
+
+        #transformation-text h2, #transformation-text p {
+            transition: color 0.5s ease-in-out;
+        }
+        #transformation-text.text-inverted h2,
+        #transformation-text.text-inverted p {
+            color: var(--color-base);
+        }
+
+        .insight-card {
+            border: 1px solid var(--color-primary-accent)/20;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        #audio-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            cursor: pointer;
+            background-color: rgba(255,251,235,0.1);
+            border-radius: 50%;
+            padding: 0.75rem;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-20 bg-var-base/80 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight nav-link" data-page="home" style="font-family: var(--font-serif);">Kairos</a>
+            <nav class="hidden md:flex space-x-10 items-center">
+                <a href="#" class="nav-link" data-page="method">Our Method</a>
+                <a href="#" class="nav-link" data-page="coaching">Coaching</a>
+                <a href="#" class="nav-link" data-page="insights">Insights</a>
+                <a href="#" class="cta-button !py-2 !px-6" id="contact-cta">Begin Your Journey</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="lottie-fallback"></div>
+    <canvas id="zen-garden-canvas"></canvas>
+
+    <div id="audio-toggle">
+        <svg id="audio-icon-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-var-text-muted"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>
+        <svg id="audio-icon-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-var-primary-accent"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+    </div>
+
+    <main id="home-page">
+        <section id="hook" class="content-section">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl">Clarity, Illuminated by AI.</h1>
+                <p class="mt-8 text-lg md:text-xl text-var-text-muted">Scroll to begin the journey.</p>
+            </div>
+        </section>
+        <section id="problem" class="content-section">
+            <div class="max-w-3xl fade-in">
+                <h2 class="text-4xl md:text-6xl">Lost in the noise?</h2>
+                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Modern life is an endless stream of information. We navigate a world of digital distraction and emotional overwhelm, feeling adrift in the chaos.</p>
+            </div>
+        </section>
+        <section id="solution" class="content-section">
+            <div class="max-w-3xl fade-in">
+                <h2 class="text-4xl md:text-6xl">Finding the signal.</h2>
+                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Our insight engine illuminates the patterns of your inner world, transforming scattered data points into meaningful constellations.</p>
+            </div>
+        </section>
+        <section id="how" class="content-section">
+            <div class="max-w-3xl fade-in">
+                 <h2 class="text-4xl md:text-6xl">An evidence-based approach.</h2>
+                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Grounded in neuroscience. Powered by predictive analytics. Personalized to you. We bridge the gap between ancient wisdom and modern technology to unlock your potential.</p>
+            </div>
+        </section>
+        <section id="transformation" class="content-section">
+             <div id="transformation-text" class="max-w-3xl fade-in">
+                <h2 class="text-4xl md:text-6xl">Your centered self, revealed.</h2>
+                <p class="mt-6 text-lg md:text-xl text-var-text-muted max-w-xl mx-auto">This isn't about changing who you are. It's about revealing the clarity, focus, and resilience you already possess.</p>
+            </div>
+        </section>
+        <section id="invitation" class="content-section">
+            <div class="fade-in">
+                <h2 class="text-4xl md:text-6xl">Ready to find your clarity?</h2>
+                <p class="mt-6 mb-12 text-lg md:text-xl text-var-text-muted">Your journey to a more centered, intentional life begins here.</p>
+                <a href="#" class="cta-button" id="contact-cta-main">Begin Your Journey</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="method-page" class="hidden page-content container mx-auto px-6 py-12">
+        <!-- Content as before -->
+    </div>
+    <div id="coaching-page" class="hidden page-content container mx-auto px-6 py-12">
+        <!-- Content as before -->
+    </div>
+    <div id="insights-page" class="hidden page-content container mx-auto px-6 py-12">
+        <!-- Content as before -->
+    </div>
+
+    <!-- Tally.so Contact Form Modal -->
+    <div id="contact-modal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center">
+        <div class="bg-var-base p-4 rounded-lg w-11/12 max-w-2xl">
+            <iframe data-tally-src="https://tally.so/embed/w7g2pX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0" title="Contact Kairos"></iframe>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script>
+        // --- Page Navigation & Transitions ---
+        const pages = ['home', 'method', 'coaching', 'insights'];
+        const navLinks = document.querySelectorAll('.nav-link');
+        const canvasEl = document.getElementById('zen-garden-canvas');
+        let currentPage = 'home';
+
+        function showPage(pageId) {
+            if (pageId === currentPage) return;
+            const currentPageEl = document.getElementById(`${currentPage}-page`);
+            if (currentPageEl) {
+                currentPageEl.style.opacity = 0;
+                setTimeout(() => {
+                    currentPageEl.classList.add('hidden');
+                    const targetPage = document.getElementById(`${pageId}-page`);
+                    if (targetPage) {
+                        targetPage.classList.remove('hidden');
+                        setTimeout(() => targetPage.classList.add('visible'), 50);
+                    }
+                }, 500);
+            }
+            
+            if (pageId === 'home') {
+                canvasEl.style.opacity = '1';
+                canvasEl.style.pointerEvents = 'auto';
+            } else {
+                canvasEl.style.opacity = '0';
+                canvasEl.style.pointerEvents = 'none';
+            }
+            navLinks.forEach(link => link.classList.toggle('active', link.dataset.page === pageId));
+            currentPage = pageId;
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage(link.dataset.page);
+            });
+        });
+
+        // --- Graceful Degradation & Performance ---
+        function shouldUseFallback() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (isMobile && connection && (connection.effectiveType.includes('2g') || connection.effectiveType.includes('3g'))) return true;
+            return false;
+        }
+
+        function initializeApp() {
+            if (shouldUseFallback()) {
+                document.body.classList.add('lottie-active');
+                const lottieContainer = document.getElementById('lottie-fallback');
+                lottieContainer.innerHTML = `<lottie-player src="https://assets9.lottiefiles.com/packages/lf20_yMpiq2.json" background="transparent" speed="1" style="width: 100%; height: 100%;" loop autoplay></lottie-player>`;
+            } else {
+                initializeCelestialWeaver();
+            }
+            showPage('home');
+            document.querySelector('#hook .fade-in').classList.add('visible');
+        }
+
+        // --- Observers & Micro-interactions ---
+        function initializeObservers() {
+             const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelector('.fade-in')?.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.content-section').forEach(section => observer.observe(section));
+        }
+        
+        // --- Audio Engine ---
+        let audioInitialized = false;
+        let ambientHum, chimeSynth, coreTone;
+        const audioToggle = document.getElementById('audio-toggle');
+        const audioIconOn = document.getElementById('audio-icon-on');
+        const audioIconOff = document.getElementById('audio-icon-off');
+
+        function initAudio() {
+            ambientHum = new Tone.Noise("brown").toDestination();
+            ambientHum.volume.value = -30;
+            chimeSynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: "sine" }, envelope: { attack: 0.01, decay: 0.5, sustain: 0.1, release: 1 }, volume: -15 }).toDestination();
+            coreTone = new Tone.Oscillator(80, "sine").toDestination();
+            coreTone.volume.value = -Infinity;
+            audioInitialized = true;
+        }
+
+        audioToggle.addEventListener('click', () => {
+            if (!audioInitialized) initAudio();
+            if (Tone.context.state !== 'running') Tone.context.resume();
+            if (ambientHum.state === 'stopped') {
+                ambientHum.start();
+                audioIconOff.classList.add('hidden');
+                audioIconOn.classList.remove('hidden');
+            } else {
+                ambientHum.stop();
+                coreTone.volume.linearRampTo(-Infinity, 0.5);
+                audioIconOn.classList.add('hidden');
+                audioIconOff.classList.remove('hidden');
+            }
+        });
+
+        // --- Contact Form Modal ---
+        const contactModal = document.getElementById('contact-modal');
+        document.querySelectorAll('#contact-cta, #contact-cta-main').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                contactModal.classList.remove('hidden');
+                contactModal.classList.add('flex');
+            });
+        });
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) contactModal.classList.add('hidden');
+        });
+        if (document.querySelector('[data-tally-src]')) {
+            const script = document.createElement('script');
+            script.src = "https://tally.so/widgets/embed.js";
+            script.async = true;
+            document.body.appendChild(script);
+        }
+
+        // --- Three.js Celestial Weaver ---
+        function initializeCelestialWeaver() {
+            let scene, camera, renderer, nebulaParticles, weaverLines, climaxObject;
+            let mouseX = 0, mouseY = 0;
+            const isHighEnd = window.innerWidth > 1024;
+            const PARTICLE_COUNT = isHighEnd ? 5000 : 2500;
+            const initialPositions = new Float32Array(PARTICLE_COUNT * 3);
+            const targetPositions = new Float32Array(PARTICLE_COUNT * 3);
+            const transformationTextEl = document.getElementById('transformation-text');
+            
+            const colorPrimaryAccent = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent').trim());
+            const colorSecondaryAccent = new THREE.Color(getComputedStyle(document.documentElement).getPropertyValue('--color-secondary-accent').trim());
+
+            function init() {
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 8;
+
+                const nebulaGeometry = new THREE.BufferGeometry();
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    const r = 4 + Math.random() * 4;
+                    const theta = Math.random() * Math.PI * 2;
+                    const phi = Math.acos((Math.random() * 2) - 1);
+                    initialPositions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+                    initialPositions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+                    initialPositions[i * 3 + 2] = r * Math.cos(phi);
+                    targetPositions[i * 3] = 0;
+                    targetPositions[i * 3 + 1] = 0;
+                    targetPositions[i * 3 + 2] = 0;
+                }
+                nebulaGeometry.setAttribute('position', new THREE.BufferAttribute(initialPositions.slice(), 3));
+                
+                const nebulaMaterial = new THREE.PointsMaterial({ size: 0.02, color: colorSecondaryAccent, transparent: true, opacity: 0.7 });
+                nebulaParticles = new THREE.Points(nebulaGeometry, nebulaMaterial);
+                scene.add(nebulaParticles);
+
+                const lineGeometry = new THREE.BufferGeometry();
+                lineGeometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(PARTICLE_COUNT * 2 * 3), 3));
+                const lineMaterial = new THREE.LineBasicMaterial({ color: colorPrimaryAccent, transparent: true, opacity: 0, linewidth: 1 });
+                weaverLines = new THREE.LineSegments(lineGeometry, lineMaterial);
+                scene.add(weaverLines);
+
+                const climaxGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+                const climaxMaterial = new THREE.MeshStandardMaterial({
+                    color: colorPrimaryAccent,
+                    emissive: colorPrimaryAccent,
+                    emissiveIntensity: 0,
+                    transparent: true,
+                    opacity: 0,
+                    blending: THREE.AdditiveBlending 
+                });
+                climaxObject = new THREE.Mesh(climaxGeometry, climaxMaterial);
+                scene.add(climaxObject);
+                
+                scene.add(new THREE.AmbientLight(0xffffff, 0.2));
+                const pointLight = new THREE.PointLight(0xffffff, 1);
+                pointLight.position.set(5, 5, 5);
+                scene.add(pointLight);
+
+                renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('zen-garden-canvas'), antialias: true, alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                render();
+            }
+
+            function render() {
+                const time = Date.now() * 0.0001;
+                const homePageEl = document.getElementById('home-page');
+                if(homePageEl.classList.contains('hidden')) return;
+
+                const scrollY = window.scrollY;
+                const pageHeight = homePageEl.scrollHeight - window.innerHeight;
+                const scrollPercent = pageHeight > 0 ? scrollY / pageHeight : 0;
+
+                nebulaParticles.rotation.y = time * 0.2 + (mouseX * 0.0001);
+                nebulaParticles.rotation.x = time * 0.1 + (mouseY * 0.0001);
+
+                const currentPositions = nebulaParticles.geometry.attributes.position.array;
+                const linePositions = weaverLines.geometry.attributes.position.array;
+                
+                const chaosStart = 0.1, chaosEnd = 0.25;
+                weaverLines.material.opacity = scrollPercent > chaosEnd ? 0.5 : (scrollPercent > chaosStart ? ((scrollPercent - chaosStart) / (chaosEnd - chaosStart)) * 0.5 : 0);
+
+                const weaveStart = 0.25, weaveEnd = 0.55;
+                let weavePhasePercent = scrollPercent > weaveEnd ? 1 : (scrollPercent > weaveStart ? (scrollPercent - weaveStart) / (weaveEnd - weaveStart) : 0);
+                for (let i = 0; i < PARTICLE_COUNT; i++) {
+                    currentPositions[i * 3] = THREE.MathUtils.lerp(initialPositions[i * 3], targetPositions[i * 3], weavePhasePercent);
+                    currentPositions[i * 3 + 1] = THREE.MathUtils.lerp(initialPositions[i * 3 + 1], targetPositions[i * 3 + 1], weavePhasePercent);
+                    currentPositions[i * 3 + 2] = THREE.MathUtils.lerp(initialPositions[i * 3 + 2], targetPositions[i * 3 + 2], weavePhasePercent);
+                }
+                
+                for(let i = 0; i < PARTICLE_COUNT; i++) {
+                    linePositions[i * 6] = currentPositions[i * 3];
+                    linePositions[i * 6 + 1] = currentPositions[i * 3 + 1];
+                    linePositions[i * 6 + 2] = currentPositions[i * 3 + 2];
+                    linePositions[i * 6 + 3] = 0; linePositions[i * 6 + 4] = 0; linePositions[i * 6 + 5] = 0;
+                }
+                weaverLines.geometry.attributes.position.needsUpdate = true;
+                nebulaParticles.geometry.attributes.position.needsUpdate = true;
+
+                const zoomStart = 0.55, zoomEnd = 0.7;
+                let zoomPhasePercent = scrollPercent > zoomEnd ? 1 : (scrollPercent > zoomStart ? (scrollPercent - zoomStart) / (zoomEnd - zoomStart) : 0);
+                camera.position.z = THREE.MathUtils.lerp(8, 4, zoomPhasePercent);
+
+                const climaxStart = 0.7, climaxEnd = 0.9;
+                let climaxPhasePercent = scrollPercent > climaxEnd ? 1 : (scrollPercent > climaxStart ? (scrollPercent - climaxStart) / (climaxEnd - climaxStart) : 0);
+                
+                const opacity = Math.sin(climaxPhasePercent * Math.PI);
+                nebulaParticles.material.opacity = 1 - opacity;
+                weaverLines.material.opacity = 0.5 * (1 - opacity);
+                climaxObject.material.opacity = opacity;
+                climaxObject.material.emissiveIntensity = opacity * 2;
+                
+                climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
+                
+                transformationTextEl.classList.toggle('text-inverted', opacity > 0.5);
+                
+                renderer.render(scene, camera);
+            }
+
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+
+            function onDocumentMouseMove(event) {
+                mouseX = (event.clientX - window.innerWidth / 2);
+                mouseY = (event.clientY - window.innerHeight / 2);
+            }
+
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+
+            init();
+            animate();
+        }
+
+        initializeApp();
+        initializeObservers();
+    </script>
+
+</body>
+</html>
