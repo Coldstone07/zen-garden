@@ -215,15 +215,22 @@
             backdrop-filter: blur(5px);
         }
         
-        /* Journey Stepper Styles */
-        .journey-step { transition: opacity 0.5s ease-in-out, border-color 0.5s ease-in-out; }
-        .journey-step-icon { transition: background-color 0.5s, color 0.5s; }
-        .journey-step.is-active .journey-step-icon { background-color: var(--color-primary-accent); color: var(--color-base); }
-        .journey-step.is-active { border-color: var(--color-primary-accent); }
-
-        /* Accordion Styles */
-        .accordion-header { cursor: pointer; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        /* Toolkit Tabs */
+        .toolkit-tab {
+            cursor: pointer;
+            transition: color 0.3s, border-color 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        .toolkit-tab.active {
+            color: var(--color-primary-accent);
+            border-color: var(--color-primary-accent);
+        }
+        .toolkit-content {
+            display: none;
+        }
+        .toolkit-content.active {
+            display: block;
+        }
 
     </style>
 </head>
@@ -293,88 +300,118 @@
         <div class="container mx-auto px-6 py-12">
             <section class="text-center mb-24">
                 <h1 class="text-5xl md:text-7xl mb-8">This Isn't Traditional Coaching. It's an Adventure.</h1>
-                <p class="text-lg max-w-3xl mx-auto" style="color: var(--color-text-muted);">In the Kairos journey, your guide is not a traditional teacher or coach. They are a fellow adventurer who has walked this path before, serving as a sacred witness to your transformation. Our approach is rooted in core principles designed for profound, yet joyful, discovery. We prioritize your direct experience over instruction, genuine curiosity over rigid expertise, and believe that play is a portal to the profound. Your guide’s role is to create the conditions for your own wisdom to emerge, trusting the intelligence of your unique process.</p>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--color-text-muted);">In the Kairos journey, your guide is not a teacher, but a sacred witness and fellow adventurer. We prioritize your direct experience over instruction, genuine curiosity over rigid expertise, and believe that play is a portal to the profound. Our role is to create the conditions for your own wisdom to emerge.</p>
             </section>
 
             <section class="mb-24">
-                <h2 class="text-4xl md:text-5xl text-center mb-4">Your 10-Week Treasure Map</h2>
-                <p class="text-center text-lg max-w-2xl mx-auto mb-16" style="color: var(--color-text-muted);">The journey is a carefully designed 10-week container, moving through three distinct phases of discovery, practice, and emergence.</p>
-                <div class="relative max-w-2xl mx-auto">
-                    <div class="absolute left-8 top-0 h-full w-0.5" style="background-color: rgba(242, 203, 97, 0.2);"></div>
-                    <div class="space-y-16">
-                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="1">
-                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
-                            </div>
-                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 1: Mapping Your Inner World (Weeks 1-3)</h4>
-                            <h3 class="text-3xl mb-4">Discovering the hidden stories that shape your life.</h3>
-                            <p style="color: var(--color-text-muted);">We begin with the "Pattern Spotting Game," where you'll learn to see your patterns not as flaws, but as fascinating clues on your personal treasure map. You'll learn to dance with your "dragons"—transmuting resistance into resilience—and witness how transformation happens in the present moment.</p>
-                        </div>
-                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="2">
-                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            </div>
-                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 2: Deepening Your Practice (Weeks 4-7)</h4>
-                            <h3 class="text-3xl mb-4">Building the tools for lasting integration and wholeness.</h3>
-                            <p style="color: var(--color-text-muted);">You’ll unlock your "Somatic Superpowers," learning to trust your body's cellular wisdom over the mind's stories. You will master mindfulness techniques, compassionately meet all parts of your inner family, and discover the power of "The Great Reframe"—seeing your life's fuller truth.</p>
-                        </div>
-                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="3">
-                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                            </div>
-                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 3: Embodying Your Truth (Weeks 8-10)</h4>
-                            <h3 class="text-3xl mb-4">Living your transformation and sharing your gifts.</h3>
-                            <p style="color: var(--color-text-muted);">You will learn to tap into a field of deep coherence and healing. We explore the "Power of We," understanding how true connection requires both vulnerability and strong boundaries. The journey culminates in your "Capstone," where we witness and bless the unique gift you are ready to plant in the world.</p>
-                        </div>
+                <h2 class="text-4xl md:text-5xl text-center mb-16">Your 10-Week Treasure Map</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                    <!-- Phase 1 -->
+                    <div class="p-8 rounded-lg" style="background-color: rgba(255,251,235,0.02); border: 1px solid rgba(242, 203, 97, 0.1);">
+                        <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 1: Mapping (Weeks 1-3)</h4>
+                        <h3 class="text-3xl mb-4">Discover Your Blueprint</h3>
+                        <p class="mb-6" style="color: var(--color-text-muted);">Uncover the hidden stories and unconscious patterns that shape your life.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>The Pattern Spotting Game</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Collective Dragon Dancing</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Real-Time Magic Making</span></li>
+                        </ul>
+                    </div>
+                    <!-- Phase 2 -->
+                    <div class="p-8 rounded-lg" style="background-color: rgba(255,251,235,0.02); border: 1px solid rgba(242, 203, 97, 0.1);">
+                        <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 2: Deepening (Weeks 4-7)</h4>
+                        <h3 class="text-3xl mb-4">Integrate & Reshape</h3>
+                        <p class="mb-6" style="color: var(--color-text-muted);">Build the tools for lasting integration, resilience, and wholeness.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Unlock Somatic Superpowers</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Master Mindfulness Practice</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Meet Your Inner Family</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>The Great Reframe</span></li>
+                        </ul>
+                    </div>
+                    <!-- Phase 3 -->
+                    <div class="p-8 rounded-lg" style="background-color: rgba(255,251,235,0.02); border: 1px solid rgba(242, 203, 97, 0.1);">
+                        <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 3: Embodying (Weeks 8-10)</h4>
+                        <h3 class="text-3xl mb-4">Emerge & Evolve</h3>
+                        <p class="mb-6" style="color: var(--color-text-muted);">Live your transformation and share your unique gifts with the world.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Anchor in the Coherence Field</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Harness the Power of We</span></li>
+                            <li class="flex items-start"><span class="mr-3 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><span>Present Your Kairos Capstone</span></li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-24 max-w-3xl mx-auto">
+            <section class="mb-24 max-w-4xl mx-auto">
                 <h2 class="text-4xl md:text-5xl text-center mb-4">Your Adventurer's Toolkit</h2>
                 <p class="text-center text-lg mb-12" style="color: var(--color-text-muted);">Throughout the journey, you'll build a personal library of somatic practices—powerful tools for moving energy and integrating wholeness.</p>
-                <div class="space-y-4">
-                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-xl font-serif">Foundational Practices (The Daily Compass)</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 pb-6">
-                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To build your ability to feel inner sensations and regulate your nervous system.<br><br>
-                            <strong style="color: var(--color-primary-accent);">Example Adventure: The River of Breath.</strong> Learn to use your breath to calm your nervous system and signal safety to every cell in your body. This powerful tool helps shift you from "fight-or-flight" to "rest-and-digest".
-                        </div>
+                
+                <div class="border-b border-gray-200/10 mb-8">
+                    <nav class="-mb-px flex space-x-8 justify-center" aria-label="Tabs">
+                        <button class="toolkit-tab active whitespace-nowrap py-4 px-1 text-base font-medium" data-tab="foundational">Foundational Practices</button>
+                        <button class="toolkit-tab whitespace-nowrap py-4 px-1 text-base font-medium text-gray-400 hover:text-white" data-tab="release">Active Release</button>
+                        <button class="toolkit-tab whitespace-nowrap py-4 px-1 text-base font-medium text-gray-400 hover:text-white" data-tab="expressive">Expressive & Playful</button>
+                    </nav>
+                </div>
+
+                <div class="text-left">
+                    <div id="tab-foundational" class="toolkit-content active">
+                        <h3 class="text-2xl mb-2 font-serif">The Daily Compass</h3>
+                        <p class="mb-4" style="color: var(--color-text-muted);"><strong>Purpose:</strong> To build your ability to feel inner sensations and regulate your nervous system.</p>
+                        <p><strong style="color: var(--color-primary-accent);">Example Adventure: The River of Breath.</strong> Learn to use your breath to calm your nervous system and signal safety to every cell in your body.</p>
+                        <p class="mt-2 text-sm" style="color: var(--color-text-muted);"><strong>When to Use:</strong> Daily to start the day grounded, or in moments of overwhelm to return to the body.</p>
                     </div>
-                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-xl font-serif">Active Release Practices (Dragon Whispering)</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 pb-6">
-                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To safely engage with and release stored tension and "stuck" energy.<br><br>
-                            <strong style="color: var(--color-primary-accent);">Example Adventure: The Dragon's Roar.</strong> Use the vibration of your own voice to move and transmute stuck energy from the inside out. It’s not about singing; it’s about authentic, emotional expression.
-                        </div>
+                    <div id="tab-release" class="toolkit-content">
+                        <h3 class="text-2xl mb-2 font-serif">Dragon Whispering</h3>
+                        <p class="mb-4" style="color: var(--color-text-muted);"><strong>Purpose:</strong> To safely engage with and release stored tension and "stuck" energy.</p>
+                        <p><strong style="color: var(--color-primary-accent);">Example Adventure: The Dragon's Roar.</strong> Use the vibration of your own voice to move and transmute stuck energy from the inside out. It’s not about singing; it’s about authentic, emotional expression.</p>
+                        <p class="mt-2 text-sm" style="color: var(--color-text-muted);"><strong>When to Use:</strong> When feeling intense emotions that need a safe outlet, like frustration or grief.</p>
                     </div>
-                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
-                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                            <span class="text-xl font-serif">Expressive & Playful Practices (The Alchemical Dance)</span>
-                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </button>
-                        <div class="accordion-content px-6 pb-6">
-                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To allow your body's innate creative and healing intelligence to emerge through free movement.<br><br>
-                            <strong style="color: var(--color-primary-accent);">Example Adventure: The Body's Story.</strong> Put on a piece of music and let your body tell its story without censorship from your mind. This is a powerful conversation between you, your body, and the music.
-                        </div>
+                    <div id="tab-expressive" class="toolkit-content">
+                        <h3 class="text-2xl mb-2 font-serif">The Alchemical Dance</h3>
+                        <p class="mb-4" style="color: var(--color-text-muted);"><strong>Purpose:</strong> To allow your body's innate creative and healing intelligence to emerge through free movement.</p>
+                        <p><strong style="color: var(--color-primary-accent);">Example Adventure: The Body's Story.</strong> Put on a piece of music and let your body tell its story without censorship from your mind.</p>
+                        <p class="mt-2 text-sm" style="color: var(--color-text-muted);"><strong>When to Use:</strong> To shift a stagnant mood, celebrate a breakthrough, or as a weekly integration practice.</p>
                     </div>
                 </div>
             </section>
 
-            <section class="mb-24 max-w-3xl mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl mb-12">Our Sacred Agreement</h2>
-                <ul class="space-y-4 text-lg text-left inline-block">
-                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We hold confidentiality as sacred to create true safety.</li>
-                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We trust the process, even when the outcome isn't yet visible.</li>
-                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We celebrate you exactly where you are on your journey.</li>
-                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We hold the vision that you will become a beacon of coherence in your world.</li>
-                </ul>
+            <section class="mb-24 max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl text-center mb-12">Somatic Field Guide</h2>
+                <div class="overflow-x-auto rounded-lg border" style="border-color: rgba(242, 203, 97, 0.2);">
+                    <table class="min-w-full text-left text-sm">
+                        <thead style="background-color: rgba(255,251,235,0.05);">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 font-medium">If You Feel...</th>
+                                <th scope="col" class="px-6 py-3 font-medium">Your Body May Be Holding...</th>
+                                <th scope="col" class="px-6 py-3 font-medium">Somatic Adventure to Try...</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="divide-color: rgba(242, 203, 97, 0.2);">
+                            <tr>
+                                <td class="px-6 py-4 font-medium" style="color: var(--color-primary-accent);">Anxious, Scattered</td>
+                                <td class="px-6 py-4" style="color: var(--color-text-muted);">"Fight/Flight" energy</td>
+                                <td class="px-6 py-4">The River of Breath, Compassionate Body Scan</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium" style="color: var(--color-primary-accent);">Stuck, Frozen</td>
+                                <td class="px-6 py-4" style="color: var(--color-text-muted);">"Freeze" or shutdown energy</td>
+                                <td class="px-6 py-4">Gentle Shaking, The Body's Story (slow music)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 font-medium" style="color: var(--color-primary-accent);">Angry, Frustrated</td>
+                                <td class="px-6 py-4" style="color: var(--color-text-muted);">"Fight" energy seeking expression</td>
+                                <td class="px-6 py-4">The Dragon's Roar, Dynamic Movement</td>
+                            </tr>
+                             <tr>
+                                <td class="px-6 py-4 font-medium" style="color: var(--color-primary-accent);">Numb, Disconnected</td>
+                                <td class="px-6 py-4" style="color: var(--color-text-muted);">Dissociation; a protective "leaving"</td>
+                                <td class="px-6 py-4">Mindful Self-Touch, Gentle Body Scan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <section class="text-center">
@@ -396,8 +433,8 @@
                         </div>
                         <div class="md:col-span-2">
                             <h3 class="text-3xl">Jatin Alla</h3>
-                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Co-Founder & AI Visionary</h4>
-                            <p class="leading-relaxed" style="color: var(--color-text-muted);">As an HCI researcher with a deep background in cognitive science and AI, I co-founded Kairos to bridge the gap between human potential and technological innovation. My work at Google Research and my personal journey into mindfulness practices have shown me that the most powerful technology is the one that leads us back to ourselves. My coaching approach is a synthesis of evidence-based frameworks and a deep, intuitive understanding of the human condition, designed to help you find your own clarity.</p>
+                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Founder & AI Visionary</h4>
+                            <p class="leading-relaxed" style="color: var(--color-text-muted);">As an HCI researcher with a deep background in cognitive science and AI, I founded Kairos to bridge the gap between human potential and technological innovation. My work at Google Research and my personal journey into mindfulness practices have shown me that the most powerful technology is the one that leads us back to ourselves. My coaching approach is a synthesis of evidence-based frameworks and a deep, intuitive understanding of the human condition, designed to help you find your own clarity.</p>
                         </div>
                     </div>
                 </div>
@@ -573,38 +610,25 @@
             });
         });
 
-        // --- Accordion Logic ---
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('svg');
-                const isOpen = content.style.maxHeight;
+        // --- Toolkit Tabs Logic ---
+        const toolkitTabs = document.querySelectorAll('.toolkit-tab');
+        const toolkitContents = document.querySelectorAll('.toolkit-content');
+        toolkitTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetId = tab.dataset.tab;
 
-                // Close all accordions first
-                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                document.querySelectorAll('.accordion-header svg').forEach(i => i.style.transform = 'rotate(0deg)');
-                
-                if (!isOpen) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    icon.style.transform = 'rotate(180deg)';
-                }
+                toolkitTabs.forEach(t => t.classList.remove('active', 'text-var-primary-accent'));
+                tab.classList.add('active', 'text-var-primary-accent');
+
+                toolkitContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `tab-${targetId}`) {
+                        content.classList.add('active');
+                    }
+                });
             });
         });
 
-        // --- Journey Stepper Logic ---
-        const journeySteps = document.querySelectorAll('.journey-step');
-        if (journeySteps.length > 0) {
-            const journeyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
-                        const step = entry.target.dataset.step;
-                        journeySteps.forEach(s => s.classList.toggle('is-active', s.dataset.step === step));
-                    }
-                });
-            }, { threshold: 0.6 });
-            journeySteps.forEach(step => journeyObserver.observe(step));
-        }
-        
         // --- Homepage Observers ---
         let homepageObserver;
         function initializeHomepageObservers() {
