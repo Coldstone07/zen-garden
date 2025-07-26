@@ -470,6 +470,13 @@
                         targetPage.classList.remove('hidden');
                         setTimeout(() => {
                             targetPage.classList.add('visible');
+                            
+                            // --- THIS IS THE KEY FIX ---
+                            if (pageId === 'home') {
+                                // Reset homepage state when showing it
+                                resetHomepageState();
+                            }
+                            
                             isTransitioning = false;
                         }, 20);
                     }
@@ -478,17 +485,31 @@
                 targetPage.classList.remove('hidden');
                 setTimeout(() => {
                     targetPage.classList.add('visible');
+                    
+                    // --- THIS IS THE KEY FIX ---
+                    if (pageId === 'home') {
+                        // Reset homepage state when showing it
+                        resetHomepageState();
+                    }
+                    
                     isTransitioning = false;
                 }, 20);
             }
             
-            canvasEl.style.opacity = (pageId === 'home') ? '1' : '0';
+            if (pageId === 'home') {
+                canvasEl.style.opacity = '1';
+                canvasEl.style.pointerEvents = 'auto';
+                // Scroll to the top to reset the animation's starting point
+                window.scrollTo(0, 0);
+            } else {
+                canvasEl.style.opacity = '0.1';
+                canvasEl.style.pointerEvents = 'none';
+            }
             
             document.querySelectorAll('.nav-link, .cta-button[data-page]').forEach(link => {
                 link.classList.toggle('active', link.dataset.page === pageId);
             });
             currentPage = pageId;
-            window.scrollTo(0, 0);
         }
 
         navLinks.forEach(link => {
@@ -550,15 +571,62 @@
         }
 
         // --- Observers & Micro-interactions ---
+        let sectionObserver;
+        
         function initializeObservers() {
-             const observer = new IntersectionObserver((entries) => {
+            // If the observer doesn't exist yet, create it.
+            if (!sectionObserver) {
+                sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const fadeInEl = entry.target.querySelector('.fade-in');
+                        if (fadeInEl) {
+                            if (entry.isIntersecting) {
+                                fadeInEl.classList.add('visible');
+                            } else {
+                                // If it's not intersecting, make it invisible again
+                                fadeInEl.classList.remove('visible');
+                            }
+                        }
+                    });
+                }, { threshold: 0.5 }); // Use a 50% threshold for better feel
+            }
+
+            // Tell the observer to start watching all the sections on the homepage
+            document.querySelectorAll('#home-page .content-section').forEach(section => {
+                sectionObserver.observe(section);
+            });
+        }
+        
+        function resetHomepageState() {
+            // Reset all fade-in elements to invisible state
+            document.querySelectorAll('#home-page .fade-in').forEach(el => {
+                el.classList.remove('visible');
+            });
+            
+            // Reset transformation text state
+            const transformationTextEl = document.getElementById('transformation-text');
+            if (transformationTextEl) {
+                transformationTextEl.classList.remove('text-inverted');
+            }
+            
+            // Re-initialize observers
+            initializeObservers();
+            
+            // Make the first section visible immediately
+            setTimeout(() => {
+                document.querySelector('#hook .fade-in')?.classList.add('visible');
+            }, 100);
+        }
+
+        function initializeObserversOld() {
+             const observerOld = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.querySelector('.fade-in')?.classList.add('visible');
                     }
                 });
             }, { threshold: 0.2 });
-            document.querySelectorAll('.content-section').forEach(section => observer.observe(section));
+            document.querySelectorAll('.content-section').forEach(section => observerOld.observe(section));
         }
         
         // --- Audio Engine ---
