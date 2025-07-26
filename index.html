@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jatin Alla - Clarity, Illuminated by AI</title>
+    <title>Kairos - Clarity, Illuminated by AI</title>
     
     <!-- SEO & Metadata -->
     <meta name="description" content="Kairos - A journey to clarity, focus, and resilience, guided by evidence and illuminated by AI.">
@@ -15,7 +15,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- NOTE FOR PRODUCTION: For a true SPA/Next.js build, these meta tags would be dynamically generated for each page. -->
     <!-- JSON-LD Schema for SEO -->
     <script type="application/ld+json">
     {
@@ -98,7 +97,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
         }
 
         .content-section {
@@ -113,18 +112,25 @@
             padding: 2rem;
         }
 
+        /* Page transition styles */
         .page-content {
             padding-top: 120px;
             min-height: 100vh;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transition: opacity 0.6s ease-in-out;
+            position: absolute; /* Changed for smooth transitions */
+            top: 0;
+            left: 0;
+            width: 100%;
             pointer-events: none;
         }
         .page-content.visible {
             opacity: 1;
-            transform: translateY(0);
+            position: relative; /* Or static, depending on layout needs */
             pointer-events: auto;
+        }
+        .page-content.hidden {
+            display: none;
         }
         
         .cta-button {
@@ -185,9 +191,16 @@
         }
 
         .insight-card {
-            border: 1px solid var(--color-primary-accent)/20;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background-color: rgba(255,251,235,0.02);
+            border: 1px solid rgba(242, 203, 97, 0.1);
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             transform-style: preserve-3d;
+        }
+        .insight-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(242, 203, 97, 0.4);
+            box-shadow: 0 10px 30px -15px rgba(25, 16, 53, 0.5);
         }
 
         #audio-toggle {
@@ -216,7 +229,7 @@
 </head>
 <body class="antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-20 bg-var-base/80 backdrop-blur-sm">
+    <header class="fixed top-0 left-0 right-0 z-20" style="background-color: rgba(25, 16, 53, 0.8); backdrop-filter: blur(10px);">
         <div class="container mx-auto px-6 py-5 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold tracking-tight nav-link" data-page="home" style="font-family: var(--font-serif);">Kairos</a>
             <nav class="hidden md:flex space-x-10 items-center">
@@ -232,212 +245,251 @@
     <canvas id="zen-garden-canvas"></canvas>
 
     <div id="audio-toggle">
-        <svg id="audio-icon-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-var-text-muted"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>
-        <svg id="audio-icon-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-var-primary-accent"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        <svg id="audio-icon-off" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-text-muted);"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>
+        <svg id="audio-icon-on" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" style="color: var(--color-primary-accent);"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
     </div>
 
     <main id="home-page" class="page-content">
         <section id="hook" class="content-section">
             <div class="fade-in">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl">Clarity, Illuminated by AI.</h1>
-                <p class="mt-8 text-lg md:text-xl text-var-text-muted">Scroll to begin the journey.</p>
+                <p class="mt-8 text-lg md:text-xl" style="color: var(--color-text-muted);">Scroll to begin the journey.</p>
             </div>
         </section>
         <section id="problem" class="content-section">
             <div class="max-w-3xl fade-in">
                 <h2 class="text-4xl md:text-6xl">Lost in the noise?</h2>
-                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Modern life is an endless stream of information. We navigate a world of digital distraction and emotional overwhelm, feeling adrift in the chaos.</p>
+                <p class="mt-6 text-lg md:text-xl" style="color: var(--color-text-muted);">Modern life is an endless stream of information. We navigate a world of digital distraction and emotional overwhelm, feeling adrift in the chaos.</p>
             </div>
         </section>
         <section id="solution" class="content-section">
             <div class="max-w-3xl fade-in">
                 <h2 class="text-4xl md:text-6xl">Finding the signal.</h2>
-                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Our insight engine illuminates the patterns of your inner world, transforming scattered data points into meaningful constellations.</p>
+                <p class="mt-6 text-lg md:text-xl" style="color: var(--color-text-muted);">Our insight engine illuminates the patterns of your inner world, transforming scattered data points into meaningful constellations.</p>
             </div>
         </section>
         <section id="how" class="content-section">
             <div class="max-w-3xl fade-in">
                  <h2 class="text-4xl md:text-6xl">An evidence-based approach.</h2>
-                <p class="mt-6 text-lg md:text-xl text-var-text-muted">Grounded in neuroscience. Powered by predictive analytics. Personalized to you. We bridge the gap between ancient wisdom and modern technology to unlock your potential.</p>
+                <p class="mt-6 text-lg md:text-xl" style="color: var(--color-text-muted);">Grounded in neuroscience. Powered by predictive analytics. Personalized to you. We bridge the gap between ancient wisdom and modern technology to unlock your potential.</p>
             </div>
         </section>
         <section id="transformation" class="content-section">
              <div id="transformation-text" class="max-w-3xl fade-in">
                 <h2 class="text-4xl md:text-6xl">Your centered self, revealed.</h2>
-                <p class="mt-6 text-lg md:text-xl text-var-text-muted max-w-xl mx-auto">This isn't about changing who you are. It's about revealing the clarity, focus, and resilience you already possess.</p>
+                <p class="mt-6 text-lg md:text-xl max-w-xl mx-auto" style="color: var(--color-text-muted);">This isn't about changing who you are. It's about revealing the clarity, focus, and resilience you already possess.</p>
             </div>
         </section>
         <section id="invitation" class="content-section">
             <div class="fade-in">
                 <h2 class="text-4xl md:text-6xl">Ready to find your clarity?</h2>
-                <p class="mt-6 mb-12 text-lg md:text-xl text-var-text-muted">Your journey to a more centered, intentional life begins here.</p>
+                <p class="mt-6 mb-12 text-lg md:text-xl" style="color: var(--color-text-muted);">Your journey to a more centered, intentional life begins here.</p>
                 <a href="#" class="cta-button" data-page="enroll">Begin Your Journey</a>
             </div>
         </section>
     </main>
 
-    <div id="journey-page" class="hidden page-content container mx-auto px-6 py-12">
-        <!-- Section 1: An Invitation to Adventure -->
-        <section class="text-center mb-24">
-            <h1 class="text-5xl md:text-7xl mb-8">This Isn't Traditional Coaching. It's an Adventure.</h1>
-            <p class="text-lg max-w-3xl mx-auto text-var-text-muted">In the Kairos journey, your guide is not a traditional teacher or coach. They are a fellow adventurer who has walked this path before, serving as a sacred witness to your transformation. Our approach is rooted in core principles designed for profound, yet joyful, discovery. We prioritize your direct experience over instruction, genuine curiosity over rigid expertise, and believe that play is a portal to the profound. Your guide’s role is to create the conditions for your own wisdom to emerge, trusting the intelligence of your unique process.</p>
-        </section>
+    <div id="journey-page" class="page-content hidden">
+        <div class="container mx-auto px-6 py-12">
+            <section class="text-center mb-24">
+                <h1 class="text-5xl md:text-7xl mb-8">This Isn't Traditional Coaching. It's an Adventure.</h1>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--color-text-muted);">In the Kairos journey, your guide is not a traditional teacher or coach. They are a fellow adventurer who has walked this path before, serving as a sacred witness to your transformation. Our approach is rooted in core principles designed for profound, yet joyful, discovery. We prioritize your direct experience over instruction, genuine curiosity over rigid expertise, and believe that play is a portal to the profound. Your guide’s role is to create the conditions for your own wisdom to emerge, trusting the intelligence of your unique process.</p>
+            </section>
 
-        <!-- Section 2: The 10-Week Journey Unfolding -->
-        <section class="mb-24">
-            <h2 class="text-4xl md:text-5xl text-center mb-4">Your 10-Week Treasure Map</h2>
-            <p class="text-center text-lg max-w-2xl mx-auto text-var-text-muted mb-16">The journey is a carefully designed 10-week container, moving through three distinct phases of discovery, practice, and emergence.</p>
-            <div class="relative max-w-2xl mx-auto">
-                <!-- The vertical line -->
-                <div class="absolute left-8 top-0 h-full w-0.5 bg-var-primary-accent/20"></div>
-                <!-- Stepper Items -->
-                <div class="space-y-16">
-                    <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="1">
-                        <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 border-var-primary-accent/30 bg-var-base flex items-center justify-center">
-                            <!-- Icon: Map/Compass -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+            <section class="mb-24">
+                <h2 class="text-4xl md:text-5xl text-center mb-4">Your 10-Week Treasure Map</h2>
+                <p class="text-center text-lg max-w-2xl mx-auto mb-16" style="color: var(--color-text-muted);">The journey is a carefully designed 10-week container, moving through three distinct phases of discovery, practice, and emergence.</p>
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="absolute left-8 top-0 h-full w-0.5" style="background-color: rgba(242, 203, 97, 0.2);"></div>
+                    <div class="space-y-16">
+                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="1">
+                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                            </div>
+                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 1: Mapping Your Inner World (Weeks 1-3)</h4>
+                            <h3 class="text-3xl mb-4">Discovering the hidden stories that shape your life.</h3>
+                            <p style="color: var(--color-text-muted);">We begin with the "Pattern Spotting Game," where you'll learn to see your patterns not as flaws, but as fascinating clues on your personal treasure map. You'll learn to dance with your "dragons"—transmuting resistance into resilience—and witness how transformation happens in the present moment.</p>
                         </div>
-                        <h4 class="text-sm uppercase tracking-widest text-var-primary-accent mb-2">Phase 1: Mapping Your Inner World (Weeks 1-3)</h4>
-                        <h3 class="text-3xl mb-4">Discovering the hidden stories that shape your life.</h3>
-                        <p class="text-var-text-muted">We begin with the "Pattern Spotting Game," where you'll learn to see your patterns not as flaws, but as fascinating clues on your personal treasure map. You'll learn to dance with your "dragons"—transmuting resistance into resilience—and witness how transformation happens in the present moment.</p>
-                    </div>
-                    <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="2">
-                        <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 border-var-primary-accent/30 bg-var-base flex items-center justify-center">
-                            <!-- Icon: Heart/Lotus -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="2">
+                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            </div>
+                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 2: Deepening Your Practice (Weeks 4-7)</h4>
+                            <h3 class="text-3xl mb-4">Building the tools for lasting integration and wholeness.</h3>
+                            <p style="color: var(--color-text-muted);">You’ll unlock your "Somatic Superpowers," learning to trust your body's cellular wisdom over the mind's stories. You will master mindfulness techniques, compassionately meet all parts of your inner family, and discover the power of "The Great Reframe"—seeing your life's fuller truth.</p>
                         </div>
-                        <h4 class="text-sm uppercase tracking-widest text-var-primary-accent mb-2">Phase 2: Deepening Your Practice (Weeks 4-7)</h4>
-                        <h3 class="text-3xl mb-4">Building the tools for lasting integration and wholeness.</h3>
-                        <p class="text-var-text-muted">You’ll unlock your "Somatic Superpowers," learning to trust your body's cellular wisdom over the mind's stories. You will master mindfulness techniques, compassionately meet all parts of your inner family, and discover the power of "The Great Reframe"—seeing your life's fuller truth.</p>
-                    </div>
-                    <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="3">
-                        <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 border-var-primary-accent/30 bg-var-base flex items-center justify-center">
-                            <!-- Icon: Radiating Sun -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        <div class="journey-step pl-20 relative border-l-2 border-transparent" data-step="3">
+                            <div class="journey-step-icon absolute -left-0 top-0 transform -translate-x-1/2 w-16 h-16 rounded-full border-2 bg-var-base flex items-center justify-center" style="border-color: rgba(242, 203, 97, 0.3);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                            </div>
+                            <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Phase 3: Embodying Your Truth (Weeks 8-10)</h4>
+                            <h3 class="text-3xl mb-4">Living your transformation and sharing your gifts.</h3>
+                            <p style="color: var(--color-text-muted);">You will learn to tap into a field of deep coherence and healing. We explore the "Power of We," understanding how true connection requires both vulnerability and strong boundaries. The journey culminates in your "Capstone," where we witness and bless the unique gift you are ready to plant in the world.</p>
                         </div>
-                        <h4 class="text-sm uppercase tracking-widest text-var-primary-accent mb-2">Phase 3: Embodying Your Truth (Weeks 8-10)</h4>
-                        <h3 class="text-3xl mb-4">Living your transformation and sharing your gifts.</h3>
-                        <p class="text-var-text-muted">You will learn to tap into a field of deep coherence and healing. We explore the "Power of We," understanding how true connection requires both vulnerability and strong boundaries. The journey culminates in your "Capstone," where we witness and bless the unique gift you are ready to plant in the world.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section 3: The Adventurer's Somatic Toolkit -->
-        <section class="mb-24 max-w-3xl mx-auto">
-            <h2 class="text-4xl md:text-5xl text-center mb-4">Your Body is the Gameboard</h2>
-            <p class="text-center text-lg text-var-text-muted mb-12">Throughout the journey, you'll build a personal library of somatic practices—powerful tools for moving energy and integrating wholeness. We believe your body holds a living intelligence; these practices are how we learn to listen to its wisdom.</p>
-            <div class="space-y-4">
-                <div class="accordion-item border border-var-primary-accent/20 rounded-lg">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <span class="text-xl font-serif">Foundational Practices (The Daily Compass)</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 pb-6">
-                        <strong class="text-var-text-muted">Purpose:</strong> To build your ability to feel inner sensations and regulate your nervous system.<br><br>
-                        <strong class="text-var-primary-accent">Example Adventure: The River of Breath.</strong> Learn to use your breath to calm your nervous system and signal safety to every cell in your body. This powerful tool helps shift you from "fight-or-flight" to "rest-and-digest".
+            <section class="mb-24 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl text-center mb-4">Your Adventurer's Toolkit</h2>
+                <p class="text-center text-lg mb-12" style="color: var(--color-text-muted);">Throughout the journey, you'll build a personal library of somatic practices—powerful tools for moving energy and integrating wholeness.</p>
+                <div class="space-y-4">
+                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-serif">Foundational Practices (The Daily Compass)</span>
+                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To build your ability to feel inner sensations and regulate your nervous system.<br><br>
+                            <strong style="color: var(--color-primary-accent);">Example Adventure: The River of Breath.</strong> Learn to use your breath to calm your nervous system and signal safety to every cell in your body. This powerful tool helps shift you from "fight-or-flight" to "rest-and-digest".
+                        </div>
+                    </div>
+                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-serif">Active Release Practices (Dragon Whispering)</span>
+                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To safely engage with and release stored tension and "stuck" energy.<br><br>
+                            <strong style="color: var(--color-primary-accent);">Example Adventure: The Dragon's Roar.</strong> Use the vibration of your own voice to move and transmute stuck energy from the inside out. It’s not about singing; it’s about authentic, emotional expression.
+                        </div>
+                    </div>
+                    <div class="accordion-item" style="border: 1px solid rgba(242, 203, 97, 0.2); border-radius: 0.5rem;">
+                        <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
+                            <span class="text-xl font-serif">Expressive & Playful Practices (The Alchemical Dance)</span>
+                            <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content px-6 pb-6">
+                            <strong style="color: var(--color-text-muted);">Purpose:</strong> To allow your body's innate creative and healing intelligence to emerge through free movement.<br><br>
+                            <strong style="color: var(--color-primary-accent);">Example Adventure: The Body's Story.</strong> Put on a piece of music and let your body tell its story without censorship from your mind. This is a powerful conversation between you, your body, and the music.
+                        </div>
                     </div>
                 </div>
-                <div class="accordion-item border border-var-primary-accent/20 rounded-lg">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <span class="text-xl font-serif">Active Release Practices (Dragon Whispering)</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 pb-6">
-                        <strong class="text-var-text-muted">Purpose:</strong> To safely engage with and release stored tension and "stuck" energy.<br><br>
-                        <strong class="text-var-primary-accent">Example Adventure: The Dragon's Roar.</strong> Use the vibration of your own voice to move and transmute stuck energy from the inside out. It’s not about singing; it’s about authentic, emotional expression.
-                    </div>
-                </div>
-                <div class="accordion-item border border-var-primary-accent/20 rounded-lg">
-                    <button class="accordion-header w-full text-left p-6 flex justify-between items-center">
-                        <span class="text-xl font-serif">Expressive & Playful Practices (The Alchemical Dance)</span>
-                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="accordion-content px-6 pb-6">
-                        <strong class="text-var-text-muted">Purpose:</strong> To allow your body's innate creative and healing intelligence to emerge through free movement.<br><br>
-                        <strong class="text-var-primary-accent">Example Adventure: The Body's Story.</strong> Put on a piece of music and let your body tell its story without censorship from your mind. This is a powerful conversation between you, your body, and the music.
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Section 4: The Commitment & The Promise -->
-        <section class="mb-24 max-w-3xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl mb-12">Our Sacred Agreement</h2>
-            <ul class="space-y-4 text-lg text-left inline-block">
-                <li class="flex items-center"><span class="text-var-primary-accent mr-4">&#10003;</span>We hold confidentiality as sacred to create true safety.</li>
-                <li class="flex items-center"><span class="text-var-primary-accent mr-4">&#10003;</span>We trust the process, even when the outcome isn't yet visible.</li>
-                <li class="flex items-center"><span class="text-var-primary-accent mr-4">&#10003;</span>We celebrate you exactly where you are on your journey.</li>
-                <li class="flex items-center"><span class="text-var-primary-accent mr-4">&#10003;</span>We hold the vision that you will become a beacon of coherence in your world.</li>
-            </ul>
-        </section>
+            <section class="mb-24 max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl mb-12">Our Sacred Agreement</h2>
+                <ul class="space-y-4 text-lg text-left inline-block">
+                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We hold confidentiality as sacred to create true safety.</li>
+                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We trust the process, even when the outcome isn't yet visible.</li>
+                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We celebrate you exactly where you are on your journey.</li>
+                    <li class="flex items-center"><span class="mr-4" style="color: var(--color-primary-accent);">&#10003;</span>We hold the vision that you will become a beacon of coherence in your world.</li>
+                </ul>
+            </section>
 
-        <!-- Section 5: Call to Action -->
-        <section class="text-center">
-            <a href="#" class="cta-button" data-page="enroll">Begin Your Adventure</a>
-        </section>
+            <section class="text-center">
+                <a href="#" class="cta-button" data-page="enroll">Begin Your Adventure</a>
+            </section>
+        </div>
     </div>
 
-    <div id="coaching-page" class="hidden page-content container mx-auto px-6 py-12">
-        <h1 class="text-5xl md:text-7xl text-center mb-8">Meet Your Guides</h1>
-        <p class="text-center text-lg max-w-3xl mx-auto text-var-text-muted mb-20">Our insight engine provides the map. Your guides help you navigate the terrain. We are sacred witnesses and fellow adventurers who have walked this path before.</p>
-        
-        <div class="space-y-16">
-            <div class="bg-var-base/50 p-10 rounded-lg border border-var-primary-accent/20">
-                <div class="grid md:grid-cols-3 gap-10 items-center">
-                    <div class="md:col-span-1">
-                        <img src="https://placehold.co/400x400/191035/FFFBEB?text=J.A." alt="Jatin Alla" class="rounded-full mx-auto" loading="lazy">
-                    </div>
-                    <div class="md:col-span-2">
-                        <h3 class="text-3xl">Jatin Alla</h3>
-                        <h4 class="text-lg text-var-primary-accent mb-4">Founder & AI Visionary</h4>
-                        <p class="text-var-text-muted leading-relaxed">As an HCI researcher with a deep background in cognitive science and AI, I founded Kairos to bridge the gap between human potential and technological innovation. My work at Google Research and my personal journey into mindfulness practices have shown me that the most powerful technology is the one that leads us back to ourselves. My coaching approach is a synthesis of evidence-based frameworks and a deep, intuitive understanding of the human condition, designed to help you find your own clarity.</p>
+    <div id="coaching-page" class="page-content hidden">
+        <div class="container mx-auto px-6 py-12">
+            <h1 class="text-5xl md:text-7xl text-center mb-8">Meet Your Guides</h1>
+            <p class="text-center text-lg max-w-3xl mx-auto mb-20" style="color: var(--color-text-muted);">Our insight engine provides the map. Your guides help you navigate the terrain. We are sacred witnesses and fellow adventurers who have walked this path before.</p>
+            
+            <div class="space-y-16">
+                <div class="p-10 rounded-lg" style="background-color: rgba(25, 16, 53, 0.5); border: 1px solid rgba(242, 203, 97, 0.2);">
+                    <div class="grid md:grid-cols-3 gap-10 items-center">
+                        <div class="md:col-span-1">
+                            <img src="https://placehold.co/400x400/191035/FFFBEB?text=J.A." alt="Jatin Alla" class="rounded-full mx-auto" loading="lazy">
+                        </div>
+                        <div class="md:col-span-2">
+                            <h3 class="text-3xl">Jatin Alla</h3>
+                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Founder & AI Visionary</h4>
+                            <p class="leading-relaxed" style="color: var(--color-text-muted);">As an HCI researcher with a deep background in cognitive science and AI, I founded Kairos to bridge the gap between human potential and technological innovation. My work at Google Research and my personal journey into mindfulness practices have shown me that the most powerful technology is the one that leads us back to ourselves. My coaching approach is a synthesis of evidence-based frameworks and a deep, intuitive understanding of the human condition, designed to help you find your own clarity.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-var-base/50 p-10 rounded-lg border border-var-primary-accent/20">
-                <div class="grid md:grid-cols-3 gap-10 items-center">
-                    <div class="md:col-span-1">
-                        <img src="https://placehold.co/400x400/191035/FFFBEB?text=S.V." alt="Shalini Verma" class="rounded-full mx-auto" loading="lazy">
-                    </div>
-                    <div class="md:col-span-2">
-                        <h3 class="text-3xl">Shalini Verma</h3>
-                        <h4 class="text-lg text-var-primary-accent mb-4">Co-Founder, Life Coach & Guide</h4>
-                        <p class="text-var-text-muted leading-relaxed">Trained as an Enneagram Guide, Trauma Informed Coach, and Somatic Healer, I am a MIT and Harvard Business School graduate named to Crain's Top 50 Technology Talent. With experience at Ford, Sun, Oracle, and Google, I inspire leaders to transform themselves and their organizations. My passion is to discover and develop tools to uncover individual and collective intelligence to solve increasingly complex problems.</p>
+                <div class="p-10 rounded-lg" style="background-color: rgba(25, 16, 53, 0.5); border: 1px solid rgba(242, 203, 97, 0.2);">
+                    <div class="grid md:grid-cols-3 gap-10 items-center">
+                        <div class="md:col-span-1">
+                            <img src="https://placehold.co/400x400/191035/FFFBEB?text=S.V." alt="Shalini Verma" class="rounded-full mx-auto" loading="lazy">
+                        </div>
+                        <div class="md:col-span-2">
+                            <h3 class="text-3xl">Shalini Verma</h3>
+                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Co-Founder, Life Coach & Guide</h4>
+                            <p class="leading-relaxed" style="color: var(--color-text-muted);">Trained as an Enneagram Guide, Trauma Informed Coach, and Somatic Healer, I am a MIT and Harvard Business School graduate named to Crain's Top 50 Technology Talent. With experience at Ford, Sun, Oracle, and Google, I inspire leaders to transform themselves and their organizations. My passion is to discover and develop tools to uncover individual and collective intelligence to solve increasingly complex problems.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="insights-page" class="hidden page-content container mx-auto px-6 py-12">
-        <!-- Content as before -->
+
+    <div id="insights-page" class="page-content hidden">
+        <div class="container mx-auto px-6 py-12">
+            <h1 class="text-5xl md:text-7xl text-center mb-8">Insights</h1>
+            <p class="text-center text-lg max-w-3xl mx-auto text-var-text-muted mb-20">Explorations at the intersection of technology, consciousness, and human potential.</p>
+            
+            <!-- Featured Insight -->
+            <div class="mb-20">
+                <a href="#" class="block insight-card p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <h4 class="text-sm uppercase tracking-widest mb-2" style="color: var(--color-primary-accent);">Featured Insight</h4>
+                        <h2 class="text-4xl md:text-5xl mb-4">Can AI Prevent Burnout?</h2>
+                        <p class="leading-relaxed mb-6" style="color: var(--color-text-muted);">In a world that glorifies hustle, burnout has become a silent epidemic. But what if the very technology that contributes to our 'always-on' culture could also be our greatest ally in preventing it? We explore how predictive analytics and personalized AI can identify the subtle patterns of stress long before they lead to exhaustion, creating a future where well-being is proactive, not reactive.</p>
+                        <span class="font-semibold" style="color: var(--color-primary-accent);">Read More &rarr;</span>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <!-- Placeholder for a compelling visual -->
+                        <div class="aspect-video rounded-lg flex items-center justify-center" style="background: linear-gradient(45deg, var(--color-secondary-accent), var(--color-primary-accent));">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="rgba(25,16,53,0.5)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M12 8V2M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Insights Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#" class="block insight-card p-8">
+                    <h4 class="text-xs uppercase tracking-widest mb-2" style="color: var(--color-text-muted);">Neuroscience</h4>
+                    <h3 class="text-2xl mb-4">The Neuroscience of Awe</h3>
+                    <p class="text-sm mb-6" style="color: var(--color-text-muted);">How moments of profound wonder reshape our brains and what it means for digital well-being.</p>
+                    <span class="font-semibold" style="color: var(--color-primary-accent);">Read More &rarr;</span>
+                </a>
+                <a href="#" class="block insight-card p-8">
+                    <h4 class="text-xs uppercase tracking-widest mb-2" style="color: var(--color-text-muted);">Mindfulness</h4>
+                    <h3 class="text-2xl mb-4">Mindfulness in the Digital Age</h3>
+                    <p class="text-sm mb-6" style="color: var(--color-text-muted);">A deeper connection to self, guided by evidence. Reclaiming focus in a world of distraction.</p>
+                    <span class="font-semibold" style="color: var(--color-primary-accent);">Read More &rarr;</span>
+                </a>
+                <a href="#" class="block insight-card p-8">
+                    <h4 class="text-xs uppercase tracking-widest mb-2" style="color: var(--color-text-muted);">Philosophy</h4>
+                    <h3 class="text-2xl mb-4">The Wisdom of the 'Inner No'</h3>
+                    <p class="text-sm mb-6" style="color: var(--color-text-muted);">Learning to honor your internal signals is the foundation of creating a life that is truly yours.</p>
+                    <span class="font-semibold" style="color: var(--color-primary-accent);">Read More &rarr;</span>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <div id="enroll-page" class="hidden page-content container mx-auto px-6 py-12">
-        <h1 class="text-5xl md:text-7xl text-center mb-8">The Kairos Adventure</h1>
-        <p class="text-center text-lg max-w-3xl mx-auto text-var-text-muted mb-20">This 10-week group coaching program is a confidential, transformative experience designed for professionals and leaders who are ready to align their external success with deep inner satisfaction.</p>
-        
-        <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-8">
-            <div class="md:col-span-3 text-left">
-                <h2 class="text-3xl mb-6">What's Included</h2>
-                <ul class="space-y-4 text-var-text-muted">
-                    <li class="flex items-start"><span class="text-var-primary-accent mr-4 mt-1">&#10003;</span><div><strong class="text-var-text">10 Weekly Group Sessions:</strong> Guided explorations into the core themes of the Kairos framework.</div></li>
-                    <li class="flex items-start"><span class="text-var-primary-accent mr-4 mt-1">&#10003;</span><div><strong class="text-var-text">Two 1:1 Coaching Sessions:</strong> Personalized guidance with Jatin or Shalini to deepen your integration.</div></li>
-                    <li class="flex items-start"><span class="text-var-primary-accent mr-4 mt-1">&#10003;</span><div><strong class="text-var-text">The Adventurer's Somatic Toolkit:</strong> A library of practices for moving energy and integrating wholeness.</div></li>
-                    <li class="flex items-start"><span class="text-var-primary-accent mr-4 mt-1">&#10003;</span><div><strong class="text-var-text">Private Group Forum:</strong> A safe space to connect and share with your fellow adventurers between sessions.</div></li>
-                    <li class="flex items-start"><span class="text-var-primary-accent mr-4 mt-1">&#10003;</span><div><strong class="text-var-text">Kairos Capstone Project:</strong> A final project to anchor your transformation and clarify your purpose going forward.</div></li>
-                </ul>
-            </div>
-            <div class="md:col-span-2 border border-var-primary-accent/20 rounded-lg p-8 flex flex-col text-center">
-                <h3 class="text-2xl">Investment</h3>
-                <p class="text-5xl font-serif my-4">$5,000</p>
-                <p class="text-var-text-muted text-sm mb-8">USD</p>
-                
-                <div class="space-y-4 mt-auto">
-                    <!-- NOTE: In a real application, these buttons would link to a Stripe Checkout session. -->
-                    <a href="#" class="block w-full bg-var-primary-accent text-var-base font-bold py-3 rounded-full transition-transform hover:scale-105">Pay in Full</a>
-                    <a href="#" class="block w-full border-2 border-var-primary-accent text-var-primary-accent font-bold py-3 rounded-full transition-colors hover:bg-var-primary-accent hover:text-var-base">Pay in 3 Installments</a>
+    <div id="enroll-page" class="page-content hidden">
+        <div class="container mx-auto px-6 py-12">
+            <h1 class="text-5xl md:text-7xl text-center mb-8">The Kairos Adventure</h1>
+            <p class="text-center text-lg max-w-3xl mx-auto mb-20" style="color: var(--color-text-muted);">This 10-week group coaching program is a confidential, transformative experience designed for professionals and leaders who are ready to align their external success with deep inner satisfaction.</p>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-8">
+                <div class="md:col-span-3 text-left">
+                    <h2 class="text-3xl mb-6">What's Included</h2>
+                    <ul class="space-y-4" style="color: var(--color-text-muted);">
+                        <li class="flex items-start"><span class="mr-4 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><div><strong style="color: var(--color-text);">10 Weekly Group Sessions:</strong> Guided explorations into the core themes of the Kairos framework.</div></li>
+                        <li class="flex items-start"><span class="mr-4 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><div><strong style="color: var(--color-text);">Two 1:1 Coaching Sessions:</strong> Personalized guidance with Jatin or Shalini to deepen your integration.</div></li>
+                        <li class="flex items-start"><span class="mr-4 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><div><strong style="color: var(--color-text);">The Adventurer's Somatic Toolkit:</strong> A library of practices for moving energy and integrating wholeness.</div></li>
+                        <li class="flex items-start"><span class="mr-4 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><div><strong style="color: var(--color-text);">Private Group Forum:</strong> A safe space to connect and share with your fellow adventurers between sessions.</div></li>
+                        <li class="flex items-start"><span class="mr-4 mt-1" style="color: var(--color-primary-accent);">&#10003;</span><div><strong style="color: var(--color-text);">Kairos Capstone Project:</strong> A final project to anchor your transformation and clarify your purpose going forward.</div></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 border rounded-lg p-8 flex flex-col text-center" style="border-color: rgba(242, 203, 97, 0.2);">
+                    <h3 class="text-2xl">Investment</h3>
+                    <p class="text-5xl font-serif my-4">$5,000</p>
+                    <p class="text-sm mb-8" style="color: var(--color-text-muted);">USD</p>
+                    
+                    <div class="space-y-4 mt-auto">
+                        <a href="#" class="block w-full font-bold py-3 rounded-full transition-transform hover:scale-105" style="background-color: var(--color-primary-accent); color: var(--color-base);">Pay in Full</a>
+                        <a href="#" class="block w-full border-2 font-bold py-3 rounded-full transition-colors" style="border-color: var(--color-primary-accent); color: var(--color-primary-accent);" onmouseover="this.style.backgroundColor=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent'); this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-base');" onmouseout="this.style.backgroundColor='transparent'; this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent');">Pay in 3 Installments</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -447,85 +499,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
-        // --- Page Navigation & Transitions ---
+        // --- App State ---
         const pages = ['home', 'journey', 'coaching', 'insights', 'enroll'];
-        const navLinks = document.querySelectorAll('.nav-link, .cta-button[data-page], a[data-page]');
-        const canvasEl = document.getElementById('zen-garden-canvas');
         let currentPage = 'home';
         let isTransitioning = false;
 
+        // --- DOM Elements ---
+        const navLinks = document.querySelectorAll('.nav-link, .cta-button[data-page], a[data-page]');
+        const canvasEl = document.getElementById('zen-garden-canvas');
+        const pageElements = {};
+        pages.forEach(p => pageElements[p] = document.getElementById(`${p}-page`));
+
+        // --- Page Navigation & Transitions ---
         function showPage(pageId) {
             if (pageId === currentPage || isTransitioning) return;
             isTransitioning = true;
 
-            const currentPageEl = document.getElementById(`${currentPage}-page`);
-            const targetPage = document.getElementById(`${pageId}-page`);
+            const currentPageEl = pageElements[currentPage];
+            const targetPageEl = pageElements[pageId];
 
+            // 1. Start fading out the current page
             if (currentPageEl) {
                 currentPageEl.style.opacity = 0;
-                currentPageEl.addEventListener('transitionend', () => {
-                    currentPageEl.classList.remove('visible');
+            }
+
+            // 2. After a delay, start fading in the new page
+            setTimeout(() => {
+                if (currentPageEl) {
                     currentPageEl.classList.add('hidden');
-                    if (targetPage) {
-                        targetPage.classList.remove('hidden');
-                        setTimeout(() => {
-                            targetPage.classList.add('visible');
-                            
-                            // --- THIS IS THE KEY FIX ---
-                            if (pageId === 'home') {
-                                // Reset homepage state when showing it
-                                resetHomepageState();
-                            }
-                            
-                            
-                            // --- THIS IS THE KEY FIX ---
-                            if (pageId === 'home') {
-                                // Reset homepage state when showing it
-                                resetHomepageState();
-                            }
-                            
-                            isTransitioning = false;
-                        }, 20);
-                    }
-                }, { once: true });
-            } else if (targetPage) {
-                targetPage.classList.remove('hidden');
-                setTimeout(() => {
-                    targetPage.classList.add('visible');
-                    
-                    // --- THIS IS THE KEY FIX ---
-                    if (pageId === 'home') {
-                        // Reset homepage state when showing it
-                        resetHomepageState();
-                    }
-                    
-                    
-                    // --- THIS IS THE KEY FIX ---
-                    if (pageId === 'home') {
-                        // Reset homepage state when showing it
-                        resetHomepageState();
-                    }
-                    
-                    isTransitioning = false;
-                }, 20);
-            }
-            
-            if (pageId === 'home') {
-                canvasEl.style.opacity = '1';
-                canvasEl.style.pointerEvents = 'auto';
-                // Scroll to the top to reset the animation's starting point
-                window.scrollTo(0, 0);
-                // Scroll to the top to reset the animation's starting point
-                window.scrollTo(0, 0);
-            } else {
-                canvasEl.style.opacity = '0.1';
-                canvasEl.style.pointerEvents = 'none';
-            }
-            
-            document.querySelectorAll('.nav-link, .cta-button[data-page]').forEach(link => {
+                    currentPageEl.classList.remove('visible');
+                }
+                if (targetPageEl) {
+                    targetPageEl.classList.remove('hidden');
+                    // Use a nested timeout to ensure the 'display' property has updated
+                    setTimeout(() => {
+                        targetPageEl.classList.add('visible');
+                        targetPageEl.style.opacity = 1;
+                    }, 20);
+                }
+                
+                // 3. Update nav and canvas states
+                updateNavAndCanvas(pageId);
+                
+                // 4. Reset homepage state if needed
+                if (pageId === 'home') {
+                    resetHomepageState();
+                }
+
+                currentPage = pageId;
+                isTransitioning = false;
+            }, 300); // This delay should be about half the transition duration
+        }
+        
+        function updateNavAndCanvas(pageId) {
+            canvasEl.style.opacity = (pageId === 'home') ? '1' : '0.05';
+            navLinks.forEach(link => {
                 link.classList.toggle('active', link.dataset.page === pageId);
             });
-            currentPage = pageId;
+            window.scrollTo(0, 0);
+        }
+
+        function resetHomepageState() {
+            window.scrollTo(0, 0); // Resets scroll for animation
+            // Re-run the fade-in logic for homepage sections
+            document.querySelectorAll('#home-page .fade-in').forEach(el => el.classList.remove('visible'));
+            initializeHomepageObservers();
         }
 
         navLinks.forEach(link => {
@@ -540,13 +578,13 @@
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 const icon = header.querySelector('svg');
+                const isOpen = content.style.maxHeight;
+
+                // Close all accordions first
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                document.querySelectorAll('.accordion-header svg').forEach(i => i.style.transform = 'rotate(0deg)');
                 
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                    document.querySelectorAll('.accordion-header svg').forEach(i => i.style.transform = 'rotate(0deg)');
+                if (!isOpen) {
                     content.style.maxHeight = content.scrollHeight + "px";
                     icon.style.transform = 'rotate(180deg)';
                 }
@@ -555,25 +593,36 @@
 
         // --- Journey Stepper Logic ---
         const journeySteps = document.querySelectorAll('.journey-step');
-        const journeyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const step = entry.target.dataset.step;
-                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-                    journeySteps.forEach(s => s.classList.toggle('is-active', s.dataset.step === step));
-                }
-            });
-        }, { threshold: 0.5 });
-        journeySteps.forEach(step => journeyObserver.observe(step));
+        if (journeySteps.length > 0) {
+            const journeyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                        const step = entry.target.dataset.step;
+                        journeySteps.forEach(s => s.classList.toggle('is-active', s.dataset.step === step));
+                    }
+                });
+            }, { threshold: 0.6 });
+            journeySteps.forEach(step => journeyObserver.observe(step));
+        }
         
-        // --- Graceful Degradation & Performance ---
-        function shouldUseFallback() {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
-            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-            if (isMobile && connection && (connection.effectiveType.includes('2g') || connection.effectiveType.includes('3g'))) return true;
-            return false;
+        // --- Homepage Observers ---
+        let homepageObserver;
+        function initializeHomepageObservers() {
+            if (!homepageObserver) {
+                homepageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.querySelector('.fade-in')?.classList.add('visible');
+                        } else {
+                            entry.target.querySelector('.fade-in')?.classList.remove('visible');
+                        }
+                    });
+                }, { threshold: 0.2 });
+            }
+            document.querySelectorAll('#home-page .content-section').forEach(section => homepageObserver.observe(section));
         }
 
+        // --- App Initialization ---
         function initializeApp() {
             if (shouldUseFallback()) {
                 document.body.classList.add('lottie-active');
@@ -582,105 +631,19 @@
             } else {
                 initializeCelestialWeaver();
             }
-            document.getElementById('home-page').classList.add('visible');
-            document.querySelector('#hook .fade-in').classList.add('visible');
+            pageElements.home.classList.add('visible');
+            pageElements.home.style.opacity = 1;
+            initializeHomepageObservers();
         }
 
-        // --- Observers & Micro-interactions ---
-        let sectionObserver;
-        
-        function initializeObservers() {
-            // If the observer doesn't exist yet, create it.
-            if (!sectionObserver) {
-                sectionObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const fadeInEl = entry.target.querySelector('.fade-in');
-                        if (fadeInEl) {
-                            if (entry.isIntersecting) {
-                                fadeInEl.classList.add('visible');
-                            } else {
-                                // If it's not intersecting, make it invisible again
-                                fadeInEl.classList.remove('visible');
-                            }
-                        }
-                    });
-                }, { threshold: 0.5 }); // Use a 50% threshold for better feel
-            }
-
-            // Tell the observer to start watching all the sections on the homepage
-            document.querySelectorAll('#home-page .content-section').forEach(section => {
-                sectionObserver.observe(section);
-            });
+        function shouldUseFallback() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+            if (isMobile) return true; // Opt for Lottie on mobile for performance
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (connection && (connection.effectiveType.includes('2g') || connection.effectiveType.includes('3g'))) return true;
+            return false;
         }
-        
-        function resetHomepageState() {
-            // Reset all fade-in elements to invisible state
-            document.querySelectorAll('#home-page .fade-in').forEach(el => {
-                el.classList.remove('visible');
-            });
-            
-            // Reset transformation text state
-            const transformationTextEl = document.getElementById('transformation-text');
-            if (transformationTextEl) {
-                transformationTextEl.classList.remove('text-inverted');
-            }
-            
-            // Re-initialize observers
-            initializeObservers();
-            
-            // Make the first section visible immediately
-            setTimeout(() => {
-                document.querySelector('#hook .fade-in')?.classList.add('visible');
-            }, 100);
-        }
-
-        let sectionObserver;
-        
-        function initializeObservers() {
-            // If the observer doesn't exist yet, create it.
-            if (!sectionObserver) {
-                sectionObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const fadeInEl = entry.target.querySelector('.fade-in');
-                        if (fadeInEl) {
-                            if (entry.isIntersecting) {
-                                fadeInEl.classList.add('visible');
-                            } else {
-                                // If it's not intersecting, make it invisible again
-                                fadeInEl.classList.remove('visible');
-                            }
-                        }
-                    });
-                }, { threshold: 0.5 }); // Use a 50% threshold for better feel
-            }
-
-            // Tell the observer to start watching all the sections on the homepage
-            document.querySelectorAll('#home-page .content-section').forEach(section => {
-                sectionObserver.observe(section);
-            });
-        }
-        
-        function resetHomepageState() {
-            // Reset all fade-in elements to invisible state
-            document.querySelectorAll('#home-page .fade-in').forEach(el => {
-                el.classList.remove('visible');
-            });
-            
-            // Reset transformation text state
-            const transformationTextEl = document.getElementById('transformation-text');
-            if (transformationTextEl) {
-                transformationTextEl.classList.remove('text-inverted');
-            }
-            
-            // Re-initialize observers
-            initializeObservers();
-            
-            // Make the first section visible immediately
-            setTimeout(() => {
-                document.querySelector('#hook .fade-in')?.classList.add('visible');
-            }, 100);
-        }
-
         
         // --- Audio Engine ---
         let audioInitialized = false;
@@ -690,6 +653,7 @@
         const audioIconOff = document.getElementById('audio-icon-off');
 
         function initAudio() {
+            if (audioInitialized) return;
             ambientHum = new Tone.Noise("brown").toDestination();
             ambientHum.volume.value = -30;
             chimeSynth = new Tone.PolySynth(Tone.Synth, { oscillator: { type: "sine" }, envelope: { attack: 0.01, decay: 0.5, sustain: 0.1, release: 1 }, volume: -15 }).toDestination();
@@ -784,8 +748,8 @@
 
             function render() {
                 const time = Date.now() * 0.0001;
-                const homePageEl = document.getElementById('home-page');
-                if(!homePageEl.classList.contains('visible')) return;
+                const homePageEl = pageElements.home;
+                if(!homePageEl || !homePageEl.classList.contains('visible')) return;
 
                 const scrollY = window.scrollY;
                 const pageHeight = homePageEl.scrollHeight - window.innerHeight;
@@ -832,7 +796,9 @@
                 
                 climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
                 
-                transformationTextEl.classList.toggle('text-inverted', opacity > 0.5);
+                if (transformationTextEl) {
+                    transformationTextEl.classList.toggle('text-inverted', opacity > 0.5);
+                }
                 
                 renderer.render(scene, camera);
             }
@@ -854,11 +820,10 @@
             init();
             animate();
         }
-        
+
+        // --- Start the App ---
         initializeApp();
-        initializeObservers();
 
     </script>
-
 </body>
 </html>
