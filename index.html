@@ -187,7 +187,7 @@
         }
         #transformation-text.text-inverted h2,
         #transformation-text.text-inverted p {
-            color: var(--color-base);
+            color: var(--color-base) !important;
         }
 
         .insight-card {
@@ -241,9 +241,9 @@
             <a href="#" class="text-2xl font-bold tracking-tight nav-link" data-page="home" style="font-family: var(--font-serif);">Kairos</a>
             <nav class="hidden md:flex space-x-10 items-center">
                 <a href="#" class="nav-link" data-page="journey">The Journey</a>
-                <a href="#" class="nav-link" data-page="coaching">Guides</a>
+                <a href="#" class="nav-link" data-page="coaching">Our Guides</a>
                 <a href="#" class="nav-link" data-page="insights">Insights</a>
-                <a href="#" class="cta-button !py-2 !px-6" data-page="enroll">Begin Your Journey</a>
+                <a href="#" class="cta-button !py-2 !px-6" data-page="enroll">Coaching Plans</a>
             </nav>
         </div>
     </header>
@@ -291,7 +291,7 @@
             <div class="fade-in">
                 <h2 class="text-4xl md:text-6xl">Ready to find your clarity?</h2>
                 <p class="mt-6 mb-12 text-lg md:text-xl" style="color: var(--color-text-muted);">Your journey to a more centered, intentional life begins here.</p>
-                <a href="#" class="cta-button" data-page="enroll">Begin Your Journey</a>
+                <a href="#" class="cta-button" data-page="enroll">Explore Coaching Plans</a>
             </div>
         </section>
     </main>
@@ -505,7 +505,7 @@
     <div id="enroll-page" class="page-content hidden">
         <div class="container mx-auto px-6 py-12">
             <h1 class="text-5xl md:text-7xl text-center mb-8">The Kairos Adventure</h1>
-            <p class="text-center text-lg max-w-3xl mx-auto mb-20" style="color: var(--color-text-muted);">This 10-week group coaching program is a confidential, transformative experience designed for professionals and leaders who are ready to align their external success with deep inner satisfaction.</p>
+            <p class="text-center text-lg max-w-3xl mx-auto mb-20" style="color: var(--color-text-muted);">Our 10-week group coaching program is a confidential, transformative experience designed for professionals and leaders ready to align their external success with deep inner satisfaction.</p>
             
             <div class="max-w-4xl mx-auto grid md:grid-cols-5 gap-8">
                 <div class="md:col-span-3 text-left">
@@ -520,13 +520,39 @@
                 </div>
                 <div class="md:col-span-2 border rounded-lg p-8 flex flex-col text-center" style="border-color: rgba(242, 203, 97, 0.2);">
                     <h3 class="text-2xl">Investment</h3>
-                    <p class="text-5xl font-serif my-4">$5,000</p>
-                    <p class="text-sm mb-8" style="color: var(--color-text-muted);">USD</p>
+                    <p class="text-5xl font-serif my-4">$3,000</p>
+                    <p class="text-var-text-muted text-sm mb-8">10-Week Program</p>
                     
                     <div class="space-y-4 mt-auto">
-                        <a href="#" class="block w-full font-bold py-3 rounded-full transition-transform hover:scale-105" style="background-color: var(--color-primary-accent); color: var(--color-base);">Pay in Full</a>
-                        <a href="#" class="block w-full border-2 font-bold py-3 rounded-full transition-colors" style="border-color: var(--color-primary-accent); color: var(--color-primary-accent);" onmouseover="this.style.backgroundColor=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent'); this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-base');" onmouseout="this.style.backgroundColor='transparent'; this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent');">Pay in 3 Installments</a>
+                        <a href="#" data-page="payment" class="block w-full font-bold py-3 rounded-full transition-transform hover:scale-105" style="background-color: var(--color-primary-accent); color: var(--color-base);">Pay in Full ($3,000)</a>
+                        <a href="#" data-page="payment" class="block w-full border-2 font-bold py-3 rounded-full transition-colors" style="border-color: var(--color-primary-accent); color: var(--color-primary-accent);" onmouseover="this.style.backgroundColor=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent'); this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-base');" onmouseout="this.style.backgroundColor='transparent'; this.style.color=getComputedStyle(document.documentElement).getPropertyValue('--color-primary-accent');">Pay in 2 Installments ($1,600 x 2)</a>
+                        <p class="text-sm text-var-text-muted pt-2">Per-session pricing available at $350/session.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="payment-page" class="page-content hidden">
+        <div class="container mx-auto px-6 py-12">
+            <div class="max-w-xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl mb-8">Payment Options</h1>
+                <p class="text-lg text-var-text-muted mb-12">To complete your enrollment, please submit payment through one of the options below. We will confirm your spot within 24 hours of receiving payment.</p>
+                
+                <div class="space-y-8 text-left p-8 rounded-lg" style="background-color: rgba(255,251,235,0.02); border: 1px solid rgba(242, 203, 97, 0.1);">
+                    <div>
+                        <h3 class="text-2xl font-serif text-var-primary-accent">PayPal</h3>
+                        <p class="text-lg">@jatinalla</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-serif text-var-primary-accent">Zelle</h3>
+                        <p class="text-lg">jatinalla2000@gmail.com</p>
+                        <p class="text-var-text-muted">(415) 960-5333</p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <a href="#" class="text-var-primary-accent hover:underline" data-page="enroll">&larr; Go Back to Plans</a>
                 </div>
             </div>
         </div>
@@ -537,7 +563,7 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         // --- App State ---
-        const pages = ['home', 'journey', 'coaching', 'insights', 'enroll'];
+        const pages = ['home', 'journey', 'coaching', 'insights', 'enroll', 'payment'];
         let currentPage = 'home';
         let isTransitioning = false;
 
