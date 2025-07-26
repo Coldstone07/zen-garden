@@ -433,7 +433,7 @@
                         </div>
                         <div class="md:col-span-2">
                             <h3 class="text-3xl">Jatin Alla</h3>
-                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Founder & AI Visionary</h4>
+                            <h4 class="text-lg mb-4" style="color: var(--color-primary-accent);">Co-Founder & AI Visionary</h4>
                             <p class="leading-relaxed" style="color: var(--color-text-muted);">As an HCI researcher with a deep background in cognitive science and AI, I founded Kairos to bridge the gap between human potential and technological innovation. My work at Google Research and my personal journey into mindfulness practices have shown me that the most powerful technology is the one that leads us back to ourselves. My coaching approach is a synthesis of evidence-based frameworks and a deep, intuitive understanding of the human condition, designed to help you find your own clarity.</p>
                         </div>
                     </div>
@@ -687,11 +687,17 @@
         }
 
         function shouldUseFallback() {
+            // Always use fallback for users who prefer reduced motion
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
-            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-            if (isMobile) return true; // Opt for Lottie on mobile for performance
+
+            // Force fallback for all mobile devices for better performance and reliability
+            const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            if (isMobile) return true;
+
+            // Keep the slow connection check for desktop users
             const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
             if (connection && (connection.effectiveType.includes('2g') || connection.effectiveType.includes('3g'))) return true;
+
             return false;
         }
         
