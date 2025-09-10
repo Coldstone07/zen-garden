@@ -16,23 +16,33 @@ function initializeTransformationEcosystem() {
     // Setup scroll-based animations
     setupScrollAnimations();
     
-    console.log('✓ Transformation Ecosystem initialized');
+    // Enhance accessibility
+    enhanceAccessibility();
+    
+    console.log('✓ Transformation Ecosystem initialized with full accessibility support');
 }
 
 function createParticleSystem() {
     const ecosystemContainer = document.querySelector('.ecosystem-container');
     if (!ecosystemContainer) return;
     
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'transformation-particles';
-    ecosystemContainer.appendChild(particleContainer);
+    // Use existing particle container or create new one
+    let particleContainer = document.querySelector('.transformation-particles');
+    if (!particleContainer) {
+        particleContainer = document.createElement('div');
+        particleContainer.className = 'transformation-particles';
+        ecosystemContainer.appendChild(particleContainer);
+    }
+    
+    // Clear existing particles
+    particleContainer.innerHTML = '';
     
     const streamTypes = ['inner-wisdom', 'embodied-presence', 'conscious-relating', 'systemic-impact'];
     const streamPositions = [
-        { start: { x: 20, y: 20 }, end: { x: 50, y: 50 } }, // Inner Wisdom -> Center
-        { start: { x: 80, y: 20 }, end: { x: 50, y: 50 } }, // Embodied Presence -> Center
-        { start: { x: 20, y: 80 }, end: { x: 50, y: 50 } }, // Conscious Relating -> Center
-        { start: { x: 80, y: 80 }, end: { x: 50, y: 50 } }  // Systemic Impact -> Center
+        { start: { x: 25, y: 25 }, end: { x: 50, y: 50 } }, // Inner Wisdom (top-left) -> Center
+        { start: { x: 75, y: 25 }, end: { x: 50, y: 50 } }, // Embodied Presence (top-right) -> Center  
+        { start: { x: 25, y: 75 }, end: { x: 50, y: 50 } }, // Conscious Relating (bottom-left) -> Center
+        { start: { x: 75, y: 75 }, end: { x: 50, y: 50 } }  // Systemic Impact (bottom-right) -> Center
     ];
     
     streamTypes.forEach((streamType, index) => {
@@ -41,29 +51,39 @@ function createParticleSystem() {
 }
 
 function createStreamParticles(container, streamType, position) {
-    const particleCount = 8;
+    const particleCount = 6; // Reduced for better performance
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = `particle ${streamType}`;
         
-        // Position particles along the path from stream to center
-        const progress = i / particleCount;
-        const startX = position.start.x + '%';
-        const startY = position.start.y + '%';
+        // Add required styles for proper positioning
+        particle.style.position = 'absolute';
+        particle.style.width = '3px';
+        particle.style.height = '3px';
+        particle.style.borderRadius = '50%';
+        particle.style.opacity = '0';
+        particle.style.pointerEvents = 'none';
+        particle.style.transition = 'all 3s cubic-bezier(0.4, 0, 0.2, 1)';
+        particle.style.transform = 'scale(0)';
         
-        particle.style.left = startX;
-        particle.style.top = startY;
+        // Set stream-specific colors
+        const colors = {
+            'inner-wisdom': '#FFD700',
+            'embodied-presence': '#40E0D0', 
+            'conscious-relating': '#FF6B6B',
+            'systemic-impact': '#4ECDC4'
+        };
+        particle.style.background = colors[streamType] || '#C8A882';
         
-        // Animate to center with staggered timing
-        particle.style.animationDelay = `${i * 0.5}s`;
-        particle.style.setProperty('--end-x', position.end.x + '%');
-        particle.style.setProperty('--end-y', position.end.y + '%');
+        // Initial position at stream location
+        particle.style.left = position.start.x + '%';
+        particle.style.top = position.start.y + '%';
         
         container.appendChild(particle);
         
-        // Animate particle movement
-        animateParticleFlow(particle, position, i * 0.5);
+        // Animate particle movement with staggered timing
+        animateParticleFlow(particle, position, i * 0.8);
     }
 }
 
@@ -118,6 +138,7 @@ function setupStreamInteractions() {
         stream.addEventListener('mouseenter', () => {
             // Highlight the specific energy flow
             energyFlows.forEach((flow, flowIndex) => {
+                flow.style.transition = 'all 0.3s ease';
                 if (flowIndex === index) {
                     flow.style.opacity = '1';
                     flow.style.height = '4px';
@@ -127,14 +148,17 @@ function setupStreamInteractions() {
                         rgba(230, 208, 179, 1) 50%, 
                         rgba(200, 168, 130, 1) 80%, 
                         transparent 100%)`;
+                    flow.style.boxShadow = '0 0 8px rgba(200, 168, 130, 0.5)';
                 } else {
-                    flow.style.opacity = '0.3';
+                    flow.style.opacity = '0.2';
+                    flow.style.height = '1px';
                 }
             });
             
             // Enhance hub glow
             if (hub) {
-                hub.style.filter = 'brightness(1.2) saturate(1.3)';
+                hub.style.transition = 'filter 0.3s ease';
+                hub.style.filter = 'brightness(1.2) saturate(1.3) drop-shadow(0 0 20px rgba(200, 168, 130, 0.6))';
             }
             
             // Show detailed information
@@ -142,15 +166,18 @@ function setupStreamInteractions() {
         });
         
         stream.addEventListener('mouseleave', () => {
-            // Reset energy flows
+            // Reset energy flows with smooth transition
             energyFlows.forEach(flow => {
+                flow.style.transition = 'all 0.3s ease';
                 flow.style.opacity = '';
                 flow.style.height = '';
                 flow.style.background = '';
+                flow.style.boxShadow = '';
             });
             
-            // Reset hub
+            // Reset hub with smooth transition
             if (hub) {
+                hub.style.transition = 'filter 0.3s ease';
                 hub.style.filter = '';
             }
             
@@ -158,7 +185,7 @@ function setupStreamInteractions() {
             hideStreamDetails(stream);
         });
         
-        // Add click interaction for mobile
+        // Add click/touch interaction for mobile
         stream.addEventListener('click', (e) => {
             e.stopPropagation(); // Prevent document click listener
             const isActive = stream.classList.contains('active');
@@ -172,7 +199,24 @@ function setupStreamInteractions() {
             if (!isActive) {
                 stream.classList.add('active');
                 showStreamDetails(stream, index, true);
+                
+                // Add visual feedback for touch interaction
+                stream.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    stream.style.transform = '';
+                }, 150);
             }
+        });
+        
+        // Add touch feedback
+        stream.addEventListener('touchstart', (e) => {
+            stream.style.transform = 'scale(0.98)';
+        });
+        
+        stream.addEventListener('touchend', (e) => {
+            setTimeout(() => {
+                stream.style.transform = '';
+            }, 150);
         });
     });
 }
@@ -352,12 +396,26 @@ function setupScrollAnimations() {
 // Accessibility enhancements
 function enhanceAccessibility() {
     const streams = document.querySelectorAll('.transformation-stream');
+    const ecosystem = document.querySelector('.transformation-ecosystem');
+    const hub = document.querySelector('.integration-hub');
+    
+    // Add main container ARIA label
+    if (ecosystem) {
+        ecosystem.setAttribute('role', 'region');
+        ecosystem.setAttribute('aria-label', 'Transformation Ecosystem: Interactive visualization of four interconnected development streams');
+    }
     
     streams.forEach((stream, index) => {
-        // Add ARIA labels
+        const streamTitle = stream.querySelector('.stream-title');
+        const streamDescription = stream.querySelector('.stream-description');
+        const streamTitleText = streamTitle ? streamTitle.textContent : `Stream ${index + 1}`;
+        const streamDescText = streamDescription ? streamDescription.textContent : '';
+        
+        // Add comprehensive ARIA labels
         stream.setAttribute('role', 'button');
         stream.setAttribute('tabindex', '0');
         stream.setAttribute('aria-expanded', 'false');
+        stream.setAttribute('aria-label', `${streamTitleText}. ${streamDescText}. Press Enter or Space to view details.`);
         stream.setAttribute('aria-describedby', `stream-description-${index}`);
         
         // Add keyboard support
@@ -365,24 +423,70 @@ function enhanceAccessibility() {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 stream.click();
+                // Update ARIA state
+                const isActive = stream.classList.contains('active');
+                stream.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+            }
+            
+            // Arrow key navigation
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                e.preventDefault();
+                const nextStream = streams[(index + 1) % streams.length];
+                nextStream.focus();
+            }
+            
+            if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                const prevStream = streams[(index - 1 + streams.length) % streams.length];
+                prevStream.focus();
+            }
+            
+            // Escape to close
+            if (e.key === 'Escape') {
+                streams.forEach(s => {
+                    s.classList.remove('active');
+                    s.setAttribute('aria-expanded', 'false');
+                    hideStreamDetails(s);
+                });
             }
         });
         
+        // Enhanced focus styles
         stream.addEventListener('focus', () => {
             stream.style.outline = '3px solid var(--accent-interactive)';
             stream.style.outlineOffset = '4px';
+            stream.style.boxShadow = '0 0 0 6px rgba(200, 168, 130, 0.3)';
         });
         
         stream.addEventListener('blur', () => {
             stream.style.outline = '';
             stream.style.outlineOffset = '';
+            stream.style.boxShadow = '';
         });
     });
     
     // Add screen reader descriptions for the visualization
-    const hub = document.querySelector('.integration-hub');
     if (hub) {
-        hub.setAttribute('aria-label', 'Central integration hub where all transformation streams converge into integrated wholeness');
+        hub.setAttribute('role', 'img');
+        hub.setAttribute('aria-label', 'Central integration hub representing integrated wholeness where all transformation streams converge');
+    }
+    
+    // Add live region for dynamic updates
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.setAttribute('class', 'sr-only');
+    liveRegion.style.position = 'absolute';
+    liveRegion.style.left = '-10000px';
+    liveRegion.style.width = '1px';
+    liveRegion.style.height = '1px';
+    liveRegion.style.overflow = 'hidden';
+    
+    if (ecosystem) {
+        ecosystem.appendChild(liveRegion);
+        
+        // Store reference for updates
+        window.ecosystemLiveRegion = liveRegion;
     }
 }
 

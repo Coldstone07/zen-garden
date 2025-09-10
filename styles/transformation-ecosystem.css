@@ -116,7 +116,7 @@
 .ecosystem-container {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 750px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,7 +130,7 @@
     transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
-    z-index: 10;
+    z-index: 15;
 }
 
 .hub-core {
@@ -150,6 +150,9 @@
         inset 0 4px 20px rgba(255, 255, 255, 0.3);
     animation: hub-pulse 4s ease-in-out infinite;
     position: relative;
+    
+    /* Ensure perfect centering container */
+    overflow: hidden;
 }
 
 .hub-core::before {
@@ -209,16 +212,32 @@
     font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(0, 0, 0, 0.6),
+        0 1px 2px rgba(0, 0, 0, 1);
     font-family: var(--font-serif);
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+    
+    /* Perfect centering approach */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    z-index: 1;
+    
+    /* Allow line breaks for two-line text */
+    white-space: pre-line;
+    line-height: 1.1;
 }
 
 /* Transformation Streams */
 .transformation-stream {
     position: absolute;
-    width: 380px;
-    height: 180px;
+    width: 360px;
+    height: 160px;
     cursor: pointer;
     transition: all var(--transition-slow);
     z-index: 5;
@@ -226,27 +245,27 @@
 
 .transformation-stream:hover {
     transform: scale(1.05);
-    z-index: 8;
+    z-index: 12;
 }
 
 .stream-inner-wisdom {
-    top: 15%;
-    left: 15%;
+    top: 10%;
+    left: 5%;
 }
 
 .stream-embodied-presence {
-    top: 15%;
-    right: 15%;
+    top: 10%;
+    right: 5%;
 }
 
 .stream-conscious-relating {
-    bottom: 15%;
-    left: 15%;
+    bottom: 10%;
+    left: 5%;
 }
 
 .stream-systemic-impact {
-    bottom: 15%;
-    right: 15%;
+    bottom: 10%;
+    right: 5%;
 }
 
 .stream-content {
@@ -255,7 +274,7 @@
     -webkit-backdrop-filter: var(--blur-medium);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    padding: 2.5rem;
+    padding: 2rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -488,24 +507,49 @@
     }
 }
 
-/* Mobile Responsiveness */
+/* Tablet Responsiveness */
 @media (max-width: 1024px) {
     .ecosystem-container {
-        height: 600px;
+        height: 700px;
     }
     
     .integration-hub {
-        width: 150px;
-        height: 150px;
+        width: 160px;
+        height: 160px;
     }
     
     .transformation-stream {
-        width: 280px;
-        height: 120px;
+        width: 320px;
+        height: 140px;
     }
     
     .stream-content {
-        padding: 1rem;
+        padding: 1.8rem;
+    }
+    
+    .hub-text {
+        font-size: 1.1rem;
+    }
+    
+    /* Adjust stream positions for tablet */
+    .stream-inner-wisdom {
+        top: 8%;
+        left: 3%;
+    }
+    
+    .stream-embodied-presence {
+        top: 8%;
+        right: 3%;
+    }
+    
+    .stream-conscious-relating {
+        bottom: 8%;
+        left: 3%;
+    }
+    
+    .stream-systemic-impact {
+        bottom: 8%;
+        right: 3%;
     }
 }
 
@@ -524,18 +568,57 @@
     .integration-hub {
         position: static;
         transform: none;
-        width: 120px;
-        height: 120px;
+        width: 140px;
+        height: 140px;
         order: 1;
         margin: 2rem auto;
+    }
+    
+    .hub-text {
+        font-size: 0.95rem;
+        line-height: 1.05;
+        letter-spacing: 0.3px;
+        width: 85%;
     }
     
     .transformation-stream {
         position: static;
         width: 100%;
-        max-width: 320px;
+        max-width: 350px;
         height: auto;
-        margin: 0 auto;
+        margin: 0 auto 1.5rem auto;
+        /* Improve touch targets */
+        min-height: 60px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    
+    .stream-content {
+        padding: 2rem 1.5rem;
+        min-height: 150px;
+        border-radius: 20px;
+    }
+    
+    .stream-title {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+    
+    .stream-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+    
+    .stream-frameworks {
+        gap: 0.3rem;
+    }
+    
+    .framework-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
     }
     
     .stream-inner-wisdom { order: 2; }
@@ -543,22 +626,38 @@
     .stream-conscious-relating { order: 4; }
     .stream-systemic-impact { order: 5; }
     
+    /* Hide energy flows on mobile for cleaner look */
     .energy-flows {
+        display: none;
+    }
+    
+    /* Hide particle system on mobile for better performance */
+    .transformation-particles {
         display: none;
     }
     
     .process-visualization {
         position: static;
         transform: none;
-        margin-top: 2rem;
+        margin-top: 3rem;
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
         order: 6;
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        max-width: 100%;
     }
     
     .process-step {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    
+    .process-arrow {
+        font-size: 1rem;
+        margin: 0.2rem;
     }
 }
 

@@ -2152,6 +2152,34 @@
                 padding: 18px 36px;
                 min-height: 52px;
             }
+            
+            /* Better spacing for mobile */
+            .hero-overlay {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+            
+            /* Improve micro-nav for mobile (though hidden) */
+            .micro-nav {
+                display: none !important;
+            }
+            
+            /* Enhanced glass panels for mobile */
+            .glass-panel {
+                padding: 1.5rem 1rem;
+                margin: 0.5rem;
+            }
+            
+            /* Better transformation stream details for mobile */
+            .transformation-stream {
+                margin-bottom: 1rem;
+            }
+            
+            /* Mobile-friendly section spacing */
+            section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
 
             .glass-panel {
                 margin: 8px;
@@ -2460,6 +2488,46 @@
                 --accent-primary: #FFD700;
                 --glass-border: rgba(255, 255, 255, 0.3);
             }
+            
+            .glass-panel,
+            .hero-overlay {
+                background: rgba(0, 0, 0, 0.8);
+                border: 2px solid var(--accent-primary);
+            }
+            
+            .cosmic-button-primary,
+            .cosmic-button-secondary {
+                border: 2px solid var(--accent-primary);
+                font-weight: 600;
+            }
+        }
+
+        /* Improved focus visibility for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--accent-primary);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Screen reader only content */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip link improvements */
+        .skip-to-main:focus {
+            z-index: 9999;
+            background: var(--accent-primary);
+            color: var(--cosmic-void);
+            font-weight: 700;
         }
 
         /* Hero overlay for improved text readability */
@@ -2482,6 +2550,13 @@
             border-radius: 24px;
             transition: all var(--transition-medium);
             padding: 2rem;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .glass-panel:hover {
+            background: var(--glass-secondary);
+            border-color: var(--glass-highlight);
+            box-shadow: var(--shadow-medium);
         }
 
         /* Program details accordion styling */
@@ -2806,7 +2881,7 @@
                                     >
                                 </div>
                                 <p id="email-help" class="text-sm moonlight-muted form-help">
-                                    We'll contact you within 24 hours to schedule your personalized call. Contact: jatinalla2000@gmail.com or shal.verm@gmail.com
+                                    We'll contact you within 24 hours to schedule your complimentary 30-minute discovery call. Contact: jatinalla2000@gmail.com or shal.verm@gmail.com
                                 </p>
                                 <button type="submit" class="cosmic-button-primary w-full form-submit">
                                     Schedule My Discovery Call
@@ -3302,9 +3377,12 @@
 
                         <div class="floating-form-container">
                             <div class="cosmic-form text-center">
-                                <h3 class="text-3xl font-bold moonlight-text mb-4">Ready to Begin?</h3>
+                                <h3 class="text-3xl font-bold moonlight-text mb-4">Ready to Transform Your Leadership?</h3>
+                                <p class="moonlight-secondary mb-6">
+                                    <strong>Limited Beta Pilot Cohort</strong> - Only 12 spots available at current pricing.
+                                </p>
                                 <p class="moonlight-secondary mb-8">
-                                    Limited cohort starting soon. Discovery call to assess fit and readiness for transformation.
+                                    Your complimentary discovery call will assess fit and readiness for transformation. No obligation, just clarity.
                                 </p>
                                 <a href="mailto:hello@kairospatj.com" class="cosmic-button-primary text-lg inline-block">
                                     Schedule Discovery Call
@@ -3400,6 +3478,10 @@
     
     <script>
         // --- Three.js Celestial Weaver Animation System ---
+        let animationInitialized = false;
+        let animationPaused = false;
+        let celestialAnimateFunction = null;
+        
         function shouldUseFallback() {
             // Respect user preference for reduced motion
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
@@ -3496,9 +3578,14 @@
             }
 
             function animate() {
-                requestAnimationFrame(animate);
-                render();
+                if (!animationPaused) {
+                    requestAnimationFrame(animate);
+                    render();
+                }
             }
+            
+            // Store animate function globally for visibility change listener
+            celestialAnimateFunction = animate;
 
             function render() {
                 try {
@@ -3580,6 +3667,9 @@
             document.addEventListener('mousemove', onDocumentMouseMove, false);
 
             init();
+            if (!animationInitialized) {
+                animationInitialized = true;
+            }
             animate();
         }
 
@@ -4186,6 +4276,22 @@
                 }
             }
         }
+
+        // Performance optimizations
+        document.addEventListener('visibilitychange', () => {
+            animationPaused = document.hidden;
+            if (!animationPaused && animationInitialized && celestialAnimateFunction) {
+                celestialAnimateFunction(); // Restart animation when tab becomes visible
+            }
+        });
+
+        // Pause animations for users who prefer reduced motion
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        mediaQuery.addListener(() => {
+            if (mediaQuery.matches) {
+                animationPaused = true;
+            }
+        });
 
         // Initialize everything on DOM load
         document.addEventListener('DOMContentLoaded', () => {
