@@ -1,0 +1,51 @@
+{
+  "name": "kairos-path-landing",
+  "version": "1.0.0",
+  "description": "Landing page for The Kairos Path - A revolutionary blueprint for conscious leaders",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "python server.py",
+    "dev": "python server.py",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "node scripts/build-css.js",
+    "build:js": "node scripts/build-js.js",
+    "serve": "python server.py",
+    "watch": "concurrently \"npm run watch:css\" \"npm run serve\"",
+    "watch:css": "chokidar \"styles/**/*.css\" -c \"npm run build:css\"",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "eslint js/**/*.js",
+    "lint:fix": "eslint js/**/*.js --fix",
+    "optimize": "npm run build && npm run minify",
+    "minify": "node scripts/minify.js"
+  },
+  "keywords": [
+    "consciousness",
+    "leadership",
+    "transformation",
+    "coaching",
+    "psychology",
+    "wellness"
+  ],
+  "author": "The Kairos Path",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "terser": "^5.24.0",
+    "cssnano": "^6.0.3",
+    "postcss": "^8.4.32"
+  },
+  "dependencies": {
+    "three": "^0.158.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.6.0"
+  }
+}

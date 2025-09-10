@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kairos Path - Activate Your Integrated Wholeness</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Get your free Kairos Blueprint Guide - A revolutionary blueprint for conscious leaders uniting trauma-informed psychology, ancient wisdom and cutting-edge science.">
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CDN for development - replace with build version for production -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --color-base: #191035; /* Deep Indigo */
+            --color-text: #FFFBEB; /* Cream */
+            --color-text-muted: #d1ccc0; /* Softer Cream/Gray */
+            --color-primary-accent: #F2CB61; /* Soft Gold */
+            --color-secondary-accent: #6A0DAD; /* Royal Purple */
+            --color-panel: #F7F9FD; /* Light Content Panel */
+            --color-text-dark: #1A202C; /* Dark text for light panels */
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+
+        body {
+            background-color: var(--color-base);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--color-primary-accent), var(--color-secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-panel {
+            background-color: var(--color-panel);
+            color: var(--color-text-dark);
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-button {
+            background-color: transparent;
+            border: 2px solid var(--color-primary-accent);
+            color: var(--color-primary-accent);
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-primary-accent);
+            color: var(--color-base);
+            transform: scale(1.05);
+        }
+
+        .email-input {
+            padding: 1rem 1.5rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 9999px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .email-input:focus {
+            border-color: var(--color-accent-teal);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+
+        .trust-indicator {
+            opacity: 0.8;
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .logo-emblem {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-base);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+            
+            .content-panel {
+                margin: 1rem;
+                padding: 2rem;
+            }
+        }
+        
+        /* Emergency visibility - ensure content is never hidden */
+        .fade-in, .content-panel, main {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        /* Notification System */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--color-primary-accent);
+            color: var(--color-base);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            font-weight: 600;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            background: #EF4444;
+            color: white;
+        }
+        
+        .notification.success {
+            background: #10B981;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-20" style="background-color: rgba(25, 16, 53, 0.8); backdrop-filter: blur(10px);">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="logo-emblem">K</div>
+                <span class="text-xl font-bold tracking-tight" style="font-family: var(--font-serif);">The Kairos Path</span>
+            </div>
+            <a href="index.html" class="text-sm font-medium transition-colors" style="color: var(--color-text-muted);" onmouseover="this.style.color='var(--color-text)'" onmouseout="this.style.color='var(--color-text-muted)'">
+                View Full Program →
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center pt-20 pb-10 px-4">
+        <div class="content-panel max-w-2xl w-full p-8 md:p-12 text-center">
+            <div class="fade-in">
+                <!-- Headline -->
+                <h1 class="hero-title text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Activate Your 
+                    <span class="gradient-text">Integrated Wholeness</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl md:text-2xl mb-8 text-gray-600 leading-relaxed">
+                    A revolutionary blueprint for conscious leaders—uniting trauma‑informed psychology, ancient wisdom and cutting‑edge science.
+                </p>
+
+                <!-- Blueprint Guide Description -->
+                <div class="bg-gray-50 rounded-xl p-6 mb-8 text-left">
+                    <h3 class="text-lg font-semibold mb-3 text-teal-700">Free Kairos Blueprint Guide</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Get an overview of the AQAL framework, our three‑phase roadmap, self‑reflection tools, 
+                        and the scientific foundations behind transformation.
+                    </p>
+                </div>
+
+                <!-- Email Form -->
+                <form class="mb-8" onsubmit="handleEmailSubmit(event)">
+                    <div class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Enter your email address" 
+                            class="email-input flex-1"
+                            required
+                        >
+                        <button type="submit" class="cta-button whitespace-nowrap">
+                            Get Your Free Blueprint
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Trust Indicators -->
+                <div class="trust-indicator text-center mb-6">
+                    <p class="font-medium" style="color: var(--color-text-muted);">Evidence‑informed frameworks • MIT & Harvard Leadership • Google Research & DeepMind</p>
+                </div>
+
+                <!-- Link to Full Landing Page -->
+                <div class="pt-4 border-t border-gray-200">
+                    <a href="index.html" class="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium transition-colors">
+                        Learn more about The Kairos Path program
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal removed - using notification system instead -->
+
+    <script>
+        // Fade in animation
+        function initializeAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        // --- Notification System ---
+        function showNotification(message, type = 'success') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            // Auto-hide after 4 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 4000);
+        }
+        
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Email form handling
+        function handleEmailSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            if (email && isValidEmail(email)) {
+                // Here you would typically send the email to your backend
+                console.log('Email submitted:', email);
+                
+                showNotification('Thank you! Your Blueprint Guide will be sent to your email within 24 hours.', 'success');
+                document.getElementById('email').value = '';
+                
+                // Optional: redirect to full program after a delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            } else {
+                showNotification('Please enter a valid email address.', 'error');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeAnimations);
+    </script>
+</body>
+</html>

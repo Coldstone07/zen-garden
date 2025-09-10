@@ -1,0 +1,372 @@
+/* Mobile First Responsive Design */
+
+/* Extra Small Devices (480px and down) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .glass-panel {
+        margin: 8px;
+        padding: 24px 16px;
+        border-radius: 12px;
+    }
+
+    .text-5xl.md\\:text-7xl {
+        font-size: 2rem !important;
+    }
+
+    .text-xl.md\\:text-2xl {
+        font-size: 1.125rem !important;
+    }
+
+    .glass-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    /* Mobile phase journey stacking */
+    .lg\\:flex-row, .lg\\:flex-row-reverse {
+        gap: 1.5rem !important;
+    }
+
+    .lg\\:w-1\\/3, .lg\\:w-2\\/3 {
+        width: 100% !important;
+    }
+}
+
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+    .glass-panel {
+        border-radius: 16px;
+        margin: 16px;
+        padding: 32px 24px;
+    }
+
+    .glass-button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    /* Mobile typography adjustments */
+    .text-5xl.md\\:text-7xl {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+
+    .text-4xl.md\\:text-5xl {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .text-3xl.md\\:text-4xl {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Mobile spacing adjustments */
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .px-4 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Mobile navigation adjustments */
+    nav .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Mobile grid adjustments */
+    .grid.md\\:grid-cols-2 > * {
+        margin-bottom: 2rem;
+    }
+
+    .grid.md\\:grid-cols-2 > *:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Mobile flex adjustments */
+    .flex-col.sm\\:flex-row {
+        gap: 1rem !important;
+    }
+
+    /* Mobile glass surface adjustments */
+    .glass-surface {
+        padding: 1.5rem !important;
+    }
+
+    /* Mobile form adjustments */
+    .glass-button-primary.w-full {
+        margin-top: 1rem;
+    }
+
+    /* Mobile AQAL adjustments */
+    .constellation-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 3rem;
+        min-height: auto;
+    }
+
+    .quadrant-node {
+        justify-content: center;
+    }
+
+    .star-core {
+        width: 50px;
+        height: 50px;
+    }
+
+    .quadrant-symbol {
+        font-size: 1rem;
+    }
+
+    .center-core {
+        width: 40px;
+        height: 40px;
+    }
+
+    .integration-center {
+        position: relative;
+        transform: none;
+        top: auto;
+        left: auto;
+        order: -1;
+        margin-bottom: 2rem;
+    }
+
+    .constellation-connections {
+        display: none;
+    }
+
+    /* Mobile journey adjustments */
+    .journey-phase {
+        padding: 1.5rem;
+        flex-direction: column !important;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .phase-content {
+        padding: 2rem;
+    }
+
+    .node-core {
+        width: 60px;
+        height: 60px;
+    }
+
+    .phase-number {
+        font-size: 1.2rem;
+    }
+
+    .phase-title {
+        font-size: 1.5rem;
+    }
+
+    .journey-flow {
+        display: none;
+    }
+
+    /* Mobile guide adjustments */
+    .guide-profile {
+        padding: 1.5rem;
+        flex-direction: column !important;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .avatar-core {
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-initials {
+        font-size: 1.5rem;
+    }
+
+    .guide-name {
+        font-size: 1.75rem;
+    }
+
+    .guide-credentials {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet Devices (1024px and down) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .max-w-6xl, .max-w-4xl {
+        max-width: 100%;
+    }
+
+    /* AQAL Constellation tablet adjustments */
+    .constellation-grid {
+        gap: 4rem;
+        min-height: 500px;
+    }
+
+    .star-core {
+        width: 60px;
+        height: 60px;
+    }
+
+    .quadrant-symbol {
+        font-size: 1.2rem;
+    }
+
+    .method-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    /* Journey timeline adjustments */
+    .journey-phase {
+        flex-direction: column !important;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .node-core {
+        width: 80px;
+        height: 80px;
+    }
+
+    .phase-number {
+        font-size: 1.5rem;
+    }
+
+    /* Guide profiles adjustments */
+    .guide-profile {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .avatar-core {
+        width: 100px;
+        height: 100px;
+    }
+
+    .avatar-initials {
+        font-size: 2rem;
+    }
+
+    .guide-name {
+        font-size: 2rem;
+    }
+}
+
+/* Enhanced touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .glass-button,
+    .cosmic-button-primary,
+    .cosmic-button-secondary {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 14px 28px;
+    }
+
+    /* Increase tap targets */
+    a, button {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    /* Enhanced spacing for large screens */
+    .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+
+    .text-5xl.md\\:text-7xl {
+        font-size: 5rem;
+        line-height: 1;
+    }
+
+    .text-4xl.md\\:text-5xl {
+        font-size: 3.5rem;
+    }
+}
+
+/* Ultra-wide screens (1920px and up) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    .glass-panel {
+        padding: 4rem 3rem;
+    }
+
+    .cosmic-form {
+        padding: 3.5rem;
+    }
+}
+
+/* Viewport height adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    .min-h-screen {
+        min-height: 100vh;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Reduce vertical spacing on short screens */
+    .py-20 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .glass-panel,
+    .glass-surface,
+    .glass-subtle {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .moonlight-text,
+    .moonlight-secondary {
+        color: black !important;
+    }
+
+    .cosmic-button-primary,
+    .cosmic-button-secondary,
+    .glass-button {
+        background: white !important;
+        color: black !important;
+        border: 2px solid black !important;
+    }
+
+    #zen-garden-canvas {
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(cat:*)",
+      "Bash(start \"C:\\Users\\jatin\\Downloads\\Kairos Ai\\Landing Page\\zen-garden\\index.html\")",
+      "Bash(start \"C:\\Users\\jatin\\Downloads\\Kairos Ai\\Landing Page\\zen-garden\\hook.html\")",
+      "WebSearch",
+      "Bash(node:*)",
+      "Bash(del index-optimized.html)",
+      "Bash(taskkill:*)",
+      "Bash(cmd /c:*)",
+      "Bash(start http://localhost:8001)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
