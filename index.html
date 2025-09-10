@@ -73,6 +73,11 @@
             scroll-behavior: smooth;
         }
 
+        /* Smooth scrolling for all anchor links */
+        a[href^="#"] {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: var(--cosmic-void);
             color: var(--moonlight-primary);
@@ -2457,6 +2462,92 @@
             }
         }
 
+        /* Hero overlay for improved text readability */
+        .hero-overlay {
+            background: var(--glass-primary);
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Glass panel utility for text-heavy sections */
+        .glass-panel {
+            background: var(--glass-primary);
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all var(--transition-medium);
+            padding: 2rem;
+        }
+
+        /* Program details accordion styling */
+        .program-details details {
+            margin: 1rem 0;
+        }
+
+        .program-details summary {
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+
+        .program-details summary:hover {
+            background: var(--glass-highlight);
+        }
+
+        .program-details details[open] summary {
+            background: var(--glass-highlight);
+        }
+
+        .bg-glass-primary {
+            background: var(--glass-primary);
+        }
+
+        .bg-glass-secondary {
+            background: var(--glass-secondary);
+        }
+
+        /* Micro-navigation for desktop */
+        .micro-nav {
+            position: sticky;
+            top: 80px;
+            z-index: 60;
+            display: inline-flex;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: var(--glass-secondary);
+            backdrop-filter: var(--blur-subtle);
+            -webkit-backdrop-filter: var(--blur-subtle);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            margin: 1rem auto;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .micro-nav a {
+            color: var(--moonlight-primary);
+            font-size: 0.875rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background var(--transition-fast), color var(--transition-fast);
+            opacity: 0.85;
+        }
+
+        .micro-nav a:hover {
+            background: rgba(200, 168, 130, 0.15);
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .micro-nav {
+                display: none;
+            }
+        }
+
         .glass-button:focus,
         .glass-button-primary:focus {
             outline: 3px solid var(--accent-interactive);
@@ -2610,27 +2701,49 @@
         </div>
     </nav>
 
+    <!-- Micro-navigation for section jumping -->
+    <div class="text-center mt-24">
+        <nav class="micro-nav" aria-label="Section navigation">
+            <a href="#hero">Home</a>
+            <a href="#discovery">Discovery</a>
+            <a href="#methodology">Blueprint</a>
+            <a href="#program">Program</a>
+            <a href="#guides">Guides</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+
     <!-- Main Content -->
     <main id="main-content" class="relative" role="main">
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center justify-center px-4 pt-20" aria-labelledby="hero-title">
             <div class="container mx-auto max-w-4xl text-center">
                 <div class="floating-content fade-in">
-                    <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-6 moonlight-text leading-tight cosmic-headline" style="font-family: var(--font-serif);">
-                        Activate Your 
-                        <span class="integrated-wholeness-text">
-                            Integrated Wholeness
-                        </span>
-                    </h1>
-                    <p class="text-xl md:text-2xl moonlight-secondary mb-8 leading-relaxed max-w-3xl mx-auto floating-subtext">
-                        A revolutionary blueprint for conscious leaders—uniting trauma‑informed psychology, ancient wisdom and cutting‑edge science.
-                    </p>
+                    <div class="hero-overlay glass-panel">
+                        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-4 moonlight-text leading-tight cosmic-headline" style="font-family: var(--font-serif);">
+                            Beyond Achievement: 
+                            <span class="integrated-wholeness-text">
+                                The Path to Lasting Fulfillment
+                            </span>
+                        </h1>
+                        <p class="text-lg md:text-xl moonlight-secondary mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
+                            You've achieved success, but feel like something is missing. The constant pressure has left you disconnected from your purpose and well-being.
+                        </p>
+                        <p class="text-xl md:text-2xl moonlight-primary mb-8 leading-relaxed max-w-3xl mx-auto floating-subtext font-semibold">
+                            A confidential journey for leaders ready to align external success with inner satisfaction through our evidence-informed framework.
+                        </p>
+                    </div>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center floating-cta-group">
-                        <a href="#discovery" class="cosmic-button-primary text-lg" aria-label="Schedule your discovery call">
-                            Schedule Discovery Call
+                        <a href="#discovery" class="cosmic-button-primary text-lg" aria-label="Schedule your complimentary discovery call">
+                            Schedule Complimentary Discovery Call
                         </a>
-                        <a href="#methodology" class="cosmic-button-secondary" aria-label="Explore the methodology">
-                            Explore Methodology
+                        <a href="#program" class="cosmic-button-secondary" aria-label="Download program overview">
+                            Download Program Overview
+                        </a>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <a href="#methodology" class="text-accent-interactive hover:text-accent-primary transition-colors underline text-sm font-medium" aria-label="Learn about the 3-phase process">
+                            Learn About the 3-Phase Process →
                         </a>
                     </div>
                 </div>
@@ -2645,7 +2758,7 @@
                         Schedule Your Discovery Call
                     </h2>
                     <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="cosmic-content-block">
+                        <div class="cosmic-content-block glass-panel">
                             <h3 class="text-xl font-semibold moonlight-text mb-6 evidence-header">What You'll Discover:</h3>
                             <ul class="space-y-4 moonlight-secondary cosmic-list">
                                 <li class="flex items-start cosmic-list-item">
@@ -2665,6 +2778,16 @@
                                     <span class="list-text">Whether our <strong>program is the right fit</strong> for your goals and timeline</span>
                                 </li>
                             </ul>
+                            
+                            <div class="mt-8 p-4 bg-glass-secondary rounded-lg border border-glass-border">
+                                <h4 class="text-lg font-semibold moonlight-primary mb-3">Leaders Report:</h4>
+                                <ul class="space-y-2 text-sm moonlight-secondary">
+                                    <li>✓ Navigate pressure with unshakable calm</li>
+                                    <li>✓ Master emotions and deepen self-connection</li>
+                                    <li>✓ Sharpen intuition for decisive decision-making</li>
+                                    <li>✓ Accelerate career progression & development</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="floating-form-container">
                             <form class="cosmic-form space-y-6" aria-label="Discovery call scheduling form">
@@ -2683,7 +2806,7 @@
                                     >
                                 </div>
                                 <p id="email-help" class="text-sm moonlight-muted form-help">
-                                    We'll contact you within 24 hours to schedule your personalized call.
+                                    We'll contact you within 24 hours to schedule your personalized call. Contact: jatinalla2000@gmail.com or shal.verm@gmail.com
                                 </p>
                                 <button type="submit" class="cosmic-button-primary w-full form-submit">
                                     Schedule My Discovery Call
@@ -2691,6 +2814,55 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformation Results Section -->
+        <section id="results" class="py-20 px-4 cosmic-section" aria-labelledby="results-title">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16 fade-in">
+                    <h2 id="results-title" class="text-3xl md:text-5xl font-bold moonlight-text mb-6 cosmic-section-title" style="font-family: var(--font-serif);">
+                        Your Transformation
+                    </h2>
+                    <p class="text-lg moonlight-secondary max-w-3xl mx-auto">
+                        Tangible results for your life and career through our evidence-informed framework
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Find Your Center</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Navigate pressure with unshakeable calm and focus</li>
+                            <li>Master emotional responses to reduce stress and prevent burnout</li>
+                            <li>Increase connections with staff, leadership, and peers/partners</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Unlock Your Potential</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Clarify your unique purpose for a more fulfilling career and life</li>
+                            <li>Sharpen your intuition for faster, more confident decision-making</li>
+                            <li>Enhance emotional and social intelligence to lead more effectively</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Build Lasting Resilience</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Release past limitations holding you back from your full potential</li>
+                            <li>Develop inner strength to thrive through major life and career transitions</li>
+                            <li>Cultivate deep-rooted well-being that fuels your success, not drains it</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center glass-panel">
+                    <p class="text-lg moonlight-primary font-semibold italic">
+                        "Live a life that feels as good on the inside as it looks on the outside."
+                    </p>
                 </div>
             </div>
         </section>
@@ -2945,10 +3117,10 @@
                         Your Transformation Guides
                     </h2>
                     <p class="text-xl md:text-2xl moonlight-secondary max-w-4xl mx-auto mb-4">
-                        Leaders in their fields, bringing decades of experience from MIT, Harvard, Google Research, and deep spiritual practice.
+                        Practitioners with backgrounds at MIT, Harvard Business School, Google Research and Google DeepMind, bringing decades of experience in somatic work, contemplative practice, and systems leadership.
                     </p>
                     <p class="text-lg moonlight-muted italic">
-                        IQ 180+ equivalent analytical capacity meets profound wisdom traditions.
+                        Exceptional expertise in trauma-informed coaching, Enneagram guidance, AI research, and human transformation.
                     </p>
                 </div>
                 
@@ -2963,11 +3135,11 @@
                         <div class="guide-biography">
                             <div class="bio-header">
                                 <h3 class="guide-name">Shalini Verma</h3>
-                                <p class="guide-credentials">MIT/Harvard Graduate • Trauma-Informed Coach</p>
+                                <p class="guide-credentials">MIT & Harvard Business School Graduate • Crain's Top 50 Technology Talent</p>
                             </div>
                             <div class="bio-content">
                                 <p class="guide-description">
-                                    30+ years somatic practitioner specializing in <strong>trauma integration</strong> and nervous system regulation. Expert in Enneagram guidance and wisdom traditions.
+                                    Life Coach & Guide, Human Potentialist and Organizational Whisperer. Seasoned executive with experience at Ford, Sun, Oracle, Motorola and Google. Trained as an <strong>Enneagram Guide, Trauma Informed Coach, and Somatic Healer</strong> with 30+ years discovering tools for human transformation.
                                 </p>
                                 <div class="expertise-tags">
                                     <span class="expertise-tag primary">Somatic Practices</span>
@@ -2993,11 +3165,11 @@
                         <div class="guide-biography">
                             <div class="bio-header">
                                 <h3 class="guide-name">Jatin Alla</h3>
-                                <p class="guide-credentials">Former Google Research & DeepMind</p>
+                                <p class="guide-credentials">Google Research & Google DeepMind Researcher • Cognitive Science Background</p>
                             </div>
                             <div class="bio-content">
                                 <p class="guide-description">
-                                    Cognitive scientist and AI researcher specializing in <strong>human-AI interaction</strong>. Expert in systems thinking and the integration of technology with consciousness.
+                                    Life Coach, AI Researcher, and Community Builder specialized in the intersection of Artificial Intelligence and Human-Computer Interaction. Led mixed-method, user-centered research in health and wellness domain. <strong>Exceptional ability to help clients recognize and transform deeply ingrained behavioral patterns</strong>, bridging technology and human development.
                                 </p>
                                 <div class="expertise-tags">
                                     <span class="expertise-tag secondary">AI Research</span>
@@ -3032,12 +3204,17 @@
                     <h2 id="program-title" class="text-4xl md:text-6xl font-bold moonlight-text mb-8 cosmic-section-title" style="font-family: var(--font-serif);">
                         The Kairos Path Program
                     </h2>
-                    <p class="text-xl md:text-2xl moonlight-secondary max-w-4xl mx-auto mb-4">
-                        12-month comprehensive journey for conscious leaders ready to activate integrated wholeness.
+                    <p class="text-xl md:text-2xl moonlight-secondary max-w-4xl mx-auto mb-6">
+                        A confidential, transformative journey designed for professionals and leaders ready to align external success with inner satisfaction.
                     </p>
-                    <p class="text-lg moonlight-muted italic">
-                        Limited cohort for maximum leverage and personalized attention.
-                    </p>
+                    <div class="glass-panel hero-overlay mb-8">
+                        <p class="text-lg moonlight-primary font-semibold mb-4">
+                            Beta Pilot Program: $3000 for 10 sessions
+                        </p>
+                        <p class="text-sm moonlight-muted">
+                            Weekly or 2x/month sessions + as-needed support. Pricing expected to increase 3-5x with production release.
+                        </p>
+                    </div>
                 </div>
                 
                 <div class="floating-content-zone slide-up">
@@ -3076,6 +3253,53 @@
                             </div>
                         </div>
                         
+                        <div class="program-details glass-panel mb-12">
+                            <h3 class="text-3xl font-bold moonlight-text mb-8 text-center">The 3-Phase Kairos Framework</h3>
+                            
+                            <details class="mb-6">
+                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
+                                    Phase 1: Discover Your Blueprint — Identify & Establish Patterns
+                                </summary>
+                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
+                                    <p class="moonlight-secondary mb-4">Deep dive into self-awareness, uncovering unconscious emotional and behavioral patterns that shape your reality.</p>
+                                    <ul class="space-y-2 moonlight-secondary">
+                                        <li><strong>Map Aversions & Cravings:</strong> Identify core triggers—things you crave and resist. These habit patterns are the root of reactive behavior.</li>
+                                        <li><strong>Establish Core Motivations:</strong> Using Enneagram and Gene Keys frameworks to understand fundamental motivations, fears, and habits.</li>
+                                        <li><strong>Pattern Recognition:</strong> Connect emotional reactions to underlying triggers and core fears through guided journaling and coaching.</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="mb-6">
+                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
+                                    Phase 2: Integrate & Reshape — Shift & Release
+                                </summary>
+                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
+                                    <p class="moonlight-secondary mb-4">Transform and heal by developing capacity to consciously engage with and release stored energy patterns.</p>
+                                    <ul class="space-y-2 moonlight-secondary">
+                                        <li><strong>Cultivate Somatic Awareness:</strong> Yoga and somatic exercises to observe physical sensations with equanimity.</li>
+                                        <li><strong>Sharpen Awareness:</strong> Vipassana meditation techniques to release stored energy of past traumas and habitual reactions.</li>
+                                        <li><strong>Heal Inner Fragments:</strong> Recognize and integrate fragmented parts of self created by trauma.</li>
+                                        <li><strong>Shift Perspective:</strong> Reframe limiting beliefs and develop empathy to dissolve personal reactivity.</li>
+                                    </ul>
+                                </div>
+                            </details>
+
+                            <details class="mb-8">
+                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
+                                    Phase 3: Actualize Your Purpose — Amplify with Group Coherence
+                                </summary>
+                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
+                                    <p class="moonlight-secondary mb-4">Individual journey accelerated within small group setting, creating synergistic field for deeper transformation.</p>
+                                    <ul class="space-y-2 moonlight-secondary">
+                                        <li><strong>Collective Healing & Support:</strong> Co-regulate and support one another, creating a "healing current" for easier trauma processing.</li>
+                                        <li><strong>Enhanced Problem-Solving:</strong> Achieve "hive mind" or collective flow state for more resonant and creative solutions.</li>
+                                        <li><strong>Align with Authentic Purpose:</strong> Direct connection to intuition for better decisions with speed and confidence—channeling ambition into integrated life.</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
+
                         <div class="floating-form-container">
                             <div class="cosmic-form text-center">
                                 <h3 class="text-3xl font-bold moonlight-text mb-4">Ready to Begin?</h3>
