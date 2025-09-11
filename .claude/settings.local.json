@@ -10,7 +10,10 @@
       "Bash(del index-optimized.html)",
       "Bash(taskkill:*)",
       "Bash(cmd /c:*)",
-      "Bash(start http://localhost:8001)"
+      "Bash(start http://localhost:8001)",
+      "Bash(start http://localhost:8002)",
+      "Bash(start http://localhost:8003)",
+      "Bash(start http://localhost:8004)"
     ],
     "deny": [],
     "ask": []

@@ -117,9 +117,12 @@
     position: relative;
     width: 100%;
     height: 750px;
+    min-height: 600px;
+    max-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 /* Central Hub - Integrated Wholeness */
@@ -217,20 +220,17 @@
         0 0 8px rgba(0, 0, 0, 0.6),
         0 1px 2px rgba(0, 0, 0, 1);
     font-family: var(--font-serif);
-    line-height: 1.15;
+    line-height: 1.1;
     letter-spacing: 0.5px;
     
-    /* Perfect centering approach */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* Perfect centering approach using flexbox parent */
     width: 90%;
     z-index: 1;
     
     /* Allow line breaks for two-line text */
     white-space: pre-line;
-    line-height: 1.1;
+    margin: 0;
+    padding: 0;
 }
 
 /* Transformation Streams */
@@ -507,10 +507,32 @@
     }
 }
 
+/* Large Desktop Responsiveness */
+@media (min-width: 1400px) {
+    .ecosystem-container {
+        height: 850px;
+    }
+    
+    .integration-hub {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .hub-text {
+        font-size: 1.3rem;
+    }
+    
+    .transformation-stream {
+        width: 400px;
+        height: 180px;
+    }
+}
+
 /* Tablet Responsiveness */
 @media (max-width: 1024px) {
     .ecosystem-container {
-        height: 700px;
+        height: 650px;
+        max-height: 85vh;
     }
     
     .integration-hub {
@@ -658,6 +680,48 @@
     .process-arrow {
         font-size: 1rem;
         margin: 0.2rem;
+    }
+}
+
+/* Extra small viewports */
+@media (max-width: 480px) {
+    .transformation-ecosystem {
+        padding: 2rem 0.5rem;
+    }
+    
+    .integration-hub {
+        width: 110px;
+        height: 110px;
+        margin: 1.5rem auto;
+    }
+    
+    .hub-text {
+        font-size: 0.85rem;
+        line-height: 1.0;
+        width: 80%;
+    }
+    
+    .transformation-stream {
+        max-width: 320px;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .stream-content {
+        padding: 1.5rem 1rem;
+        min-height: 120px;
+    }
+    
+    .stream-title {
+        font-size: 1rem;
+    }
+    
+    .stream-description {
+        font-size: 0.9rem;
+    }
+    
+    .framework-tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
     }
 }
 
@@ -1140,6 +1204,47 @@ body.modal-open {
 .energy-flow,
 .particle {
     will-change: transform;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .hub-core {
+        animation: none;
+    }
+    
+    .hub-core::before,
+    .hub-core::after {
+        animation: none;
+    }
+    
+    .energy-flow {
+        animation: none;
+    }
+    
+    .particle {
+        animation: none;
+        display: none;
+    }
+    
+    .transformation-stream {
+        transition: none;
+    }
+    
+    .transformation-stream:hover {
+        transform: none;
+    }
+    
+    .process-arrow {
+        animation: none;
+    }
+    
+    .stream-slide-in {
+        animation: none;
+    }
+    
+    .hub-activation {
+        animation: none;
+    }
 }
 
 .stream-details-panel,
