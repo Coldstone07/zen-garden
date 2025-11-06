@@ -97,6 +97,21 @@
         }
     }
 
+    // Initialize adaptive contrast system
+    function initializeAdaptiveContrast() {
+        if (!KairosApp.features.animation) {
+            // No need for adaptive contrast if animation is disabled
+            return;
+        }
+
+        if (window.KairosAdaptiveContrast && typeof window.KairosAdaptiveContrast.initialize === 'function') {
+            window.KairosAdaptiveContrast.initialize();
+            console.log('✓ Adaptive contrast system initialized');
+        } else {
+            console.warn('Adaptive contrast system not available');
+        }
+    }
+
     // Setup event listeners
     function setupEventListeners() {
         // Form submissions
@@ -221,6 +236,9 @@
 
             // Initialize animation if supported
             initializeAnimation();
+
+            // Initialize adaptive contrast (depends on animation)
+            initializeAdaptiveContrast();
 
             // Initialize enhanced features
             initializeEnhancedFeatures();
