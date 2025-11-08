@@ -30,10 +30,10 @@
             --cosmic-surface: #1C1C26;          /* Raised surface areas */
             
             /* Glassmorphism Surfaces */
-            --glass-primary: rgba(247, 243, 233, 0.08);     /* Primary glass surface */
-            --glass-secondary: rgba(247, 243, 233, 0.04);   /* Secondary glass surface */
-            --glass-border: rgba(247, 243, 233, 0.12);      /* Glass border */
-            --glass-highlight: rgba(247, 243, 233, 0.16);   /* Glass highlights */
+            --glass-primary: rgba(247, 243, 233, 0.1);      /* Primary glass surface - enhanced for better contrast */
+            --glass-secondary: rgba(247, 243, 233, 0.05);  /* Secondary glass surface */
+            --glass-border: rgba(247, 243, 233, 0.15);      /* Glass border - enhanced visibility */
+            --glass-highlight: rgba(247, 243, 233, 0.18);   /* Glass highlights */
             
             /* Accent Colors */
             --accent-primary: #C8A882;           /* Warm gold accent */
@@ -113,10 +113,10 @@
         }
 
         .glass-subtle {
-            background: rgba(247, 243, 233, 0.02);
+            background: rgba(247, 243, 233, 0.04);
             backdrop-filter: var(--blur-subtle);
             -webkit-backdrop-filter: var(--blur-subtle);
-            border: 1px solid rgba(247, 243, 233, 0.06);
+            border: 1px solid rgba(247, 243, 233, 0.1);
             border-radius: 12px;
         }
 
@@ -208,9 +208,11 @@
 
         .cosmic-headline {
             text-shadow: 
-                0 0 20px rgba(247, 243, 233, 0.8),
-                0 0 40px rgba(200, 168, 130, 0.4),
-                0 2px 4px rgba(0, 0, 0, 0.3);
+                0 0 20px rgba(247, 243, 233, 0.9),
+                0 0 40px rgba(200, 168, 130, 0.5),
+                0 2px 6px rgba(0, 0, 0, 0.6),
+                0 1px 2px rgba(0, 0, 0, 0.8);
+            letter-spacing: -0.02em;
         }
 
         .integrated-wholeness-text {
@@ -3170,13 +3172,19 @@
 
         /* Hero overlay for improved text readability */
         .hero-overlay {
-            background: var(--glass-primary);
+            background: rgba(247, 243, 233, 0.12);
             backdrop-filter: var(--blur-medium);
             -webkit-backdrop-filter: var(--blur-medium);
-            padding: 3rem 2rem;
+            padding: 4rem 3rem;
             border-radius: 24px;
             box-shadow: var(--shadow-medium);
             border: 1px solid var(--glass-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero-overlay {
+                padding: 2.5rem 1.5rem;
+            }
         }
 
         /* Glass panel utility for text-heavy sections */
@@ -3401,8 +3409,8 @@
                 </div>
                 <span class="moonlight-text text-xl font-semibold tracking-tight" style="font-family: var(--font-serif);">The Kairos Path</span>
             </div>
-            <a href="#program" class="moonlight-muted hover:text-accent-interactive transition-colors text-sm font-medium" aria-label="View program details">
-                View Program →
+            <a href="#discovery" class="moonlight-muted hover:text-accent-interactive transition-colors text-sm font-medium" aria-label="Schedule discovery call">
+                Schedule Discovery →
             </a>
         </div>
     </nav>
@@ -3413,7 +3421,6 @@
             <a href="#hero">Home</a>
             <a href="#discovery">Discovery</a>
             <a href="#methodology">Blueprint</a>
-            <a href="#program">Program</a>
             <a href="#guides">Guides</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -3423,149 +3430,34 @@
     <main id="main-content" class="relative" role="main">
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center justify-center px-4 pt-20" aria-labelledby="hero-title">
-            <div class="container mx-auto max-w-4xl text-center">
+            <div class="container mx-auto max-w-5xl text-center">
                 <div class="floating-content fade-in">
                     <div class="hero-overlay glass-panel">
-                        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-4 moonlight-text leading-tight cosmic-headline" style="font-family: var(--font-serif);">
+                        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-10 moonlight-text leading-relaxed cosmic-headline" style="font-family: var(--font-serif);">
                             Beyond Achievement: The Path to Lasting Fulfillment
                         </h1>
-                        <p class="text-lg md:text-xl moonlight-secondary mb-6 leading-relaxed max-w-3xl mx-auto font-medium">
-                            You've achieved success, but feel like something is missing. The constant pressure has left you disconnected from your purpose and well-being.
+                        <p class="text-lg md:text-xl moonlight-secondary mb-0 leading-relaxed max-w-3xl mx-auto font-medium">
+                            You've achieved success, but feel disconnected from your purpose and well-being.
                         </p>
-                        <p class="text-xl md:text-2xl moonlight-primary mb-8 leading-relaxed max-w-3xl mx-auto floating-subtext font-semibold">
+                    </div>
+                    <div class="mt-8 floating-subtext glass-subtle px-6 py-4 max-w-4xl mx-auto">
+                        <p class="text-lg md:text-xl moonlight-primary leading-relaxed font-semibold">
                             A confidential journey for leaders ready to align external success with inner satisfaction through our evidence-informed framework.
                         </p>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center floating-cta-group">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center floating-cta-group mt-12">
                         <a href="#discovery" class="cosmic-button-primary text-lg" aria-label="Schedule your complimentary discovery call">
                             Schedule Complimentary Discovery Call
                         </a>
-                        <a href="#program" class="cosmic-button-secondary" aria-label="Download program overview">
-                            Download Program Overview
+                        <a href="#methodology" class="cosmic-button-secondary" aria-label="Learn about the methodology">
+                            Learn About the Methodology
                         </a>
                     </div>
-                    <div class="mt-6 text-center">
+                    <div class="mt-8 text-center">
                         <a href="#methodology" class="text-accent-interactive hover:text-accent-primary transition-colors underline text-sm font-medium" aria-label="Learn about the 3-phase process">
                             Learn About the 3-Phase Process →
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Discovery Call Section -->
-        <section id="discovery" class="py-20 px-4 cosmic-section" aria-labelledby="discovery-title">
-            <div class="container mx-auto max-w-4xl">
-                <div class="floating-content-zone slide-up">
-                    <h2 id="discovery-title" class="text-3xl md:text-4xl font-bold moonlight-text mb-8 text-center cosmic-section-title" style="font-family: var(--font-serif);">
-                        Schedule Your Discovery Call
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="cosmic-content-block glass-panel">
-                            <h3 class="text-xl font-semibold moonlight-text mb-6 evidence-header">What You'll Discover:</h3>
-                            <ul class="space-y-4 moonlight-secondary cosmic-list">
-                                <li class="flex items-start cosmic-list-item">
-                                    <span class="cosmic-bullet"></span>
-                                    <span class="list-text">Your unique <strong>transformation starting point</strong> and current patterns</span>
-                                </li>
-                                <li class="flex items-start cosmic-list-item">
-                                    <span class="cosmic-bullet"></span>
-                                    <span class="list-text">How the <strong>Kairos methodology</strong> applies to your specific challenges</span>
-                                </li>
-                                <li class="flex items-start cosmic-list-item">
-                                    <span class="cosmic-bullet"></span>
-                                    <span class="list-text">A personalized <strong>roadmap</strong> for your integrated development journey</span>
-                                </li>
-                                <li class="flex items-start cosmic-list-item">
-                                    <span class="cosmic-bullet"></span>
-                                    <span class="list-text">Whether our <strong>program is the right fit</strong> for your goals and timeline</span>
-                                </li>
-                            </ul>
-                            
-                            <div class="mt-8 p-4 bg-glass-secondary rounded-lg border border-glass-border">
-                                <h4 class="text-lg font-semibold moonlight-primary mb-3">Leaders Report:</h4>
-                                <ul class="space-y-2 text-sm moonlight-secondary">
-                                    <li>✓ Navigate pressure with unshakable calm</li>
-                                    <li>✓ Master emotions and deepen self-connection</li>
-                                    <li>✓ Sharpen intuition for decisive decision-making</li>
-                                    <li>✓ Accelerate career progression & development</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="floating-form-container">
-                            <form class="cosmic-form space-y-6" aria-label="Discovery call scheduling form">
-                                <div class="form-group">
-                                    <label for="email" class="block moonlight-text font-medium mb-2 form-label">
-                                        Email Address
-                                    </label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email"
-                                        placeholder="Enter your email address" 
-                                        class="cosmic-input"
-                                        required
-                                        aria-describedby="email-help"
-                                    >
-                                </div>
-                                <p id="email-help" class="text-sm moonlight-muted form-help">
-                                    We'll contact you within 24 hours to schedule your complimentary 30-minute discovery call. Contact: jatinalla2000@gmail.com or shal.verm@gmail.com
-                                </p>
-                                <button type="submit" class="cosmic-button-primary w-full form-submit">
-                                    Schedule My Discovery Call
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Transformation Results Section -->
-        <section id="results" class="py-20 px-4 cosmic-section" aria-labelledby="results-title">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-16 fade-in">
-                    <h2 id="results-title" class="text-3xl md:text-5xl font-bold moonlight-text mb-6 cosmic-section-title" style="font-family: var(--font-serif);">
-                        Your Transformation
-                    </h2>
-                    <p class="text-lg moonlight-secondary max-w-3xl mx-auto">
-                        Tangible results for your life and career through our evidence-informed framework
-                    </p>
-                </div>
-                
-                <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="glass-panel text-center">
-                        <h3 class="text-xl font-semibold moonlight-text mb-4">Find Your Center</h3>
-                        <ul class="space-y-2 moonlight-secondary text-sm">
-                            <li>Navigate pressure with unshakeable calm and focus</li>
-                            <li>Master emotional responses to reduce stress and prevent burnout</li>
-                            <li>Increase connections with staff, leadership, and peers/partners</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="glass-panel text-center">
-                        <h3 class="text-xl font-semibold moonlight-text mb-4">Unlock Your Potential</h3>
-                        <ul class="space-y-2 moonlight-secondary text-sm">
-                            <li>Clarify your unique purpose for a more fulfilling career and life</li>
-                            <li>Sharpen your intuition for faster, more confident decision-making</li>
-                            <li>Enhance emotional and social intelligence to lead more effectively</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="glass-panel text-center">
-                        <h3 class="text-xl font-semibold moonlight-text mb-4">Build Lasting Resilience</h3>
-                        <ul class="space-y-2 moonlight-secondary text-sm">
-                            <li>Release past limitations holding you back from your full potential</li>
-                            <li>Develop inner strength to thrive through major life and career transitions</li>
-                            <li>Cultivate deep-rooted well-being that fuels your success, not drains it</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="text-center glass-panel">
-                    <p class="text-lg moonlight-primary font-semibold italic">
-                        "Live a life that feels as good on the inside as it looks on the outside."
-                    </p>
                 </div>
             </div>
         </section>
@@ -3891,6 +3783,55 @@
             </div>
         </section>
 
+        <!-- Transformation Results Section -->
+        <section id="results" class="py-20 px-4 cosmic-section" aria-labelledby="results-title">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16 fade-in">
+                    <h2 id="results-title" class="text-3xl md:text-5xl font-bold moonlight-text mb-6 cosmic-section-title" style="font-family: var(--font-serif);">
+                        Your Transformation
+                    </h2>
+                    <p class="text-lg moonlight-secondary max-w-3xl mx-auto">
+                        Tangible results for your life and career through our evidence-informed framework
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Find Your Center</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Navigate pressure with unshakeable calm and focus</li>
+                            <li>Master emotional responses to reduce stress and prevent burnout</li>
+                            <li>Increase connections with staff, leadership, and peers/partners</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Unlock Your Potential</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Clarify your unique purpose for a more fulfilling career and life</li>
+                            <li>Sharpen your intuition for faster, more confident decision-making</li>
+                            <li>Enhance emotional and social intelligence to lead more effectively</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glass-panel text-center">
+                        <h3 class="text-xl font-semibold moonlight-text mb-4">Build Lasting Resilience</h3>
+                        <ul class="space-y-2 moonlight-secondary text-sm">
+                            <li>Release past limitations holding you back from your full potential</li>
+                            <li>Develop inner strength to thrive through major life and career transitions</li>
+                            <li>Cultivate deep-rooted well-being that fuels your success, not drains it</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center glass-panel">
+                    <p class="text-lg moonlight-primary font-semibold italic">
+                        "Live a life that feels as good on the inside as it looks on the outside."
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- Authority & Cosmic Guides Section -->
         <section id="guides" class="py-32 px-4 cosmic-section guides-section" aria-labelledby="guides-title">
             <div class="container mx-auto max-w-7xl">
@@ -3979,124 +3920,68 @@
             </div>
         </section>
 
-        <!-- Program Details - Cosmic Modules -->
-        <section id="program" class="py-32 px-4 cosmic-section" aria-labelledby="program-title">
-            <div class="container mx-auto max-w-6xl">
-                <div class="text-center mb-20 fade-in">
-                    <h2 id="program-title" class="text-4xl md:text-6xl font-bold moonlight-text mb-8 cosmic-section-title" style="font-family: var(--font-serif);">
-                        The Kairos Path Program
-                    </h2>
-                    <p class="text-xl md:text-2xl moonlight-secondary max-w-4xl mx-auto mb-6">
-                        A confidential, transformative journey designed for professionals and leaders ready to align external success with inner satisfaction.
-                    </p>
-                    <div class="glass-panel hero-overlay mb-8">
-                        <p class="text-lg moonlight-primary font-semibold mb-4">
-                            Beta Pilot Program: $3000 for 10 sessions
-                        </p>
-                        <p class="text-sm moonlight-muted">
-                            Weekly or 2x/month sessions + as-needed support. Pricing expected to increase 3-5x with production release.
-                        </p>
-                    </div>
-                </div>
-                
+        <!-- Discovery Call Section -->
+        <section id="discovery" class="py-20 px-4 cosmic-section" aria-labelledby="discovery-title">
+            <div class="container mx-auto max-w-4xl">
                 <div class="floating-content-zone slide-up">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <div class="cosmic-content-block">
-                            <h3 class="text-2xl font-bold moonlight-text mb-6 evidence-header">Program Architecture:</h3>
-                            <div class="space-y-6">
-                                <div class="cosmic-list-item">
+                    <h2 id="discovery-title" class="text-3xl md:text-4xl font-bold moonlight-text mb-8 text-center cosmic-section-title" style="font-family: var(--font-serif);">
+                        Schedule Your Discovery Call
+                    </h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="cosmic-content-block glass-panel">
+                            <h3 class="text-xl font-semibold moonlight-text mb-6 evidence-header">What You'll Discover:</h3>
+                            <ul class="space-y-4 moonlight-secondary cosmic-list">
+                                <li class="flex items-start cosmic-list-item">
                                     <span class="cosmic-bullet"></span>
-                                    <div class="list-content">
-                                        <h4 class="font-semibold moonlight-text text-lg">Monthly Integration Sessions</h4>
-                                        <p class="moonlight-secondary">Deep-dive workshops and integration circles with systematic progress tracking</p>
-                                    </div>
-                                </div>
-                                <div class="cosmic-list-item">
+                                    <span class="list-text">Your unique <strong>transformation starting point</strong> and current patterns</span>
+                                </li>
+                                <li class="flex items-start cosmic-list-item">
                                     <span class="cosmic-bullet"></span>
-                                    <div class="list-content">
-                                        <h4 class="font-semibold moonlight-text text-lg">1:1 Breakthrough Coaching</h4>
-                                        <p class="moonlight-secondary">Personalized guidance with trauma-informed and AI-enhanced approaches</p>
-                                    </div>
-                                </div>
-                                <div class="cosmic-list-item">
+                                    <span class="list-text">How the <strong>Kairos methodology</strong> applies to your specific challenges</span>
+                                </li>
+                                <li class="flex items-start cosmic-list-item">
                                     <span class="cosmic-bullet"></span>
-                                    <div class="list-content">
-                                        <h4 class="font-semibold moonlight-text text-lg">Digital Learning Ecosystem</h4>
-                                        <p class="moonlight-secondary">Self-paced modules, assessments, and comprehensive resource library</p>
-                                    </div>
-                                </div>
-                                <div class="cosmic-list-item">
+                                    <span class="list-text">A personalized <strong>roadmap</strong> for your integrated development journey</span>
+                                </li>
+                                <li class="flex items-start cosmic-list-item">
                                     <span class="cosmic-bullet"></span>
-                                    <div class="list-content">
-                                        <h4 class="font-semibold moonlight-text text-lg">Conscious Leaders Community</h4>
-                                        <p class="moonlight-secondary">Private cohort of high-achieving individuals on similar transformation paths</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="program-details glass-panel mb-12">
-                            <h3 class="text-3xl font-bold moonlight-text mb-8 text-center">The 3-Phase Kairos Framework</h3>
+                                    <span class="list-text">Whether our <strong>program is the right fit</strong> for your goals and timeline</span>
+                                </li>
+                            </ul>
                             
-                            <details class="mb-6">
-                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
-                                    Phase 1: Discover Your Blueprint — Identify & Establish Patterns
-                                </summary>
-                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
-                                    <p class="moonlight-secondary mb-4">Deep dive into self-awareness, uncovering unconscious emotional and behavioral patterns that shape your reality.</p>
-                                    <ul class="space-y-2 moonlight-secondary">
-                                        <li><strong>Map Aversions & Cravings:</strong> Identify core triggers—things you crave and resist. These habit patterns are the root of reactive behavior.</li>
-                                        <li><strong>Establish Core Motivations:</strong> Using Enneagram and Gene Keys frameworks to understand fundamental motivations, fears, and habits.</li>
-                                        <li><strong>Pattern Recognition:</strong> Connect emotional reactions to underlying triggers and core fears through guided journaling and coaching.</li>
-                                    </ul>
-                                </div>
-                            </details>
-
-                            <details class="mb-6">
-                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
-                                    Phase 2: Integrate & Reshape — Shift & Release
-                                </summary>
-                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
-                                    <p class="moonlight-secondary mb-4">Transform and heal by developing capacity to consciously engage with and release stored energy patterns.</p>
-                                    <ul class="space-y-2 moonlight-secondary">
-                                        <li><strong>Cultivate Somatic Awareness:</strong> Yoga and somatic exercises to observe physical sensations with equanimity.</li>
-                                        <li><strong>Sharpen Awareness:</strong> Vipassana meditation techniques to release stored energy of past traumas and habitual reactions.</li>
-                                        <li><strong>Heal Inner Fragments:</strong> Recognize and integrate fragmented parts of self created by trauma.</li>
-                                        <li><strong>Shift Perspective:</strong> Reframe limiting beliefs and develop empathy to dissolve personal reactivity.</li>
-                                    </ul>
-                                </div>
-                            </details>
-
-                            <details class="mb-8">
-                                <summary class="text-xl font-semibold moonlight-text cursor-pointer p-4 bg-glass-secondary rounded-lg border border-glass-border">
-                                    Phase 3: Actualize Your Purpose — Amplify with Group Coherence
-                                </summary>
-                                <div class="p-6 mt-4 bg-glass-primary rounded-lg">
-                                    <p class="moonlight-secondary mb-4">Individual journey accelerated within small group setting, creating synergistic field for deeper transformation.</p>
-                                    <ul class="space-y-2 moonlight-secondary">
-                                        <li><strong>Collective Healing & Support:</strong> Co-regulate and support one another, creating a "healing current" for easier trauma processing.</li>
-                                        <li><strong>Enhanced Problem-Solving:</strong> Achieve "hive mind" or collective flow state for more resonant and creative solutions.</li>
-                                        <li><strong>Align with Authentic Purpose:</strong> Direct connection to intuition for better decisions with speed and confidence—channeling ambition into integrated life.</li>
-                                    </ul>
-                                </div>
-                            </details>
-                        </div>
-
-                        <div class="floating-form-container">
-                            <div class="cosmic-form text-center">
-                                <h3 class="text-3xl font-bold moonlight-text mb-4">Ready to Begin?</h3>
-                                <p class="moonlight-secondary mb-8">
-                                    Limited cohort starting soon. Discovery call to assess fit and readiness for transformation.
-                                </p>
-                                <a href="mailto:hello@kairospatj.com" class="cosmic-button-primary text-lg inline-block">
-                                    Schedule Discovery Call
-                                </a>
-                                <div class="mt-4">
-                                    <p class="text-sm moonlight-muted italic">
-                                        Investment details discussed during discovery call
-                                    </p>
-                                </div>
+                            <div class="mt-8 p-4 bg-glass-secondary rounded-lg border border-glass-border">
+                                <h4 class="text-lg font-semibold moonlight-primary mb-3">Leaders Report:</h4>
+                                <ul class="space-y-2 text-sm moonlight-secondary">
+                                    <li>✓ Navigate pressure with unshakable calm</li>
+                                    <li>✓ Master emotions and deepen self-connection</li>
+                                    <li>✓ Sharpen intuition for decisive decision-making</li>
+                                    <li>✓ Accelerate career progression & development</li>
+                                </ul>
                             </div>
+                        </div>
+                        <div class="floating-form-container">
+                            <form class="cosmic-form space-y-6" aria-label="Discovery call scheduling form">
+                                <div class="form-group">
+                                    <label for="email" class="block moonlight-text font-medium mb-2 form-label">
+                                        Email Address
+                                    </label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email"
+                                        placeholder="Enter your email address" 
+                                        class="cosmic-input"
+                                        required
+                                        aria-describedby="email-help"
+                                    >
+                                </div>
+                                <p id="email-help" class="text-sm moonlight-muted form-help">
+                                    We'll contact you within 24 hours to schedule your complimentary 30-minute discovery call. Contact: jatinalla2000@gmail.com or shal.verm@gmail.com
+                                </p>
+                                <button type="submit" class="cosmic-button-primary w-full form-submit">
+                                    Schedule My Discovery Call
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -4207,7 +4092,7 @@
         function initializeCelestialWeaver() {
             if (shouldUseFallback()) return;
 
-            let scene, camera, renderer, nebulaParticles, weaverLines, climaxObject;
+            let scene, camera, renderer, nebulaParticles, weaverLines;
             let mouseX = 0, mouseY = 0;
             const isHighEnd = window.innerWidth > 1024;
             const PARTICLE_COUNT = isHighEnd ? 5000 : 2500;
@@ -4247,17 +4132,18 @@
                     weaverLines = new THREE.LineSegments(lineGeometry, lineMaterial);
                     scene.add(weaverLines);
 
-                    const climaxGeometry = new THREE.SphereGeometry(1.5, 32, 32);
-                    const climaxMaterial = new THREE.MeshStandardMaterial({
-                        color: colorPrimaryAccent,
-                        emissive: colorPrimaryAccent,
-                        emissiveIntensity: 0,
-                        transparent: true,
-                        opacity: 0,
-                        blending: THREE.AdditiveBlending 
-                    });
-                    climaxObject = new THREE.Mesh(climaxGeometry, climaxMaterial);
-                    scene.add(climaxObject);
+                    // Glowing sphere (climaxObject) removed to improve text readability
+                    // const climaxGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+                    // const climaxMaterial = new THREE.MeshStandardMaterial({
+                    //     color: colorPrimaryAccent,
+                    //     emissive: colorPrimaryAccent,
+                    //     emissiveIntensity: 0,
+                    //     transparent: true,
+                    //     opacity: 0,
+                    //     blending: THREE.AdditiveBlending 
+                    // });
+                    // climaxObject = new THREE.Mesh(climaxGeometry, climaxMaterial);
+                    // scene.add(climaxObject);
                     
                     scene.add(new THREE.AmbientLight(0xffffff, 0.2));
                     const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -4338,17 +4224,17 @@
                     let zoomPhasePercent = scrollPercent > zoomEnd ? 1 : (scrollPercent > zoomStart ? (scrollPercent - zoomStart) / (zoomEnd - zoomStart) : 0);
                     camera.position.z = THREE.MathUtils.lerp(8, 4, zoomPhasePercent);
 
-                    // Phase 4: Climax (70-90% scroll)
+                    // Phase 4: Climax (70-90% scroll) - Glowing sphere removed for better text readability
                     const climaxStart = 0.7, climaxEnd = 0.9;
                     let climaxPhasePercent = scrollPercent > climaxEnd ? 1 : (scrollPercent > climaxStart ? (scrollPercent - climaxStart) / (climaxEnd - climaxStart) : 0);
                     
                     const opacity = Math.sin(climaxPhasePercent * Math.PI);
                     nebulaParticles.material.opacity = 0.7 * (1 - opacity);
                     weaverLines.material.opacity = 0.5 * (1 - opacity);
-                    climaxObject.material.opacity = opacity;
-                    climaxObject.material.emissiveIntensity = opacity * 2;
-                    
-                    climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
+                    // Glowing sphere rendering removed - was making text hard to read
+                    // climaxObject.material.opacity = opacity;
+                    // climaxObject.material.emissiveIntensity = opacity * 2;
+                    // climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
                     
                     renderer.render(scene, camera);
                 } catch (error) {
@@ -5189,223 +5075,14 @@
         }
     </script>
 
-    <!-- Adaptive Contrast System -->
+    <!-- Adaptive Contrast System - DISABLED for performance -->
+    <!-- This system was causing lag due to continuous DOM updates during scroll -->
+    <!-- Commented out but kept for potential future optimization -->
+    <!--
     <script>
-        /**
-         * Adaptive Text Contrast System
-         * Dynamically adjusts text color based on background brightness during animations
-         * Ensures optimal readability as bright elements move behind text content
-         */
-
-        class AdaptiveContrast {
-            constructor() {
-                this.textElements = [];
-                this.animationFrame = null;
-                this.isActive = false;
-                this.canvas = null;
-                this.climaxIntensity = 0;
-                this.init();
-            }
-
-            init() {
-                // Select all text elements that need adaptive contrast
-                const selectors = [
-                    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-                    'p', 'span', 'li', 'a',
-                    '.moonlight-text',
-                    '.moonlight-secondary',
-                    '.moonlight-primary',
-                    '.cosmic-headline',
-                    '.phase-title',
-                    '.stream-title',
-                    '.cosmic-section-title'
-                ];
-
-                // Collect all text elements
-                selectors.forEach(selector => {
-                    document.querySelectorAll(selector).forEach(el => {
-                        if (!this.textElements.includes(el) && el.textContent.trim().length > 0) {
-                            this.textElements.push(el);
-                            // Store original styles
-                            el.dataset.originalColor = window.getComputedStyle(el).color;
-                            el.dataset.originalTextShadow = window.getComputedStyle(el).textShadow;
-                        }
-                    });
-                });
-
-                // Get canvas element
-                this.canvas = document.getElementById('zen-garden-canvas');
-
-                // Start monitoring scroll
-                this.startMonitoring();
-
-                // Handle window resize
-                window.addEventListener('resize', () => {
-                    this.updateTextContrast();
-                });
-            }
-
-            startMonitoring() {
-                if (this.isActive) return;
-                this.isActive = true;
-                this.monitorScroll();
-            }
-
-            stopMonitoring() {
-                this.isActive = false;
-                if (this.animationFrame) {
-                    cancelAnimationFrame(this.animationFrame);
-                    this.animationFrame = null;
-                }
-            }
-
-            monitorScroll() {
-                if (!this.isActive) return;
-
-                // Calculate scroll-based phases (matching three-animation.js)
-                const scrollY = window.scrollY;
-                const totalHeight = document.body.scrollHeight - window.innerHeight;
-                const scrollPercent = totalHeight > 0 ? Math.min(scrollY / totalHeight, 1) : 0;
-
-                // Climax phase: 70-90% scroll (when bright sphere appears)
-                const climaxStart = 0.7;
-                const climaxEnd = 0.9;
-
-                if (scrollPercent >= climaxStart && scrollPercent <= climaxEnd) {
-                    // Calculate intensity (0 to 1) based on sine curve matching the animation
-                    const climaxPhasePercent = (scrollPercent - climaxStart) / (climaxEnd - climaxStart);
-                    this.climaxIntensity = Math.sin(climaxPhasePercent * Math.PI);
-                } else {
-                    this.climaxIntensity = 0;
-                }
-
-                this.updateTextContrast();
-
-                this.animationFrame = requestAnimationFrame(() => this.monitorScroll());
-            }
-
-            updateTextContrast() {
-                // Get sphere position (center of screen during climax)
-                const spherePosition = {
-                    x: window.innerWidth / 2,
-                    y: window.innerHeight / 2,
-                    radius: 150 * (1 + this.climaxIntensity * 0.5) // Sphere grows during climax
-                };
-
-                this.textElements.forEach(element => {
-                    const rect = element.getBoundingClientRect();
-                    const elementCenter = {
-                        x: rect.left + rect.width / 2,
-                        y: rect.top + rect.height / 2
-                    };
-
-                    // Calculate distance from element to sphere center
-                    const distance = Math.sqrt(
-                        Math.pow(elementCenter.x - spherePosition.x, 2) +
-                        Math.pow(elementCenter.y - spherePosition.y, 2)
-                    );
-
-                    // Calculate overlap intensity (1 = fully overlapping, 0 = no overlap)
-                    const maxInfluenceRadius = spherePosition.radius + 300; // Extended influence area
-                    let overlapIntensity = 0;
-
-                    if (distance < maxInfluenceRadius) {
-                        overlapIntensity = (1 - (distance / maxInfluenceRadius)) * this.climaxIntensity;
-                    }
-
-                    // Apply adaptive contrast based on overlap intensity
-                    this.applyContrast(element, overlapIntensity);
-                });
-            }
-
-            applyContrast(element, intensity) {
-                if (intensity > 0.1) {
-                    // High contrast mode: Dark text with strong white glow
-                    const contrastLevel = Math.min(intensity, 1);
-
-                    // Calculate contrast color (dark when bright background is behind)
-                    const darkIntensity = Math.floor(20 + contrastLevel * 30); // 20-50 range (very dark)
-                    const glowIntensity = contrastLevel * 0.9;
-                    const shadowSpread = 20 + contrastLevel * 40;
-
-                    // Apply dark text color with strong white glow
-                    element.style.color = `rgb(${darkIntensity}, ${darkIntensity}, ${Math.floor(darkIntensity * 1.1)})`;
-                    element.style.textShadow = `
-                        0 0 ${shadowSpread}px rgba(255, 255, 255, ${glowIntensity}),
-                        0 0 ${shadowSpread * 1.5}px rgba(255, 255, 255, ${glowIntensity * 0.8}),
-                        0 0 ${shadowSpread * 2}px rgba(255, 255, 255, ${glowIntensity * 0.6}),
-                        0 0 ${shadowSpread * 3}px rgba(200, 168, 130, ${glowIntensity * 0.4}),
-                        0 2px 4px rgba(255, 255, 255, ${glowIntensity * 0.5}),
-                        0 -2px 4px rgba(255, 255, 255, ${glowIntensity * 0.3})
-                    `;
-
-                    // Add strong backdrop for critical text elements
-                    if (element.tagName.match(/^H[1-3]$/)) {
-                        element.style.backdropFilter = `blur(${4 + contrastLevel * 8}px)`;
-                        element.style.webkitBackdropFilter = `blur(${4 + contrastLevel * 8}px)`;
-                        element.style.background = `radial-gradient(ellipse at center,
-                            rgba(200, 168, 130, ${contrastLevel * 0.25}) 0%,
-                            rgba(200, 168, 130, ${contrastLevel * 0.15}) 50%,
-                            transparent 100%)`;
-                        element.style.borderRadius = '12px';
-                        element.style.padding = '0.5rem 1rem';
-                    }
-
-                    element.style.transition = 'color 0.3s ease-out, text-shadow 0.3s ease-out, background 0.3s ease-out';
-                    element.dataset.contrastApplied = 'true';
-                } else {
-                    // Reset to original styles
-                    if (element.dataset.contrastApplied === 'true') {
-                        element.style.color = element.dataset.originalColor || '';
-                        element.style.textShadow = element.dataset.originalTextShadow || '';
-                        element.style.backdropFilter = '';
-                        element.style.webkitBackdropFilter = '';
-                        element.style.background = '';
-                        element.style.borderRadius = '';
-                        element.style.padding = '';
-                        element.dataset.contrastApplied = 'false';
-                    }
-                }
-            }
-
-            // Public method to force update
-            forceUpdate() {
-                this.updateTextContrast();
-            }
-
-            // Destroy instance
-            destroy() {
-                this.stopMonitoring();
-                this.textElements.forEach(element => {
-                    element.style.color = element.dataset.originalColor || '';
-                    element.style.textShadow = element.dataset.originalTextShadow || '';
-                    element.style.backdropFilter = '';
-                    element.style.webkitBackdropFilter = '';
-                    element.style.background = '';
-                    delete element.dataset.originalColor;
-                    delete element.dataset.originalTextShadow;
-                    delete element.dataset.contrastApplied;
-                });
-                this.textElements = [];
-            }
-        }
-
-        // Initialize adaptive contrast when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                // Wait a bit for other scripts to initialize
-                setTimeout(() => {
-                    window.adaptiveContrast = new AdaptiveContrast();
-                    console.log('✓ Adaptive contrast system initialized');
-                }, 500);
-            });
-        } else {
-            // DOM already loaded
-            setTimeout(() => {
-                window.adaptiveContrast = new AdaptiveContrast();
-                console.log('✓ Adaptive contrast system initialized');
-            }, 500);
-        }
+        // Adaptive contrast system code removed to improve performance
+        // The continuous scroll monitoring and DOM style updates were causing lag
     </script>
+    -->
 </body>
 </html>

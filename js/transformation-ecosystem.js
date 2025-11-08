@@ -10,8 +10,8 @@ function initializeTransformationEcosystem() {
     // Setup stream interactions
     setupStreamInteractions();
     
-    // Initialize adaptive contrast system
-    initializeAdaptiveContrast();
+    // Initialize adaptive contrast system - DISABLED for performance
+    // initializeAdaptiveContrast(); // Disabled to improve performance
     
     // Setup scroll-based animations
     setupScrollAnimations();
@@ -305,7 +305,13 @@ function hideStreamDetails(stream) {
     }
 }
 
+// DISABLED for performance - this function was causing lag due to continuous DOM updates
 function initializeAdaptiveContrast() {
+    // Disabled to improve performance - the continuous scroll monitoring
+    // and DOM style updates were causing website lag
+    return;
+    
+    /* Original code commented out:
     const floatingContents = document.querySelectorAll('.floating-content');
     let animationIntensity = 0;
     
@@ -359,6 +365,7 @@ function initializeAdaptiveContrast() {
     
     // Initial update
     updateAnimationIntensity();
+    */
 }
 
 function setupScrollAnimations() {

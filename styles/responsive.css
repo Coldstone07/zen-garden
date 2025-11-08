@@ -26,6 +26,35 @@
         font-size: 14px;
     }
 
+    /* Hero section extra small mobile improvements */
+    #hero {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    #hero .hero-overlay {
+        padding: 2rem 1.25rem !important;
+        margin: 0.75rem 0.5rem;
+    }
+
+    #hero h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1.25rem !important;
+    }
+
+    #hero .floating-subtext {
+        margin-top: 1.25rem !important;
+        padding: 1rem 0.875rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    #hero .floating-cta-group {
+        margin-top: 1.5rem !important;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
     /* Mobile phase journey stacking */
     .lg\\:flex-row, .lg\\:flex-row-reverse {
         gap: 1.5rem !important;
@@ -64,6 +93,44 @@
         font-size: 1.75rem !important;
         line-height: 1.3 !important;
     }
+
+    /* Hero section mobile improvements */
+    #hero {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    #hero .hero-overlay {
+        padding: 2.5rem 1.5rem !important;
+        margin: 1rem 0.5rem;
+    }
+
+    #hero h1 {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 1.5rem !important;
+        letter-spacing: -0.01em;
+    }
+
+    #hero .floating-subtext {
+        margin-top: 1.5rem !important;
+        padding: 1.25rem 1rem !important;
+        font-size: 1rem !important;
+    }
+
+    #hero .floating-cta-group {
+        margin-top: 2rem !important;
+        gap: 0.75rem;
+    }
+
+    #hero .cosmic-button-primary,
+    #hero .cosmic-button-secondary {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 100%;
+    }
+}
 
     /* Mobile spacing adjustments */
     .py-20 {

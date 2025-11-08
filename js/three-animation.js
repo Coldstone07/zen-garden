@@ -24,7 +24,7 @@ function shouldUseFallback() {
 function initializeCelestialWeaver() {
     if (shouldUseFallback()) return;
 
-    let scene, camera, renderer, nebulaParticles, weaverLines, climaxObject;
+    let scene, camera, renderer, nebulaParticles, weaverLines;
     let mouseX = 0, mouseY = 0;
     const isHighEnd = window.innerWidth > 1024;
     const PARTICLE_COUNT = isHighEnd ? 5000 : 2500;
@@ -64,17 +64,18 @@ function initializeCelestialWeaver() {
             weaverLines = new THREE.LineSegments(lineGeometry, lineMaterial);
             scene.add(weaverLines);
 
-            const climaxGeometry = new THREE.SphereGeometry(1.5, 32, 32);
-            const climaxMaterial = new THREE.MeshStandardMaterial({
-                color: colorPrimaryAccent,
-                emissive: colorPrimaryAccent,
-                emissiveIntensity: 0,
-                transparent: true,
-                opacity: 0,
-                blending: THREE.AdditiveBlending 
-            });
-            climaxObject = new THREE.Mesh(climaxGeometry, climaxMaterial);
-            scene.add(climaxObject);
+            // Glowing sphere (climaxObject) removed to improve text readability
+            // const climaxGeometry = new THREE.SphereGeometry(1.5, 32, 32);
+            // const climaxMaterial = new THREE.MeshStandardMaterial({
+            //     color: colorPrimaryAccent,
+            //     emissive: colorPrimaryAccent,
+            //     emissiveIntensity: 0,
+            //     transparent: true,
+            //     opacity: 0,
+            //     blending: THREE.AdditiveBlending 
+            // });
+            // climaxObject = new THREE.Mesh(climaxGeometry, climaxMaterial);
+            // scene.add(climaxObject);
             
             scene.add(new THREE.AmbientLight(0xffffff, 0.2));
             const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -150,17 +151,17 @@ function initializeCelestialWeaver() {
             let zoomPhasePercent = scrollPercent > zoomEnd ? 1 : (scrollPercent > zoomStart ? (scrollPercent - zoomStart) / (zoomEnd - zoomStart) : 0);
             camera.position.z = THREE.MathUtils.lerp(8, 4, zoomPhasePercent);
 
-            // Phase 4: Climax (70-90% scroll)
+            // Phase 4: Climax (70-90% scroll) - Glowing sphere removed for better text readability
             const climaxStart = 0.7, climaxEnd = 0.9;
             let climaxPhasePercent = scrollPercent > climaxEnd ? 1 : (scrollPercent > climaxStart ? (scrollPercent - climaxStart) / (climaxEnd - climaxStart) : 0);
             
             const opacity = Math.sin(climaxPhasePercent * Math.PI);
             nebulaParticles.material.opacity = 0.7 * (1 - opacity);
             weaverLines.material.opacity = 0.5 * (1 - opacity);
-            climaxObject.material.opacity = opacity;
-            climaxObject.material.emissiveIntensity = opacity * 2;
-            
-            climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
+            // Glowing sphere rendering removed - was making text hard to read
+            // climaxObject.material.opacity = opacity;
+            // climaxObject.material.emissiveIntensity = opacity * 2;
+            // climaxObject.scale.setScalar(1 + Math.sin(time * 10) * 0.05 * opacity);
             
             renderer.render(scene, camera);
         } catch (error) {

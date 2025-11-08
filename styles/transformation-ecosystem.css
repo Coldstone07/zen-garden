@@ -122,7 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Central Hub - Integrated Wholeness */
@@ -241,11 +241,17 @@
     cursor: pointer;
     transition: all var(--transition-slow);
     z-index: 5;
+    overflow: visible;
 }
 
 .transformation-stream:hover {
     transform: scale(1.05);
     z-index: 12;
+}
+
+.transformation-stream.active,
+.transformation-stream:has(.stream-details-panel:not([style*="opacity: 0"])) {
+    z-index: 999;
 }
 
 .stream-inner-wisdom {
@@ -738,13 +744,14 @@
     border-radius: 16px;
     margin-top: 1rem;
     padding: 1.5rem;
-    z-index: 20;
+    z-index: 1000;
     opacity: 0;
     transform: translateY(10px);
     transition: all var(--transition-medium);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     max-width: 480px;
     min-width: 420px;
+    pointer-events: auto;
 }
 
 .stream-details-panel.persistent {
@@ -1113,11 +1120,11 @@
 }
 
 .transformation-stream.active {
-    z-index: 15;
+    z-index: 999;
 }
 
 .stream-details-panel {
-    z-index: 20;
+    z-index: 1000;
 }
 
 .phase-details-panel {

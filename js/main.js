@@ -97,8 +97,14 @@
         }
     }
 
-    // Initialize adaptive contrast system
+    // Initialize adaptive contrast system - DISABLED for performance
+    // This system was causing lag due to continuous DOM updates during scroll
     function initializeAdaptiveContrast() {
+        // Disabled to improve performance - the continuous scroll monitoring
+        // and DOM style updates were causing website lag
+        return;
+        
+        /* Original code commented out:
         if (!KairosApp.features.animation) {
             // No need for adaptive contrast if animation is disabled
             return;
@@ -110,6 +116,7 @@
         } else {
             console.warn('Adaptive contrast system not available');
         }
+        */
     }
 
     // Setup event listeners
