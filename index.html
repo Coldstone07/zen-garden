@@ -12,9 +12,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CDN for development -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Transformation Ecosystem Styles -->
+    <link rel="stylesheet" href="/styles/transformation-ecosystem.css">
     
     <style>
         :root {
@@ -2781,9 +2784,21 @@
                 margin: 1rem;
             }
             
-            /* Improve micro-nav for mobile (though hidden) */
+            /* Micro-nav adjustments for small screens */
             .micro-nav {
-                display: none !important;
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: stretch;
+            }
+
+            .micro-nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .micro-nav-cta {
+                width: 100%;
+                text-align: center;
             }
             
             /* Enhanced glass panels for mobile */
@@ -3224,14 +3239,15 @@
             background: var(--glass-secondary);
         }
 
-        /* Micro-navigation for desktop */
+        /* Floating navigation */
         .micro-nav {
             position: sticky;
-            top: 80px;
+            top: 24px;
             z-index: 60;
             display: inline-flex;
-            gap: 0.75rem;
-            padding: 0.5rem 1rem;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 0.75rem 1.5rem;
             background: var(--glass-secondary);
             backdrop-filter: var(--blur-subtle);
             -webkit-backdrop-filter: var(--blur-subtle);
@@ -3239,9 +3255,58 @@
             border-radius: 999px;
             margin: 1rem auto;
             box-shadow: var(--shadow-subtle);
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .micro-nav a {
+        .micro-nav-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            color: var(--moonlight-primary);
+            transition: color var(--transition-fast), opacity var(--transition-fast);
+        }
+
+        .micro-nav-brand:hover {
+            opacity: 0.85;
+        }
+
+        .micro-nav-logo {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(200, 168, 130, 0.3);
+        }
+
+        .micro-nav-logo span {
+            color: var(--cosmic-void);
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: var(--font-serif);
+        }
+
+        .micro-nav-title {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .micro-nav-links {
+            display: inline-flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .micro-nav-links a {
             color: var(--moonlight-primary);
             font-size: 0.875rem;
             padding: 0.375rem 0.75rem;
@@ -3251,14 +3316,33 @@
             opacity: 0.85;
         }
 
-        .micro-nav a:hover {
+        .micro-nav-links a:hover {
             background: rgba(200, 168, 130, 0.15);
             opacity: 1;
         }
 
+        .micro-nav-cta {
+            border: 1px solid var(--accent-primary);
+            border-radius: 999px;
+            padding: 0.5rem 1.25rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .micro-nav-cta:hover {
+            background: var(--accent-primary);
+            color: var(--cosmic-void);
+            border-color: var(--accent-interactive);
+        }
+
         @media (max-width: 1024px) {
             .micro-nav {
-                display: none;
+                position: static;
+                width: 100%;
+                border-radius: 24px;
             }
         }
 
@@ -3400,29 +3484,25 @@
     <!-- Three.js Canvas for Background Animation -->
     <canvas id="zen-garden-canvas" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass-subtle" role="navigation" aria-label="Main navigation">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-lg flex items-center justify-center">
-                    <span class="text-cosmic-void font-bold text-lg" style="font-family: var(--font-serif);">K</span>
+    <!-- Floating navigation (formerly fixed header content merged with micro-nav) -->
+    <div class="text-center mt-10">
+        <nav class="micro-nav" aria-label="Main navigation">
+            <a href="#hero" class="micro-nav-brand" aria-label="Kairos Path home">
+                <div class="micro-nav-logo">
+                    <span>K</span>
                 </div>
-                <span class="moonlight-text text-xl font-semibold tracking-tight" style="font-family: var(--font-serif);">The Kairos Path</span>
+                <span class="micro-nav-title">The Kairos Path</span>
+            </a>
+            <div class="micro-nav-links">
+                <a href="#hero">Home</a>
+                <a href="#discovery">Discovery</a>
+                <a href="#methodology">Blueprint</a>
+                <a href="#guides">Guides</a>
+                <a href="#contact">Contact</a>
             </div>
-            <a href="#discovery" class="moonlight-muted hover:text-accent-interactive transition-colors text-sm font-medium" aria-label="Schedule discovery call">
+            <a href="#discovery" class="micro-nav-cta" aria-label="Schedule discovery call">
                 Schedule Discovery →
             </a>
-        </div>
-    </nav>
-
-    <!-- Micro-navigation for section jumping -->
-    <div class="text-center mt-24">
-        <nav class="micro-nav" aria-label="Section navigation">
-            <a href="#hero">Home</a>
-            <a href="#discovery">Discovery</a>
-            <a href="#methodology">Blueprint</a>
-            <a href="#guides">Guides</a>
-            <a href="#contact">Contact</a>
         </nav>
     </div>
 
@@ -3483,90 +3563,129 @@
                     </div>
                 </div>
                 
-                <!-- Kairos Transformation Ecosystem Visualization -->
-                <div class="transformation-ecosystem" id="transformation-ecosystem">
-                    <div class="ecosystem-container">
-                        <!-- Central Integration Hub -->
-                        <div class="integration-hub">
-                            <div class="hub-core">
-                                <div class="hub-text">
-                                    Integrated<br>Wholeness
+                <!-- Streams Accordion -->
+                <div class="streams-accordion" id="streams-accordion">
+                    <!-- Inner Wisdom Stream -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-stream="inner-wisdom">
+                            <span class="accordion-title">Inner Wisdom Stream</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p class="stream-description">Access your contemplative pathway to archetypal genius through Gene Keys transmission and heal fragmented inner parts using Internal Family Systems. Unlock the higher purpose hidden in your DNA through gentle, patient contemplation rather than aggressive analysis.</p>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Core Frameworks</h4>
+                                    <div class="framework-tags">
+                                        <span class="framework-tag">Gene Keys</span>
+                                        <span class="framework-tag">IFS</span>
+                                        <span class="framework-tag">Shadow Work</span>
+                                        <span class="framework-tag">Archetypal Psychology</span>
+                                    </div>
+                                </div>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Key Benefits</h4>
+                                    <ul class="benefits-list">
+                                        <li>Sacred context for life purpose</li>
+                                        <li>Core motivation mapping</li>
+                                        <li>Inner fragment healing</li>
+                                        <li>Authentic blueprint access</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Inner Wisdom Stream -->
-                        <div class="transformation-stream stream-inner-wisdom" data-stream="inner-wisdom" role="button" tabindex="0" aria-expanded="false" aria-describedby="stream-description-0">
-                            <div class="stream-content">
-                                <h3 class="stream-title">Inner Wisdom Stream</h3>
-                                <p class="stream-description">Access your contemplative pathway to archetypal genius and heal fragmented inner parts</p>
-                                <div class="stream-frameworks">
-                                    <span class="framework-tag">Gene Keys</span>
-                                    <span class="framework-tag">IFS</span>
-                                    <span class="framework-tag">Shadow Work</span>
+                    <!-- Embodied Presence Stream -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-stream="embodied-presence">
+                            <span class="accordion-title">Embodied Presence Stream</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p class="stream-description">Cultivate interoceptive awareness and nervous system regulation through evidence-based somatic practices. Develop equanimity to sensation and moment-to-moment awareness using Vipassana mindfulness to embody transformation.</p>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Core Frameworks</h4>
+                                    <div class="framework-tags">
+                                        <span class="framework-tag">Somatics</span>
+                                        <span class="framework-tag">Vipassana Mindfulness</span>
+                                        <span class="framework-tag">Breathwork</span>
+                                        <span class="framework-tag">Nervous System Regulation</span>
+                                    </div>
+                                </div>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Key Benefits</h4>
+                                    <ul class="benefits-list">
+                                        <li>Embodied self-awareness</li>
+                                        <li>Stress release</li>
+                                        <li>Present-moment anchoring</li>
+                                        <li>Autonomic regulation</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Embodied Presence Stream -->
-                        <div class="transformation-stream stream-embodied-presence" data-stream="embodied-presence" role="button" tabindex="0" aria-expanded="false" aria-describedby="stream-description-1">
-                            <div class="stream-content">
-                                <h3 class="stream-title">Embodied Presence Stream</h3>
-                                <p class="stream-description">Cultivate interoceptive awareness and nervous system regulation through somatic practices</p>
-                                <div class="stream-frameworks">
-                                    <span class="framework-tag">Somatics</span>
-                                    <span class="framework-tag">Vipassana</span>
-                                    <span class="framework-tag">Breathwork</span>
+                    <!-- Conscious Relating Stream -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-stream="conscious-relating">
+                            <span class="accordion-title">Conscious Relating Stream</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p class="stream-description">Transform ego patterns through psycho-spiritual Enneagram awareness and create coherent group dynamics using Prosocial frameworks. Move from unconscious reactivity to conscious relating through understanding core motivations and attachment patterns.</p>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Core Frameworks</h4>
+                                    <div class="framework-tags">
+                                        <span class="framework-tag">Enneagram</span>
+                                        <span class="framework-tag">Prosocial</span>
+                                        <span class="framework-tag">Attachment Theory</span>
+                                        <span class="framework-tag">Relational Intelligence</span>
+                                    </div>
+                                </div>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Key Benefits</h4>
+                                    <ul class="benefits-list">
+                                        <li>Ego pattern recognition</li>
+                                        <li>Unconscious motivation clarity</li>
+                                        <li>Relational coherence</li>
+                                        <li>Cultural space navigation</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Conscious Relating Stream -->
-                        <div class="transformation-stream stream-conscious-relating" data-stream="conscious-relating" role="button" tabindex="0" aria-expanded="false" aria-describedby="stream-description-2">
-                            <div class="stream-content">
-                                <h3 class="stream-title">Conscious Relating Stream</h3>
-                                <p class="stream-description">Transform ego patterns through psycho-spiritual awareness and create coherent group dynamics</p>
-                                <div class="stream-frameworks">
-                                    <span class="framework-tag">Enneagram</span>
-                                    <span class="framework-tag">Prosocial</span>
-                                    <span class="framework-tag">Attachment</span>
+                    <!-- Systemic Impact Stream -->
+                    <div class="accordion-item">
+                        <button class="accordion-header" data-stream="systemic-impact">
+                            <span class="accordion-title">Systemic Impact Stream</span>
+                            <span class="accordion-icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p class="stream-description">Navigate integral complexity through AQAL-informed leadership and generate collective transformation. Understand the Four Quadrants (I, We, It, Its) to create holistic interventions that avoid reductionism and address individual, cultural, and systemic dimensions.</p>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Core Frameworks</h4>
+                                    <div class="framework-tags">
+                                        <span class="framework-tag">AQAL</span>
+                                        <span class="framework-tag">Systems Thinking</span>
+                                        <span class="framework-tag">Integral Leadership</span>
+                                        <span class="framework-tag">Developmental Psychology</span>
+                                    </div>
+                                </div>
+                                <div class="stream-section">
+                                    <h4 class="section-label">Key Benefits</h4>
+                                    <ul class="benefits-list">
+                                        <li>Holistic perspective</li>
+                                        <li>Systemic intervention design</li>
+                                        <li>Leadership presence</li>
+                                        <li>Collective transformation catalyst</li>
+                                    </ul>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Systemic Impact Stream -->
-                        <div class="transformation-stream stream-systemic-impact" data-stream="systemic-impact" role="button" tabindex="0" aria-expanded="false" aria-describedby="stream-description-3">
-                            <div class="stream-content">
-                                <h3 class="stream-title">Systemic Impact Stream</h3>
-                                <p class="stream-description">Navigate integral complexity and generate collective transformation through AQAL-informed leadership</p>
-                                <div class="stream-frameworks">
-                                    <span class="framework-tag">AQAL</span>
-                                    <span class="framework-tag">Systems</span>
-                                    <span class="framework-tag">Leadership</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Energy Flow Connections -->
-                        <div class="energy-flows">
-                            <div class="energy-flow flow-inner-wisdom"></div>
-                            <div class="energy-flow flow-embodied-presence"></div>
-                            <div class="energy-flow flow-conscious-relating"></div>
-                            <div class="energy-flow flow-systemic-impact"></div>
-                        </div>
-
-                        <!-- Particle System Container -->
-                        <div class="transformation-particles" aria-hidden="true"></div>
-
-                        <!-- Energy-Information Process Visualization -->
-                        <div class="process-visualization" role="img" aria-label="Energy transformation process from trapped to expressed wisdom">
-                            <span class="process-step">Trapped Energy</span>
-                            <span class="process-arrow">→</span>
-                            <span class="process-step">Liberated Energy</span>
-                            <span class="process-arrow">→</span>
-                            <span class="process-step">Organized Information</span>
-                            <span class="process-arrow">→</span>
-                            <span class="process-step">Expressed Wisdom</span>
                         </div>
                     </div>
                 </div>
@@ -3575,7 +3694,690 @@
                     <p class="text-sm moonlight-muted italic">
                         Methodology developed through rigorous research, integrating <strong>trauma-informed psychology</strong>, <strong>ancient wisdom</strong>, and <strong>cutting-edge science</strong>. Validated with 200+ conscious leaders across diverse sectors.
                     </p>
+                    <button id="learn-aqal-btn" class="mt-8 px-8 py-3 bg-transparent border-2 border-accent-primary text-accent-primary font-semibold rounded-lg hover:bg-accent-primary hover:text-cosmic-void transition-all duration-300" style="border-color: var(--accent-primary); color: var(--accent-primary);">
+                        Learn About Our AQAL Framework
+                    </button>
                 </div>
+            </div>
+        </section>
+
+        <!-- Kairos Methodology Deep Dive -->
+        <section id="methodology-deep-dive" class="py-32 px-4 cosmic-section deep-dive-section" aria-labelledby="deep-dive-title">
+            <div class="container mx-auto max-w-7xl">
+
+                <!-- Section 1: The Global Problem & Context Opening -->
+                <div class="problem-statement-block mb-24 fade-in">
+                    <div class="problem-header text-center mb-12">
+                        <h2 id="deep-dive-title" class="text-4xl md:text-5xl font-bold moonlight-text mb-8 cosmic-section-title" style="font-family: var(--font-serif);">
+                            The Crisis of Disconnection
+                        </h2>
+                        <p class="text-xl md:text-2xl moonlight-secondary max-w-4xl mx-auto mb-8 leading-relaxed">
+                            We've achieved unprecedented success, yet face an escalating crisis of inner disconnection
+                        </p>
+                    </div>
+
+                    <div class="problem-stats-grid">
+                        <div class="problem-stat-card glass-panel">
+                            <div class="stat-number">3 in 4</div>
+                            <div class="stat-label">Working adults report burnout (Gallup)</div>
+                        </div>
+                        <div class="problem-stat-card glass-panel">
+                            <div class="stat-number">1B+</div>
+                            <div class="stat-label">People worldwide living with mental disorders</div>
+                        </div>
+                        <div class="problem-stat-card glass-panel">
+                            <div class="stat-number">$1T</div>
+                            <div class="stat-label">Annual economic loss from anxiety & depression</div>
+                        </div>
+                        <div class="problem-stat-card glass-panel">
+                            <div class="stat-number">15x</div>
+                            <div class="stat-label">Health risks from loneliness (U.S. Surgeon General)</div>
+                        </div>
+                    </div>
+
+                    <div class="problem-context-block mt-12">
+                        <div class="context-section">
+                            <h3 class="text-2xl font-semibold text-accent-primary mb-4" style="color: var(--accent-primary);">Below the Line vs. Above the Line</h3>
+                            <div class="context-content">
+                                <p class="moonlight-secondary mb-4">
+                                    <strong>Below the Line:</strong> Trauma, unresolved grief, and maladaptive patterns keep us in fight/flight/freeze. We're defensive, reactive, scanning for threat. Creativity and compassion are inaccessible.
+                                </p>
+                                <p class="moonlight-secondary">
+                                    <strong>Above the Line:</strong> When we cultivate awareness and heal what holds us back, we access openness, curiosity, and innovation. This is where transformation begins.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="context-section mt-8">
+                            <h3 class="text-2xl font-semibold text-accent-primary mb-4" style="color: var(--accent-primary);">Individual Healing → Collective Flourishing</h3>
+                            <p class="moonlight-secondary">
+                                These struggles are not isolated. They are entangled with larger systems: social, economic, political, health, and ecological. When one person shifts from reactivity to compassion, it ripples outward. Healing the individual is inseparable from nurturing the collective.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Introduction to Four Pillars -->
+                <div class="pillars-introduction mb-16 fade-in">
+                    <p class="text-lg moonlight-secondary text-center max-w-4xl mx-auto mb-8 italic">
+                        Our methodology is not a collection of random tools. Each framework solves a distinct problem that others cannot. Together, they create a <strong>synergistic effect</strong> backed by research hypotheses on measurable outcomes.
+                    </p>
+                </div>
+
+                <!-- Section 3: Four Foundational Pillars Accordion -->
+                <div class="pillars-accordion" id="pillars-accordion" role="region" aria-label="Core methodology frameworks">
+
+                    <!-- Pillar 1: Gene Keys -->
+                    <div class="pillar-item pillar-gene-keys">
+                        <button class="pillar-header" data-pillar="gene-keys" aria-expanded="false">
+                            <div class="pillar-header-content">
+                                <span class="pillar-icon">✦</span>
+                                <div class="pillar-title-block">
+                                    <h3 class="pillar-title">Inner Wisdom: Gene Keys</h3>
+                                    <p class="pillar-subtitle">The Mythic & Purpose Lens</p>
+                                </div>
+                            </div>
+                            <span class="pillar-toggle">+</span>
+                        </button>
+                        <div class="pillar-content" style="max-height: 0;">
+                            <div class="pillar-body">
+                                <p class="pillar-description mb-6">
+                                    A contemplative pathway to unlocking the hidden purpose in your DNA. Rather than aggressive analysis, the Gene Keys work through gentle, patient contemplation.
+                                </p>
+
+                                <div class="competitive-advantage mb-8">
+                                    <h4 class="advantage-title">Problem It Solves</h4>
+                                    <p class="moonlight-secondary text-sm">
+                                        <strong>Identity & Purpose Issues:</strong> While IFS addresses psychological fragmentation, Gene Keys directly connect your patterns to life purpose. This provides <strong>25% faster resolution</strong> of existential questions by offering a soul-level map.
+                                    </p>
+                                </div>
+
+                                <div class="pillar-subsection">
+                                    <h4 class="subsection-title">The Three Frequencies of Consciousness</h4>
+                                    <div class="spectrum-display">
+                                        <div class="spectrum-item">
+                                            <div class="spectrum-label shadow">Shadow</div>
+                                            <p class="spectrum-desc">Fear-based, victim-oriented expression</p>
+                                        </div>
+                                        <div class="spectrum-arrow">→</div>
+                                        <div class="spectrum-item">
+                                            <div class="spectrum-label gift">Gift</div>
+                                            <p class="spectrum-desc">Creative, liberated expression</p>
+                                        </div>
+                                        <div class="spectrum-arrow">→</div>
+                                        <div class="spectrum-item">
+                                            <div class="spectrum-label siddhi">Siddhi</div>
+                                            <p class="spectrum-desc">Transcendent, enlightened expression</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">Your Hologenetic Profile</h4>
+                                    <ul class="profile-list">
+                                        <li><strong>Activation Sequence (Life's Work):</strong> Your four primary Gifts—your innate genius</li>
+                                        <li><strong>Venus Sequence (Relationships):</strong> Core relational wounds and the path to opening your heart</li>
+                                        <li><strong>Pearl Sequence (Prosperity):</strong> Your path to true prosperity through service</li>
+                                    </ul>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">Our Application</h4>
+                                    <p class="moonlight-secondary">
+                                        We use the Gene Keys to provide mythic and spiritual context for your journey. It is your "sacred text." The core practice we teach is <strong>Contemplation</strong>: holding these concepts gently in awareness, allowing their meaning to unfold over time.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Enneagram -->
+                    <div class="pillar-item pillar-enneagram">
+                        <button class="pillar-header" data-pillar="enneagram" aria-expanded="false">
+                            <div class="pillar-header-content">
+                                <span class="pillar-icon">⬢</span>
+                                <div class="pillar-title-block">
+                                    <h3 class="pillar-title">Embodied Presence: Enneagram</h3>
+                                    <p class="pillar-subtitle">The Personality & Pattern Lens</p>
+                                </div>
+                            </div>
+                            <span class="pillar-toggle">+</span>
+                        </button>
+                        <div class="pillar-content" style="max-height: 0;">
+                            <div class="pillar-body">
+                                <p class="pillar-description mb-6">
+                                    A psycho-spiritual model identifying nine core personality structures, each driven by a distinct unconscious motivation and fear. Map your internal operating system with precision.
+                                </p>
+
+                                <div class="competitive-advantage mb-8">
+                                    <h4 class="advantage-title">Problems It Solves</h4>
+                                    <p class="moonlight-secondary text-sm mb-2">
+                                        <strong>Trauma Integration:</strong> When combined with IFS and Gene Keys, provides <strong>15% better long-term retention</strong> of healing gains through precise targeting of protector strategies.
+                                    </p>
+                                    <p class="moonlight-secondary text-sm">
+                                        <strong>Relational Patterns:</strong> Predicts interpersonal dynamics with accuracy unavailable in single-framework approaches.
+                                    </p>
+                                </div>
+
+                                <div class="pillar-subsection">
+                                    <h4 class="subsection-title">The Nine Types & Centers of Intelligence</h4>
+                                    <p class="moonlight-secondary text-sm mb-4">
+                                        Each type is dominant in one of three centers: <strong>Head (Fear)</strong>, <strong>Heart (Shame)</strong>, or <strong>Body/Gut (Anger)</strong>.
+                                    </p>
+                                    <ul class="type-overview-list">
+                                        <li><strong>Basic Fear:</strong> Your deepest unconscious fear driving protective patterns</li>
+                                        <li><strong>Basic Desire:</strong> What you most deeply long for</li>
+                                        <li><strong>Vice & Virtue:</strong> Your passion (vice) transforms into your virtue when integrated</li>
+                                        <li><strong>Integration/Disintegration:</strong> How you move toward health or stress</li>
+                                    </ul>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">Our Application</h4>
+                                    <p class="moonlight-secondary mb-4">
+                                        We use the Enneagram to:
+                                    </p>
+                                    <ul class="application-list">
+                                        <li>Identify triggers and patterns</li>
+                                        <li>Uncover unconscious motivations</li>
+                                        <li>Provide a precise path for growth</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: IFS -->
+                    <div class="pillar-item pillar-ifs">
+                        <button class="pillar-header" data-pillar="ifs" aria-expanded="false">
+                            <div class="pillar-header-content">
+                                <span class="pillar-icon">◈</span>
+                                <div class="pillar-title-block">
+                                    <h3 class="pillar-title">Relational Wisdom: Internal Family Systems</h3>
+                                    <p class="pillar-subtitle">The Healing & Integration Lens</p>
+                                </div>
+                            </div>
+                            <span class="pillar-toggle">+</span>
+                        </button>
+                        <div class="pillar-content" style="max-height: 0;">
+                            <div class="pillar-body">
+                                <p class="pillar-description mb-6">
+                                    The mind is naturally composed of multiple Parts, and at the core of every person is a wise, compassionate Self. IFS is the "how-to" of transformation—the active healing modality.
+                                </p>
+
+                                <div class="competitive-advantage mb-8">
+                                    <h4 class="advantage-title">Problems It Solves</h4>
+                                    <p class="moonlight-secondary text-sm mb-2">
+                                        <strong>Trauma Integration:</strong> Highly effective for healing fragmented parts. IFS is where the actual transformation occurs.
+                                    </p>
+                                    <p class="moonlight-secondary text-sm">
+                                        <strong>Relational Patterns:</strong> When integrated with Enneagram, facilitates collective healing with <strong>20% broader impact</strong> on relational systems.
+                                    </p>
+                                </div>
+
+                                <div class="pillar-subsection">
+                                    <h4 class="subsection-title">The Inner System</h4>
+                                    <div class="inner-system-display">
+                                        <div class="system-element">
+                                            <div class="element-label">Exiles</div>
+                                            <p class="element-desc">Young, vulnerable parts holding past pain</p>
+                                        </div>
+                                        <div class="system-element">
+                                            <div class="element-label">Managers</div>
+                                            <p class="element-desc">Proactive protectors controlling life</p>
+                                        </div>
+                                        <div class="system-element">
+                                            <div class="element-label">Firefighters</div>
+                                            <p class="element-desc">Reactive protectors seeking numbness</p>
+                                        </div>
+                                        <div class="system-element central">
+                                            <div class="element-label">SELF</div>
+                                            <p class="element-desc">The 8 Cs: Calm, Curiosity, Compassion, Confidence, Courage, Clarity, Creativity, Connection</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">The Healing Journey (5 Steps)</h4>
+                                    <ol class="healing-steps">
+                                        <li><strong>Identify the Part:</strong> What part of you is feeling that way?</li>
+                                        <li><strong>Access Self:</strong> Connect with your core wisdom</li>
+                                        <li><strong>Unblend:</strong> Witness the part instead of being consumed by it</li>
+                                        <li><strong>Build Relationship:</strong> Learn the part's positive intention</li>
+                                        <li><strong>Heal the Exile:</strong> Unburden old beliefs and emotions</li>
+                                    </ol>
+                                </div>
+
+                                <div class="science-callout mt-6">
+                                    <p class="moonlight-secondary text-sm">
+                                        <strong>The Science:</strong> This leverages <strong>Basal Cognition</strong> and <strong>Polyvagal Theory</strong>—your Self's compassionate presence acts as a "ventral vagal anchor," allowing the nervous system to shift from threat to safety.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 4: Somatics -->
+                    <div class="pillar-item pillar-somatics">
+                        <button class="pillar-header" data-pillar="somatics" aria-expanded="false">
+                            <div class="pillar-header-content">
+                                <span class="pillar-icon">◉</span>
+                                <div class="pillar-title-block">
+                                    <h3 class="pillar-title">Embodied Somatic Wisdom: Somatics & Vipassana</h3>
+                                    <p class="pillar-subtitle">The Body & Regulation Lens</p>
+                                </div>
+                            </div>
+                            <span class="pillar-toggle">+</span>
+                        </button>
+                        <div class="pillar-content" style="max-height: 0;">
+                            <div class="pillar-body">
+                                <p class="pillar-description mb-6">
+                                    The body is the subconscious mind. True transformation requires embodied experience, not just cognitive understanding. Release what's stored at the cellular level.
+                                </p>
+
+                                <div class="competitive-advantage mb-8">
+                                    <h4 class="advantage-title">Problems It Solves</h4>
+                                    <p class="moonlight-secondary text-sm mb-2">
+                                        <strong>Trauma Integration:</strong> Somatics & Mindfulness are the modalities of embodiment and integration—releasing stored stress directly.
+                                    </p>
+                                    <p class="moonlight-secondary text-sm">
+                                        <strong>Relational Patterns:</strong> Develops witnessing presence required to be the compassionate observer of all frameworks.
+                                    </p>
+                                </div>
+
+                                <div class="pillar-subsection">
+                                    <h4 class="subsection-title">Core Practices</h4>
+                                    <ul class="practice-list">
+                                        <li><strong>Interoception:</strong> Felt sense of the body from within</li>
+                                        <li><strong>Breathwork & Body Scans:</strong> Direct access to stored patterns</li>
+                                        <li><strong>Vipassana Mindfulness:</strong> Non-reactive, moment-to-moment awareness</li>
+                                        <li><strong>Equanimity to Sensation:</strong> Stay present without the need to react or fix</li>
+                                    </ul>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">The Nervous System States</h4>
+                                    <div class="nervous-system-diagram">
+                                        <div class="ns-state ventral">
+                                            <div class="ns-label">Ventral Vagal</div>
+                                            <p class="ns-desc">Calm & Connected</p>
+                                        </div>
+                                        <div class="ns-state sympathetic">
+                                            <div class="ns-label">Sympathetic</div>
+                                            <p class="ns-desc">Alert & Mobilized</p>
+                                        </div>
+                                        <div class="ns-state dorsal">
+                                            <div class="ns-label">Dorsal Vagal</div>
+                                            <p class="ns-desc">Shutdown & Collapse</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pillar-subsection mt-6">
+                                    <h4 class="subsection-title">Our Application</h4>
+                                    <ul class="application-list">
+                                        <li>Grounding and nervous system regulation</li>
+                                        <li>Accessing stored trauma as concrete sensation</li>
+                                        <li>Developing witnessing presence (foundation for all practices)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Why Integration Matters -->
+                <div class="integration-callout mt-20 mb-20 fade-in glass-panel" style="padding: 2.5rem; border-radius: 20px;">
+                    <h3 class="text-2xl font-bold text-accent-primary mb-6" style="color: var(--accent-primary);">Why Integration Matters</h3>
+                    <p class="moonlight-secondary mb-6">
+                        Each framework solves a unique problem that others cannot. Together, they create outcomes unavailable through single-method approaches:
+                    </p>
+                    <ul class="integration-benefits-list">
+                        <li>
+                            <strong>Trauma Integration:</strong> IFS alone is effective. Add Enneagram for precise targeting. Add Gene Keys for meaning-making and <strong>15% better long-term retention</strong>.
+                        </li>
+                        <li>
+                            <strong>Identity & Purpose:</strong> Gene Keys directly connect ego patterns to soul-level purpose—<strong>25% faster resolution</strong> of existential questions.
+                        </li>
+                        <li>
+                            <strong>Relational Impact:</strong> Full integration facilitates collective healing with <strong>20% broader impact</strong> on relational systems, not just individual outcomes.
+                        </li>
+                    </ul>
+                    <p class="moonlight-muted italic mt-6 text-sm">
+                        This is not complexity for its own sake—it is precision.
+                    </p>
+                </div>
+
+                <!-- Section 5: Energy-Information Evolution Timeline -->
+                <div class="evolution-timeline-section mb-24 fade-in">
+                    <div class="timeline-header text-center mb-16">
+                        <h3 class="text-3xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                            The Energy-Information Evolution Model
+                        </h3>
+                        <p class="text-lg moonlight-secondary max-w-4xl mx-auto">
+                            <strong>TRAPPED ENERGY → LIBERATED ENERGY → ORGANIZED INFORMATION → EXPRESSED WISDOM</strong>
+                        </p>
+                    </div>
+
+                    <div class="evolution-stages">
+                        <div class="evolution-stage stage-1">
+                            <div class="stage-badge">1</div>
+                            <div class="stage-content">
+                                <h4 class="stage-title">Fragmented Consciousness</h4>
+                                <p class="stage-phrase">Identity: "I am angry"</p>
+                                <p class="stage-desc moonlight-secondary">Trapped in parts and reactive patterns. Nervous system dysregulated.</p>
+                                <p class="stage-tools moonlight-muted text-sm">Beginning awareness</p>
+                            </div>
+                        </div>
+
+                        <div class="evolution-transition">→</div>
+
+                        <div class="evolution-stage stage-2">
+                            <div class="stage-badge">2</div>
+                            <div class="stage-content">
+                                <h4 class="stage-title">Witnessing Consciousness</h4>
+                                <p class="stage-phrase">Identity: "A part of me feels angry"</p>
+                                <p class="stage-desc moonlight-secondary">Liberated from identification. Beginning to observe patterns.</p>
+                                <p class="stage-tools moonlight-muted text-sm">Enneagram + IFS unblending</p>
+                            </div>
+                        </div>
+
+                        <div class="evolution-transition">→</div>
+
+                        <div class="evolution-stage stage-3">
+                            <div class="stage-badge">3</div>
+                            <div class="stage-content">
+                                <h4 class="stage-title">Integrated Consciousness</h4>
+                                <p class="stage-phrase">Identity: "That part has a role; I choose"</p>
+                                <p class="stage-desc moonlight-secondary">Organized into new patterns. Consistent Self-leadership.</p>
+                                <p class="stage-tools moonlight-muted text-sm">Full framework integration</p>
+                            </div>
+                        </div>
+
+                        <div class="evolution-transition">→</div>
+
+                        <div class="evolution-stage stage-4">
+                            <div class="stage-badge">4</div>
+                            <div class="stage-content">
+                                <h4 class="stage-title">Generative Consciousness</h4>
+                                <p class="stage-phrase">Identity: "I am purposeful contribution"</p>
+                                <p class="stage-desc moonlight-secondary">Expressed as wisdom. Spontaneous Self-energy.</p>
+                                <p class="stage-tools moonlight-muted text-sm">Living the Gift</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="closing-statement text-center text-lg moonlight-secondary italic mt-12">
+                        This is more than personal development—it's <strong>conscious participation in human evolution.</strong>
+                    </p>
+                </div>
+
+                <!-- Section 6: Science & Spirit Foundation Cards -->
+                <div class="science-cards-section mb-24 fade-in">
+                    <div class="science-header text-center mb-16">
+                        <h3 class="text-3xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                            Science & Spirit: The Foundation
+                        </h3>
+                        <p class="text-lg moonlight-secondary max-w-4xl mx-auto">
+                            Our methodology is grounded in deep understanding of how transformation occurs. These are not theories—they are established neuroscience and psychology.
+                        </p>
+                    </div>
+
+                    <div class="science-cards-grid">
+                        <!-- Card 1: Sankara Removal -->
+                        <div class="science-card glass-panel">
+                            <div class="card-header">
+                                <h4 class="card-title">Sankara Removal</h4>
+                                <button class="card-toggle" aria-expanded="false">+</button>
+                            </div>
+                            <div class="card-content" style="max-height: 0; overflow: hidden;">
+                                <div class="card-body">
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>What It Is:</strong> Yogic and Buddhist understanding of "sankaras"—deeply ingrained habit patterns and energetic imprints from past traumas stored in the mind and body.
+                                    </p>
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>Why It Matters:</strong> Our entire process identifies, processes, and releases these sankaras, freeing vast amounts of life force.
+                                    </p>
+                                    <p class="card-text moonlight-secondary">
+                                        <strong>How We Use It:</strong> IFS unburdening and somatic release practices
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Theta Brainwave States -->
+                        <div class="science-card glass-panel">
+                            <div class="card-header">
+                                <h4 class="card-title">Theta Brainwave States</h4>
+                                <button class="card-toggle" aria-expanded="false">+</button>
+                            </div>
+                            <div class="card-content" style="max-height: 0; overflow: hidden;">
+                                <div class="card-body">
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>What It Is:</strong> Theta waves (4-8 Hz) are the gateway to the subconscious mind, creativity, profound relaxation, and insight.
+                                    </p>
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>Why It Matters:</strong> Theta is where healing happens—deeper than conscious thought.
+                                    </p>
+                                    <p class="card-text moonlight-secondary">
+                                        <strong>How We Use It:</strong> Guided meditations and somatic practices specifically designed to access Theta states
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Basal Cognition -->
+                        <div class="science-card glass-panel">
+                            <div class="card-header">
+                                <h4 class="card-title">Basal Cognition (Michael Levin)</h4>
+                                <button class="card-toggle" aria-expanded="false">+</button>
+                            </div>
+                            <div class="card-content" style="max-height: 0; overflow: hidden;">
+                                <div class="card-body">
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>What It Is:</strong> Emerging field showing intelligence at the cellular level; traumas are groups of cells separated from the higher self/whole.
+                                    </p>
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>Why It Matters:</strong> Explains why our somatic approach works—we leverage the system's own intelligence rather than trying to force change.
+                                    </p>
+                                    <p class="card-text moonlight-secondary">
+                                        <strong>How We Use It:</strong> Trust the body's intelligence; somatic release; cellular reintegration
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Network & Attachment Theory -->
+                        <div class="science-card glass-panel">
+                            <div class="card-header">
+                                <h4 class="card-title">Network & Attachment Theory</h4>
+                                <button class="card-toggle" aria-expanded="false">+</button>
+                            </div>
+                            <div class="card-content" style="max-height: 0; overflow: hidden;">
+                                <div class="card-body">
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>What It Is:</strong> Neural networks become rigid and isolated from trauma; healing increases connectivity and flexibility. Secure attachment repatterns internal working models.
+                                    </p>
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>Why It Matters:</strong> Explains how trauma fragments the self and how compassionate Self-relationship heals it.
+                                    </p>
+                                    <p class="card-text moonlight-secondary">
+                                        <strong>How We Use It:</strong> IFS Self-relationship as secure internal attachment; neural repattering through compassionate presence
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Polyvagal Theory -->
+                        <div class="science-card glass-panel">
+                            <div class="card-header">
+                                <h4 class="card-title">Polyvagal Theory (Dr. Stephen Porges)</h4>
+                                <button class="card-toggle" aria-expanded="false">+</button>
+                            </div>
+                            <div class="card-content" style="max-height: 0; overflow: hidden;">
+                                <div class="card-body">
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>What It Is:</strong> The vagus nerve's role in nervous system regulation; "ventral vagal" = calm/connected, "sympathetic" = alert/threat, "dorsal vagal" = shutdown.
+                                    </p>
+                                    <p class="card-text moonlight-secondary mb-4">
+                                        <strong>Why It Matters:</strong> Shows how self-compassion physically regulates the nervous system.
+                                    </p>
+                                    <p class="card-text moonlight-secondary">
+                                        <strong>How We Use It:</strong> Self-energy as "ventral vagal anchor"; somatic techniques activate parasympathetic response
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Meet Your Guides -->
+                <div class="guides-section mb-24 fade-in">
+                    <div class="guides-header text-center mb-16">
+                        <h3 class="text-3xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                            Who Guides This Work?
+                        </h3>
+                        <p class="text-lg moonlight-secondary max-w-4xl mx-auto">
+                            These frameworks aren't academic abstractions. They are wielded by coaches who have lived the journey themselves and bring decades of industry, scientific, and transformational expertise.
+                        </p>
+                    </div>
+
+                    <div class="guides-grid">
+                        <!-- Shalini Card -->
+                        <div class="guide-card glass-panel">
+                            <div class="guide-name text-2xl font-bold text-accent-primary mb-2" style="color: var(--accent-primary);">Shalini Verma</div>
+                            <div class="guide-title moonlight-secondary text-sm mb-4">Life Coach & Guide | Human Potentialist | Organizational Whisperer</div>
+                            <div class="guide-credentials moonlight-muted text-xs mb-4 space-y-1">
+                                <p>✓ MIT & Harvard Business School Graduate</p>
+                                <p>✓ Enneagram Guide, Trauma Informed Coach, Somatic Healer</p>
+                                <p>✓ 30+ Years in Tech (Ford, Sun, Oracle, Motorola, Google)</p>
+                            </div>
+                            <div class="guide-story moonlight-secondary text-sm">
+                                <p>
+                                    In the past year, Shalini went through a transformative experience where outward accomplishments turned into inward transformation at breakneck speed. She now leads with the heart, enabling her to accelerate the healing of others and provide a safe space for profound transformation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Jatin Card -->
+                        <div class="guide-card glass-panel">
+                            <div class="guide-name text-2xl font-bold text-accent-primary mb-2" style="color: var(--accent-primary);">Jatin Alla</div>
+                            <div class="guide-title moonlight-secondary text-sm mb-4">Life Coach | AI Researcher | Community Builder</div>
+                            <div class="guide-credentials moonlight-muted text-xs mb-4 space-y-1">
+                                <p>✓ Cognitive Science Background with HCI Specialization</p>
+                                <p>✓ Google Research & Google DeepMind Researcher</p>
+                                <p>✓ Expert in Behavioral Pattern Transformation & AI-Human Partnership</p>
+                            </div>
+                            <div class="guide-story moonlight-secondary text-sm">
+                                <p>
+                                    Jatin's expertise in psychology, neuroscience, and machine learning allows him to decode complex aspects of human cognition and behavior. His work in ethical AI informs the development of human-centered technology, and his understanding of behavioral patterns makes him exceptional at facilitating profound personal growth.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Outcomes-Based CTA -->
+                <div class="outcomes-cta-section fade-in">
+                    <div class="cta-hero text-center mb-16">
+                        <h3 class="text-4xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                            Now You Understand the Framework
+                        </h3>
+                        <p class="text-2xl moonlight-secondary mb-12">
+                            Let's build <strong>your blueprint</strong>.
+                        </p>
+                    </div>
+
+                    <div class="outcomes-list-section glass-panel" style="padding: 2.5rem; border-radius: 20px;">
+                        <h4 class="text-xl font-bold text-accent-primary mb-8 text-center" style="color: var(--accent-primary);">
+                            In Your Transformation, You Will:
+                        </h4>
+
+                        <div class="outcomes-grid">
+                            <div class="outcome-item">
+                                <div class="outcome-icon">≈</div>
+                                <h5 class="outcome-title">Navigate Pressure with Unshakable Calm</h5>
+                                <p class="outcome-desc moonlight-secondary">Handle challenging situations with focus and grace</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">◈</div>
+                                <h5 class="outcome-title">Master Your Emotional Responses</h5>
+                                <p class="outcome-desc moonlight-secondary">Reduce stress and prevent burnout at the root</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">❃</div>
+                                <h5 class="outcome-title">Increase Genuine Connections</h5>
+                                <p class="outcome-desc moonlight-secondary">Deepen relationships with staff, leadership, and peers</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">✦</div>
+                                <h5 class="outcome-title">Clarify Your Unique Purpose</h5>
+                                <p class="outcome-desc moonlight-secondary">Align career and life with authentic fulfillment</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">⬢</div>
+                                <h5 class="outcome-title">Sharpen Your Intuition</h5>
+                                <p class="outcome-desc moonlight-secondary">Make faster, more confident decisions</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">∞</div>
+                                <h5 class="outcome-title">Release Past Limitations</h5>
+                                <p class="outcome-desc moonlight-secondary">Thrive through transitions and unlock potential</p>
+                            </div>
+
+                            <div class="outcome-item">
+                                <div class="outcome-icon">◉</div>
+                                <h5 class="outcome-title">Cultivate Deep Well-Being</h5>
+                                <p class="outcome-desc moonlight-secondary">Fuel your success instead of draining it</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons text-center mt-16">
+                        <button class="cta-primary" style="
+                            padding: 1rem 3rem;
+                            font-size: 1.1rem;
+                            background: var(--accent-primary);
+                            color: var(--cosmic-void);
+                            border: none;
+                            border-radius: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all var(--transition-medium);
+                            margin-right: 1rem;
+                            margin-bottom: 1rem;
+                        "
+                        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 32px rgba(200, 168, 130, 0.5)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                            Schedule a Discovery Call
+                        </button>
+                        <button class="cta-secondary" style="
+                            padding: 1rem 3rem;
+                            font-size: 1.1rem;
+                            background: transparent;
+                            color: var(--accent-primary);
+                            border: 2px solid var(--accent-primary);
+                            border-radius: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all var(--transition-medium);
+                            margin-bottom: 1rem;
+                        "
+                        onmouseover="this.style.background=`rgba(200, 168, 130, 0.1)`; this.style.transform='translateY(-2px)';"
+                        onmouseout="this.style.background='transparent'; this.style.transform='translateY(0)';">
+                            Learn About the Program
+                        </button>
+                    </div>
+
+                    <p class="trust-statement text-center moonlight-muted italic mt-8">
+                        Join 200+ conscious leaders who have transformed their lives through the Kairos methodology.
+                    </p>
+                </div>
+
             </div>
         </section>
 
@@ -4562,13 +5364,59 @@
             }, 30000); // After 30 seconds of engagement
         }
 
+        // Streams Accordion Initialization
+        function initializeStreamAccordion() {
+            const accordion = document.getElementById('streams-accordion');
+            if (!accordion) return;
+
+            const headers = accordion.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const content = item.querySelector('.accordion-content');
+                    const isOpen = content.classList.contains('open');
+
+                    // Close all other accordions
+                    accordion.querySelectorAll('.accordion-item').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.querySelector('.accordion-header').classList.remove('active');
+                            otherItem.querySelector('.accordion-content').classList.remove('open');
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (isOpen) {
+                        header.classList.remove('active');
+                        content.classList.remove('open');
+                    } else {
+                        header.classList.add('active');
+                        content.classList.add('open');
+                    }
+                });
+
+                // Keyboard support
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        header.click();
+                    }
+                });
+            });
+        }
+
         // Kairos Transformation Ecosystem Interactions
         function initializeTransformationEcosystem() {
             const streams = document.querySelectorAll('.transformation-stream');
             const hub = document.querySelector('.integration-hub');
             const energyFlows = document.querySelectorAll('.energy-flow');
             const particleContainer = document.querySelector('.transformation-particles');
-            
+
+            // Skip initialization if visual elements don't exist
+            if (!streams.length && !hub && !energyFlows.length) {
+                return;
+            }
+
             // Create particle system
             if (particleContainer) {
                 createParticleSystem(particleContainer);
@@ -4899,7 +5747,10 @@
 
             // Initialize Transformation Ecosystem interactions
             initializeTransformationEcosystem();
-            
+
+            // Initialize accordion interactions
+            initializeStreamAccordion();
+
             // Initialize journey phase interactions
             initializeJourneyPhaseInteractions();
 
@@ -5084,5 +5935,301 @@
         // The continuous scroll monitoring and DOM style updates were causing lag
     </script>
     -->
+
+    <!-- AQAL Framework Modal -->
+    <div id="aqal-modal" class="aqal-modal hidden" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        backdrop-filter: blur(4px);
+    ">
+        <div class="aqal-modal-content" style="
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 25, 0.95) 50%, rgba(0, 0, 0, 0.9) 100%);
+            border: 2px solid rgba(200, 168, 130, 0.4);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            color: var(--moonlight-primary);
+        ">
+            <button id="close-aqal-btn" style="
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: transparent;
+                border: none;
+                color: var(--accent-primary);
+                font-size: 2rem;
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+            ">×</button>
+
+            <h2 style="
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: var(--accent-primary);
+                text-align: center;
+                margin-bottom: 1rem;
+                font-family: var(--font-serif);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            ">The AQAL Meta-Framework</h2>
+
+            <p style="
+                text-align: center;
+                color: var(--moonlight-secondary);
+                margin-bottom: 2rem;
+                font-size: 1.05rem;
+                line-height: 1.6;
+            ">
+                Our work integrates <strong>All Quadrants, All Levels</strong> — ensuring a holistic, non-reductionist approach that honors every dimension of human experience.
+            </p>
+
+            <div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            ">
+                <!-- Upper-Left -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.4);
+                    border: 1px solid rgba(200, 168, 130, 0.3);
+                    border-radius: 16px;
+                    padding: 1.5rem;
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">Upper-Left (I)</h4>
+                    <p style="font-size: 0.85rem; color: var(--accent-interactive); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Individual • Interior • Subjective</p>
+                    <p style="color: var(--moonlight-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">Your inner world of thoughts, feelings, emotions, and spiritual experiences.</p>
+                    <p style="color: var(--accent-interactive); font-size: 0.8rem; font-weight: 600;">Tools: IFS, Gene Keys, Enneagram, Contemplative Practice</p>
+                </div>
+
+                <!-- Upper-Right -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.4);
+                    border: 1px solid rgba(200, 168, 130, 0.3);
+                    border-radius: 16px;
+                    padding: 1.5rem;
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💪</div>
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">Upper-Right (It)</h4>
+                    <p style="font-size: 0.85rem; color: var(--accent-interactive); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Individual • Exterior • Objective</p>
+                    <p style="color: var(--moonlight-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">Your observable physical body, behaviors, actions, and neurobiology.</p>
+                    <p style="color: var(--accent-interactive); font-size: 0.8rem; font-weight: 600;">Tools: Somatics, Breathwork, Vipassana, Nervous System Regulation</p>
+                </div>
+
+                <!-- Lower-Left -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.4);
+                    border: 1px solid rgba(200, 168, 130, 0.3);
+                    border-radius: 16px;
+                    padding: 1.5rem;
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">Lower-Left (We)</h4>
+                    <p style="font-size: 0.85rem; color: var(--accent-interactive); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Collective • Interior • Intersubjective</p>
+                    <p style="color: var(--moonlight-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">The shared cultural space: values, worldviews, and relational rules.</p>
+                    <p style="color: var(--accent-interactive); font-size: 0.8rem; font-weight: 600;">Tools: Prosocial Framework, Group Coaching, Relational Patterns</p>
+                </div>
+
+                <!-- Lower-Right -->
+                <div style="
+                    background: rgba(0, 0, 0, 0.4);
+                    border: 1px solid rgba(200, 168, 130, 0.3);
+                    border-radius: 16px;
+                    padding: 1.5rem;
+                ">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌍</div>
+                    <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--accent-primary); margin-bottom: 0.5rem;">Lower-Right (Its)</h4>
+                    <p style="font-size: 0.85rem; color: var(--accent-interactive); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Collective • Exterior • Interobjective</p>
+                    <p style="color: var(--moonlight-secondary); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1rem;">Systems, structures, and institutions: economics, politics, workflows, environment.</p>
+                    <p style="color: var(--accent-interactive); font-size: 0.8rem; font-weight: 600;">Tools: Systems Thinking, Integral Leadership, Organizational Dynamics</p>
+                </div>
+            </div>
+
+            <div style="
+                background: linear-gradient(135deg, rgba(200, 168, 130, 0.1) 0%, rgba(230, 208, 179, 0.08) 50%, rgba(200, 168, 130, 0.1) 100%);
+                border: 2px solid rgba(200, 168, 130, 0.3);
+                border-left: 4px solid var(--accent-primary);
+                border-radius: 12px;
+                padding: 2rem;
+                margin-top: 1.5rem;
+            ">
+                <p style="color: var(--moonlight-primary); font-size: 1rem; line-height: 1.7;">
+                    <strong style="color: var(--accent-primary);">The Power of Integration:</strong> Most coaching and personal development focuses on one or two quadrants. We honor all four dimensions. This prevents reductionism and ensures that your transformation ripples outward—healing your inner world, regulating your body, transforming your relationships, and ultimately contributing to systemic change.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // AQAL Modal functionality
+        const learnAqalBtn = document.getElementById('learn-aqal-btn');
+        const aqalModal = document.getElementById('aqal-modal');
+        const closeAqalBtn = document.getElementById('close-aqal-btn');
+
+        if (learnAqalBtn && aqalModal && closeAqalBtn) {
+            learnAqalBtn.addEventListener('click', () => {
+                aqalModal.style.display = 'flex';
+            });
+
+            closeAqalBtn.addEventListener('click', () => {
+                aqalModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside content
+            aqalModal.addEventListener('click', (e) => {
+                if (e.target === aqalModal) {
+                    aqalModal.style.display = 'none';
+                }
+            });
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && aqalModal.style.display === 'flex') {
+                    aqalModal.style.display = 'none';
+                }
+            });
+        }
+
+        // ========================================
+        // METHODOLOGY DEEP DIVE SECTION INTERACTIONS
+        // ========================================
+
+        // Initialize Pillars Accordion
+        function initializePillarsAccordion() {
+            const accordion = document.getElementById('pillars-accordion');
+            if (!accordion) return;
+
+            const headers = accordion.querySelectorAll('.pillar-header');
+            const contents = accordion.querySelectorAll('.pillar-content');
+
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+                    // Close all accordions
+                    headers.forEach(h => h.setAttribute('aria-expanded', 'false'));
+                    contents.forEach(c => c.style.maxHeight = '0');
+
+                    // Open clicked accordion if it wasn't open
+                    if (!isExpanded) {
+                        header.setAttribute('aria-expanded', 'true');
+                        contents[index].style.maxHeight = contents[index].scrollHeight + 'px';
+                    }
+                });
+
+                // Keyboard support
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        header.click();
+                    }
+                });
+            });
+        }
+
+        // Initialize Science Cards (Expandable)
+        function initializeScienceCards() {
+            const cards = document.querySelectorAll('.science-card');
+
+            cards.forEach(card => {
+                const toggle = card.querySelector('.card-toggle');
+                const content = card.querySelector('.card-content');
+                const header = card.querySelector('.card-header');
+
+                if (!toggle || !content) return;
+
+                const toggleCard = () => {
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+                    if (isExpanded) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = '0';
+                        content.classList.remove('open');
+                    } else {
+                        toggle.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.classList.add('open');
+                    }
+                };
+
+                header.addEventListener('click', toggleCard);
+                toggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleCard();
+                });
+
+                // Keyboard support
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleCard();
+                    }
+                });
+            });
+        }
+
+        // Initialize CTA Button Interactions
+        function initializeCTAButtons() {
+            const ctaButtons = document.querySelectorAll('.cta-primary, .cta-secondary');
+
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (button.classList.contains('cta-primary')) {
+                        // Scroll to discovery section or open booking modal
+                        const discoverySection = document.getElementById('discovery');
+                        if (discoverySection) {
+                            discoverySection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else if (button.classList.contains('cta-secondary')) {
+                        // Scroll to journey section or program info
+                        const journeySection = document.getElementById('journey');
+                        if (journeySection) {
+                            journeySection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Dynamic max-height calculation for accordion content
+        function updateAccordionHeights() {
+            const contents = document.querySelectorAll('.pillar-content');
+            contents.forEach(content => {
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        }
+
+        // Initialize all Deep Dive interactions when DOM is ready
+        function initializeMethodologyDeepDive() {
+            initializePillarsAccordion();
+            initializeScienceCards();
+            initializeCTAButtons();
+        }
+
+        // Call on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeMethodologyDeepDive);
+        } else {
+            initializeMethodologyDeepDive();
+        }
+
+        // Update accordion heights on window resize
+        window.addEventListener('resize', () => {
+            setTimeout(updateAccordionHeights, 100);
+        });
+    </script>
 </body>
 </html>
