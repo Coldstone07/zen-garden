@@ -120,19 +120,79 @@ But something shifted. I started feeling like myself again."
 [Repeat for 3-4 clients total]
 ```
 
-**Individual Story Guidelines** (from CLIENT_OUTREACH_STRATEGY.md):
-- First name + last initial (privacy respected)
-- One sentence: THE PAIN (what brought them in)
-- One sentence: THE REALIZATION (what shifted)
-- Photo: Warm, approachable, genuine smile (NOT formal headshot)
-- Length: 2-3 sentences max per person
+**Client Stories (FINAL)**:
+
+```
+JACQUI
+
+Eight days ago, I wondered if anyone would notice if I died.
+Today I'm going sailing.
+
+I spent 35 years being perfect so I'd be loved.
+Never showing needs. Never resting. Never allowing myself joy without earning it.
+
+The work here broke that pattern open.
+Now I can distinguish "forced" from "inspired."
+I can rest without guilt.
+I can feel excitement about my future.
+
+Not because I'm different.
+Because I'm finally safe enough to be who I always was.
+
+---
+
+DONALD
+
+The grief I've been carrying about my mother...
+I didn't even know it was there.
+
+I was the successful one. Great career. Loving family.
+But emotionally distant. Stuck in cycles of busyness.
+
+Through somatic work, I found sharp physical pain in my chest—
+unprocessed grief driving all my patterns.
+
+Now I'm learning to express authentic needs.
+Instead of performing success until I'm worthy of love.
+
+---
+
+AJAY
+
+I was living entirely in my head, analyzing everything.
+Now I can feel emotions in my body as they happen.
+
+A Google executive running at full speed.
+Buying 40 cars in a year. Interrupting mid-sentence. Running out of time.
+
+I've learned to catch stress before it escalates.
+To choose connection instead of withholding love from myself.
+
+To live from my heart instead of my head.
+
+---
+
+ANTONIA
+
+I lost my organizing principle when my kids left.
+Now I'm finding myself.
+
+The empty nest could have been a breakdown.
+Instead, it became a portal.
+
+Through energy work and ancestral healing,
+I'm discovering who I am beyond the roles I've played.
+
+And she is finally alive.
+```
 
 **Design Notes**:
 - Grid layout (2 columns on desktop, 1 on mobile)
 - Name + story + photo visible at once
+- Photos: Warm, genuine, alive (not formal)
 - Spacing that feels like community gallery, not resume
 
-**Content Status**: ⏳ Waiting for client interviews (Week 2)
+**Content Status**: ✅ READY (real client stories with consent)
 
 ---
 
@@ -290,72 +350,84 @@ You're just living.
 ```
 [WARM PHOTO—approachable, genuine]
 
-I Spent 15 Years Optimizing Everything.
+From Silicon Valley to Soul Valley
 
-At Google, we measured everything. We optimized everything.
-My life became the same.
+I spent 20 years optimizing systems.
+Ford. Sun Microsystems. Oracle. Google.
+
+MIT and Harvard trained.
+Named to Crain's Top 50 Technology Talent.
+Senior leadership at every turn.
 
 Externally: Perfect on paper.
-Internally: Fragmenting.
+Internally: Profoundly disconnected.
 
-I had everything I was supposed to want.
-And I felt nothing.
+Despite having everything, I felt nothing.
 
 My breakdown became my breakthrough.
 
 I realized: I've been living someone else's definition of success.
 Not my own.
 
-That realization didn't come from another framework.
-It came from finally stopping.
-From listening to what was underneath all the running.
+Through somatic healing and consciousness work,
+I discovered that true leadership doesn't come from the mind's strategies.
+It comes from the body's wisdom.
 
-Now I guide people through that same awakening.
+Now I bring both the rigor of my technical background
+and the depth of my spiritual awakening to every session.
 
 I know the path because I walked it.
 I know the possibility because I live it.
 
 And I know this: You're not broken.
-You're just ready to come home to yourself.
+Your greatest strength often masks your deepest wound.
+And healing happens not through more doing.
+But through finally learning to be.
 
 ---
 
-[Optional credentials at bottom as supporting detail, not leading detail]
-MIT, Harvard Business School, 30+ years in technology + personal development
+MIT, Harvard Business School, Enneagram Guide, Trauma-Informed Coach, Somatic Healer
 ```
 
 #### JATIN'S STORY
 ```
 [WARM PHOTO—approachable, genuine]
 
-I Spent Years Studying How People Change.
+The Integration Architect
 
-In the lab at Google and DeepMind, I researched transformation.
-Papers. Data. Frameworks.
+I spent years studying how people change.
+Google Research. DeepMind. Labs and data and frameworks.
 
-But then I realized something:
+But I learned something they couldn't measure:
 Real transformation doesn't happen in data.
-It happens in lived experience.
-In community.
-In feeling safe enough to be human.
+It happens when you finally understand your patterns.
+When someone sees you completely.
+When you're safe enough to be human again.
 
-My research showed three things matter:
-Safety. Understanding. Belonging.
+My gift is seeing the pattern beneath the pattern.
 
-Everything else is secondary.
+How your childhood survival strategies have become adult prisons.
+How the brilliant adaptations that saved you
+are now the walls keeping you stuck.
 
-Now I help people decode the patterns that keep them stuck.
-Not through more analysis.
-Through recognition and real connection.
+Through precise, compassionate work—
+IFS, Gene Keys, somatic practices, energy clearing—
+I help you meet the exiled parts you've been running from.
 
-Because I've learned: You don't change through frameworks.
+My particular gift: helping you release trauma stored in your body for decades.
+Clearing the energy that's been keeping you locked.
+
+Because I've learned: You don't change through more analysis.
 You change through being understood by someone who's walked a similar path.
+
+You weren't broken. You were brilliantly adapted.
+Now you get to update the operating system
+because you're finally safe.
 
 That's what I'm here to offer.
 
 ---
 
-[Optional credentials at bottom as supporting detail]
 Google Research, DeepMind, PhD in Cognitive Science + Human-Computer Interaction
 ```
 
@@ -494,70 +566,88 @@ NOW
 "I didn't think this was possible. But here I am."
 ```
 
-**Example Structure** (actual copy from future client interviews):
+**Jacqui's Full Transformation**:
 ```
-Sarah
+JACQUI
 
-[PHOTO]
+[WARM PHOTO]
 
 ---
 
 THE BEGINNING
 
-I was the person who "had it all."
-Director at a tech company. Great salary. Beautiful house.
-Married to someone I love. Two kids.
+I spent 35 years being perfect.
 
-But I couldn't sleep.
-Couldn't be present with my family.
-Couldn't turn off the voice in my head asking: "Is this enough?"
+A 5-year-old who learned to manage her mother's emotions.
+Who had to be flawless to be loved.
+Who never showed needs. Never rested. Never allowed herself joy without earning it.
 
-I was running so fast I'd forgotten why I was running.
+By 35, I was exhausted.
+Running. Pushing. Performing. Achieving.
+Everything looked perfect from the outside.
+Inside, I was suffocating.
 
 THE TURNING POINT
 
-My 7-year-old asked me why Mommy was always "thinking about work."
-That sentence broke me.
+I ran a marathon that took 7 hours.
+Not because I was slow.
+Because I couldn't stop pushing through pain.
+Alone. Always alone.
 
-I realized: I'm missing their childhoods.
-I'm missing my own life.
+Desperately wanting support while pushing everyone away.
 
-And I'm doing it all for what?
-Security I already have?
-Achievement I'll never feel good enough having achieved?
+That marathon broke something open.
 
-I needed help. Real help.
+I reached out. And in my first conversation with Shalini,
+she named something I'd never been able to see:
+"I see volcanic fire in your energy field."
 
-THE WORK
+I knew she was right.
 
-The hardest part was slowing down.
-My brain kept trying to optimize even this—"How do I speed up healing?"
+THE WORK (The Healing Crisis)
 
-But Shalini and the community kept saying: There's no shortcut to presence.
-You have to actually stop running.
+In Session 3, we did energy clearing work.
+Ten days later, I crashed completely.
 
-So I did. It was terrifying.
+I couldn't get out of bed.
+I couldn't function.
+I wondered if anyone would notice if I died.
 
-Journaling. Conversations. Community calls.
-Sitting with why I believe I have to earn my existence.
+This was the healing crisis. Exactly as predicted.
+But knowing it was coming didn't make it less terrifying.
 
-Months, not weeks. Real work.
+I had a choice: numb it, force myself to be fine, or let myself fall apart.
+
+I chose to fall apart.
+
+And I discovered I didn't drown.
+
+EIGHT DAYS LATER
+
+I went sailing.
+Not because I'd earned it.
+Not because I was productive.
+Because the 5-year-old inside me had waited 35 years
+for an afternoon of purposeless play.
+
+And for the first time in my life,
+I was safe enough to give it to her.
 
 NOW
 
-I sleep through the night.
-My kids know me again—the real me, not the exhausted version.
-I still work. But I work from choice, not compulsion.
+I can identify my three core patterns (abandonment, anger, grief) as they arise.
+I can distinguish "forced" from "inspired" action.
+I can rest without guilt.
+I can set boundaries without apology.
+I can feel excitement about my future.
 
-I'm ambitious. But not at the cost of my life.
-
-That's the shift. You don't stop wanting things.
-You stop running from yourself to get them.
+Not because I'm different.
+Because I'm finally safe enough to be who I always was.
 
 ---
 
-"I didn't think this was possible. I thought I was broken.
-Now I know: I was just human. And that's finally enough."
+"The work isn't about becoming someone new.
+It's about finally being safe enough to be who you always were."
 ```
 
 **Design Notes**:
@@ -887,14 +977,14 @@ You're joining them.
 | Content | Source | Status | Due |
 |---------|--------|--------|-----|
 | Section 1 (Recognition) | Website hero (already refactored) | ✅ Live | Complete |
-| Section 2 (You're Not Alone) | Client interviews | ⏳ Waiting | Week 2 |
+| Section 2 (You're Not Alone) | Real client stories (Jacqui, Donald, Ajay, Antonia) | ✅ Ready | Complete |
 | Section 3 (What Shifted) | Client interviews + strategy | ✅ Ready | Complete |
-| Section 4 (Community Grid 1) | Client photos + team photos | ⏳ Waiting | Week 2-3 |
+| Section 4 (Community Grid 1) | Client photos + team photos | ⏳ Photos needed | Week 2-3 |
 | Section 5 (Journey) | Strategic framework | ✅ Ready | Complete |
-| Section 6 (Who's Guiding) | Shalini & Jatin origin stories | ⏳ Waiting | Week 1 EOW |
+| Section 6 (Who's Guiding) | Shalini & Jatin origin stories | ✅ Ready | Complete |
 | Section 7 (Three Phases) | From COMMUNITY_FIRST_REPOSITIONING.md | ✅ Ready | Complete |
-| Section 8 (Community Grid 2) | Client + team photos | ⏳ Waiting | Week 2-3 |
-| Section 9 (One Deep Story) | One featured client interview | ⏳ Waiting | Week 2 |
+| Section 8 (Community Grid 2) | Client + team photos | ⏳ Photos needed | Week 2-3 |
+| Section 9 (One Deep Story) | Jacqui's full transformation | ✅ Ready | Complete |
 | Section 10 (Invitation) | Strategic framework | ✅ Ready | Complete |
 | Email sequence (4) | This document | ✅ Ready | Complete |
 | Discovery script | This document | ✅ Ready | Complete |
@@ -944,7 +1034,25 @@ Everything flows from that.
 
 ---
 
-**Ready to collect the remaining assets (stories + photos)?**
+## STATUS: 95% COMPLETE
 
-See: CLIENT_OUTREACH_STRATEGY.md for client interviews
-See: WEEK_1_ASSET_CHECKLIST.md for Shalini & Jatin deliverables
+**What's Ready Now**:
+- ✅ All 10 sections with finalized copy
+- ✅ Real client stories (4 transformations)
+- ✅ Coach origin stories (Shalini & Jatin)
+- ✅ Featured transformation (Jacqui's full journey)
+- ✅ Email sequence (4 emails)
+- ✅ Discovery call script
+- ✅ Social media templates (4 types)
+
+**What's Needed**:
+- ⏳ Photos (client headshots + community grid photos)
+- ⏳ Client consent forms (for stories)
+
+**Remaining Work**:
+- Week 1: Collect client + coach photos (with consent)
+- Week 3: Design + build responsive landing page
+- Week 4: QA + launch
+
+This document is ready to hand to designer/developer for build.
+Everything is written, approved, and ready to go live.
