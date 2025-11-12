@@ -49,16 +49,25 @@
 
 ## 📋 NEXT: PHASES 3-5 (This Week)
 
-### PHASE 3: SIMPLIFY FRAMEWORK CARDS (Week 1, Next)
-**Location**: Within Methodology section (now hidden), but will also appear elsewhere
-**Scope**: Remove detailed explanations from framework cards
-**Action Required**:
-- [ ] Find remaining framework card references
-- [ ] Reduce from 50+ word explanations to 0-10 word names
-- [ ] Keep icons, remove descriptions
-- [ ] Test that page renders correctly
+### PHASE 3: SIMPLIFY FRAMEWORK CARDS ✅
+**Location**: Streams Accordion section (lines 3558-3635)
+**What Changed**:
+- Removed 40-50 word stream description paragraphs
+- Kept 3-4 framework tag names (1-3 words each)
+- Removed "Core Frameworks" section headers
+- Removed "Key Benefits" sections
 
-**Expected Impact**: Framework references become hints, not lessons
+**Changes Made**:
+| Stream | Before | After | Reduction |
+|--------|--------|-------|-----------|
+| Inner Wisdom | "Access your contemplative pathway..." (45 words) | Gene Keys, IFS, Shadow Work | 45 → 8 words |
+| Embodied Presence | "Cultivate interoceptive awareness..." (36 words) | Somatics, Mindfulness, Breathwork | 36 → 6 words |
+| Conscious Relating | "Transform ego patterns..." (41 words) | Enneagram, Attachment Theory, Relational Intelligence | 41 → 9 words |
+| Systemic Impact | "Navigate integral complexity..." (42 words) | Systems Thinking, Integral Leadership, Collective Transformation | 42 → 8 words |
+
+**Live Changes**: ✅ Website now displays framework tags only, no detailed explanations
+**Impact**: Visitors see framework names as hints, not lessons. Methodology becomes secondary to stories.
+**Status**: COMPLETE - Page tested and renders correctly
 
 ---
 
@@ -181,21 +190,31 @@ And it actually works."
 
 ## 🎬 NEXT IMMEDIATE ACTIONS
 
-**TODAY/TOMORROW**:
-1. **Send calendar invites** (Monday 9 AM kickoff + Tue-Fri 9 AM standups)
-2. **Start PHASE 3** (simplify framework cards)
-3. **Prepare client outreach** list
+**COMPLETED** ✅:
+1. ✅ PHASE 1: Hero section refactored (recognition-based)
+2. ✅ PHASE 2: Methodology deep-dive hidden
+3. ✅ PHASE 3: Framework cards simplified
 
-**MONDAY 9 AM**:
-- Kickoff with Shalini & Jatin
-- Present website changes (show before/after of hero section)
-- Get buy-in on direction
-- Lock down assignments for rest of week
+**THIS WEEK (Week 1)**:
+1. **Send calendar invites** → READY (see CALENDAR_INVITES_TO_SEND.md)
+   - Monday 9 AM: Kickoff meeting
+   - Tue-Fri 9 AM: Daily standups
 
-**THIS WEEK**:
-- Complete PHASES 3-4
-- Collect client candidates
-- Begin landing page outline
+2. **PHASE 4: Rewrite coach bios** (waiting for Shalini & Jatin origin stories)
+   - Need 2-3 paragraph personal stories from each
+   - Need 2-3 warm, approachable photos from each
+   - Expected by Friday EOW
+
+3. **Client identification & outreach** (see CLIENT_OUTREACH_STRATEGY.md)
+   - Identify 3-4 client candidates (Shalini & Jatin)
+   - Prepare outreach emails
+   - Schedule Week 2 interviews
+
+**NEXT WEEK (Week 2)**:
+- PHASE 5: Full copy reduction pass
+- Conduct deep client story interviews
+- Draft landing page sections
+- Create supporting materials (email templates, discovery scripts)
 
 ---
 
