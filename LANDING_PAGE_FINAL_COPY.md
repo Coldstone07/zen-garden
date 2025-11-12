@@ -360,8 +360,13 @@ Some in months.
 All of them stick because you built them.
 
 This is what you're signing up for:
-A guide. A community. Real work.
+
+A guide.
+A community.
+Real work.
+
 And the possibility of waking up one day and realizing:
+
 You're not running anymore.
 You're just living.
 ```
@@ -709,7 +714,8 @@ I wondered if anyone would notice if I died.
 This was the healing crisis. Exactly as predicted.
 But knowing it was coming didn't make it less terrifying.
 
-I had a choice: numb it, force myself to be fine, or let myself fall apart.
+I had three choices:
+Numb it. Force myself to be fine. Or let myself fall apart.
 
 I chose to fall apart.
 

@@ -60,12 +60,21 @@ Use these principles consistently across copy, email, social media, and the disc
 |10 | The Invitation | Low-pressure CTA | Discovery-call invite + email option |
 
 ## 4. Website Implementation Status
-- **Phase 1 (Hero)**: ✅ Live.
+
+**Refactoring Phases (PHASES 1–5)**:
+- **Phase 1 (Hero)**: ✅ Live. Rewritten for recognition-based messaging.
 - **Phase 2 (Hide deep methodology)**: ✅ Content commented out; needs final destination (Section 6 below).
-- **Phase 3 (Framework cards simplified)**: ✅ Only tags remain.
-- **Phase 4 (Coach bios)**: ⏳ Pending origin stories + photos.
+- **Phase 3 (Framework cards simplified)**: ✅ Only tags remain. No descriptions.
+- **Phase 4 (Coach bios)**: ⏳ Pending origin stories + photos (due EOW Week 1).
 - **Phase 5 (Global brevity pass)**: ⏳ Week 2 polish—target sub-40-word paragraphs, plain language, intentional whitespace.
-- **Testing**: Keep verifying on desktop + mobile + different ports (`localhost:8002` etc.) after each change.
+
+**Critical Fixes (From UX Audit, Nov 12) – ALL COMPLETE ✅**:
+- ✅ **Forms**: Wired to Formspree endpoint with inline validation, error/success states, aria-live regions
+- ✅ **Mobile Navigation**: Hamburger menu (<768px) + full-screen drawer + 44×44px tap targets + active states + keyboard support (Escape closes)
+- ✅ **CTA Contrast**: Audited all buttons—Gold (#C8A882) on dark: **8.0:1** (normal) / **9.67:1** (focus outline) ✓ Passes WCAG AAA
+- ✅ **Copy Readability**: Dense paragraphs refactored into short lines; long sentences broken for mobile; consistent 2–3 line max per paragraph
+
+**Testing**: Keep verifying on desktop + mobile + different ports (`localhost:8002` etc.) after each change.
 
 ## 5. Asset & Story Pipeline (Who Does What)
 
@@ -388,18 +397,21 @@ Every task below has one owner and a specific due date. Complete these before We
 **Success Metric for Week 1 Friday**: All tasks complete, including Critical/High audit fixes. Move directly into Week 2 story capture without waiting for additional stakeholders or approvals.
 
 ## 13. Site Quality & Accessibility Fixes (Based on Nov 12 UX Audit)
-| Priority | Issue | Required Fix | Owner |
-|----------|-------|--------------|-------|
-| **Critical** | Forms use placeholder Formspree ID (`YOUR_FORM_ID`) | Hook newsletter + contact forms to working Formspree (or Netlify/serverless) endpoints, add inline success/error feedback, keep aria-labels intact. | Jatin |
-| **High** | Navigation + hero not mobile-friendly | Add hamburger/drawer below 768px, enlarge nav font/tap targets, reduce hero text clamp + add manual line breaks for readability. | Jatin |
-| **High** | Content hierarchy weak (dense paragraphs, low-contrast CTAs) | Break story sections into shorter paragraphs/bullets, add subheads, increase CTA contrast (e.g., use accent gradient) and spacing. | Jatin |
-| **High** | Nav visibility/active state subtle | Boost font size to base+, add bold active background/underline with sufficient contrast, ensure min 44×44px tap area and visible focus states. | Jatin |
-| **Medium** | Placeholder assets (“Professional headshot coming soon”, “YouTube embed coming soon”) | Replace with real content as soon as assets arrive; otherwise remove blocks or use neutral graphic. | Shalini (photos) + Jatin (implement) |
-| **Medium** | Contrast, alt text, semantic gaps | Run contrast checks on gradients, add overlays as needed, ensure all `<img>` tags include descriptive `alt`, add sr-only text for background images. | Jatin |
-| **Medium** | White-space + paragraph spacing inconsistent | Apply spacing utilities (`--space-6` etc.), limit text width, increase line-height in long-form sections. | Jatin |
-| **Low** | Button feedback + alignment | Strengthen hover/focus states using `--gradient-primary-hover` / outlines, tidy spacing in cards/footer, standardize external link styling with icon + label. | Jatin |
 
-Tackle Critical/High items in parallel with content work so functional issues don't block launch readiness. Form integration + responsive nav should be completed before Week 2 design polish begins. Buttons, contrast, and spacing tweaks can fold into the Week 2/3 global copy tidy-up once the major assets are in place.
+**CRITICAL/HIGH ITEMS: ALL COMPLETE ✅** (Commit: `326dcff`, `023150f`)
+
+| Priority | Issue | Required Fix | Status | Owner |
+|----------|-------|--------------|--------|-------|
+| **Critical** ✅ | Forms use placeholder Formspree ID | Wired to Formspree endpoint with inline validation, error/success states (aria-live), aria-labels intact | COMPLETE (Commit 023150f) | Jatin |
+| **High** ✅ | Navigation + hero not mobile-friendly | Hamburger/drawer below 768px, 44×44px tap targets, mobile text breaks, active state styling | COMPLETE (Commit 326dcff) | Jatin |
+| **High** ✅ | Content hierarchy weak (dense copy) | Break paragraphs into 2–3 sentence max, consistent line breaks for mobile readability | COMPLETE (Copy refactored) | Jatin |
+| **High** ✅ | Nav visibility/active state subtle | Gold accent (#C8A882), bold + background highlight, 44×44px tap targets, visible focus outlines | COMPLETE (Commit 326dcff) | Jatin |
+| **Medium** | Placeholder assets ("Professional headshot coming soon") | Replace with real content as assets arrive; use neutral gradient placeholder meanwhile | IN PROGRESS (Week 1–2) | Shalini (photos) + Jatin |
+| **Medium** | Contrast, alt text, semantic gaps | CTA contrast verified: 8.0:1 (normal) / 9.67:1 (focus) ✓ AAA | IN PROGRESS | Jatin |
+| **Medium** | White-space + paragraph spacing inconsistent | Spacing utilities applied to form sections + nav drawers | IN PROGRESS | Jatin |
+| **Low** | Button feedback + alignment | Hover/focus states strengthened; animations smooth | LOW PRIORITY | Jatin |
+
+**Summary**: All Critical/High items blocking design/build phase are now complete. Medium/Low items can fold into Week 2/3 polish without impacting launch timeline.
 
 ---
 
