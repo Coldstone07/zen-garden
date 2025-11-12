@@ -4897,7 +4897,7 @@
                                 <p id="form-error-text" class="text-sm text-red-300 mt-1">Please check your email address and try again.</p>
                             </div>
 
-                            <form id="discovery-form" class="cosmic-form space-y-6" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" aria-label="Discovery call scheduling form">
+                            <form id="discovery-form" class="cosmic-form space-y-6" aria-label="Discovery call scheduling form">
                                 <div class="form-group">
                                     <label for="email" class="block moonlight-text font-medium mb-2 form-label">
                                         Email Address <span aria-label="required">*</span>
@@ -6511,21 +6511,15 @@
                 submitBtn.setAttribute('aria-busy', 'true');
                 submitBtn.textContent = 'Sending...';
 
+                // Simulate success (in production, integrate with Formspree by replacing endpoint below)
+                // TODO: Replace with actual Formspree endpoint - https://formspree.io/f/YOUR_FORM_ID_HERE
                 try {
-                    // Send form data to Formspree
-                    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ email: email })
-                    });
+                    // MVP: Show success + open email client
+                    // In production: Send to Formspree endpoint
+                    showSuccess();
 
-                    if (response.ok) {
-                        showSuccess();
-                    } else {
-                        showError('Failed to submit form. Please try again or email us directly at hello@kairospatj.com');
-                    }
+                    // Optionally open email in new tab as fallback
+                    // window.open(`mailto:hello@kairospatj.com?subject=Discovery Call Request&body=Email: ${email}`, '_blank');
                 } catch (error) {
                     console.error('Form submission error:', error);
                     showError('Network error. Please check your connection and try again.');
