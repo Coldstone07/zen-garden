@@ -1,5 +1,22 @@
 # Designer & Developer Handoff: Kairos Landing Page
 
+**Audience**: Designer and developer building the Kairos landing page during Week 3 (design mockups) and Week 4 (final QA/launch).
+
+**Purpose**: This document contains everything needed to design and build the landing page: design system specifications, layout wireframes for all 10 sections, technical requirements, asset specifications, analytics setup, and comprehensive QA checklist.
+
+**How to Use**:
+- **Designers**: Start with PART 1 (Executive Summary) + PART 2 (Design System) + PART 3 (Layout & Wireframes)
+- **Developers**: Start with PART 1 (Executive Summary) + PART 2 (Design System) + PART 4 (Technical Specifications) + PART 6 (CTA Setup) + PART 7 (Analytics)
+- **Everyone**: Review PART 8 (QA Checklist) before launch. Reference PART 10 (Files & Resources) for deliverables.
+
+**Before Starting**: See PART 10 "Questions Before You Start?" to clarify domain, booking system, framework preference, and timeline.
+
+**Related Documents**:
+- LANDING_PAGE_FINAL_COPY.md: All 10 sections with exact copy, strategic rationale, and visitor experience descriptions
+- REVAMP_MASTER_PLAN.md: Overall strategy, design system (extended), CTA setup, and QA process
+
+---
+
 **Project**: Community-First Repositioning Landing Page
 **Timeline**: Week 3 Design/Build → Week 4 Launch
 **Status**: Content 95% complete, ready for design/build handoff
@@ -33,6 +50,12 @@ A 10-section community-first landing page that makes burnt-out achievers feel SE
 ---
 
 ## PART 2: DESIGN SYSTEM
+
+**Overview**: This section defines all colors, typography, components, spacing, and animations used throughout the landing page. Use these specifications consistently across all 10 sections. The design system is based on a "contemplative, warm" aesthetic: dark cosmic backgrounds with warm moonlight text and gold accents (no bright colors, no harsh contrasts).
+
+**CSS Variable Setup** (Recommended): Define all colors, sizes, and transitions as CSS custom properties (e.g., `--cosmic-void`, `--accent-primary`) for easy maintenance and consistency.
+
+---
 
 ### Color Palette
 
@@ -254,6 +277,22 @@ Page Load:
 ---
 
 ## PART 3: LAYOUT & WIREFRAMES
+
+**Overview**: This section provides detailed layout specifications for all 10 landing page sections. Each section includes:
+- **Content Placement**: What text/images go where
+- **Layout**: Responsive breakpoints (desktop, tablet, mobile) with specific dimensions and padding
+- **Visual Style**: Design guidelines (colors, emphasis, spacing)
+- **Image Specifications**: Size, format, file constraints
+
+**How to Use**:
+1. Read the complete section description in LANDING_PAGE_FINAL_COPY.md (Part 2) to understand the content and WHY it matters
+2. Refer to this section for layout specifics (grid columns, padding, font sizes)
+3. Use the design system (PART 2) for all colors, fonts, spacing values
+4. Build mockups based on these wireframes, then iterate with the team
+
+**Mobile-First Principle**: Start with mobile (320px) and progressively enhance for larger screens. Ensure all sections are readable and clickable on small phones.
+
+---
 
 ### Section Breakdown
 
@@ -647,6 +686,19 @@ Button Layout:
 
 ## PART 4: TECHNICAL SPECIFICATIONS
 
+**Overview**: This section covers the technical foundation for building the landing page: technology stack options, hosting, performance requirements, responsive design breakpoints, browser support, and accessibility standards.
+
+**Key Decision Points**:
+- **Technology**: Choose between static HTML/CSS/JS, React/Next.js, or Webflow (see "Framework & Technology" below)
+- **Hosting**: Determine if landing page is separate domain or `/landing` path on existing Kairos website
+- **Performance**: Target <3 second load time, Lighthouse score >90, Core Web Vitals passing
+- **Accessibility**: WCAG AA compliance (4.5:1 contrast, keyboard navigation, alt text, 44×44px touch targets)
+- **Analytics**: GA4 event tracking for 7 events (see PART 7)
+
+**Most Important**: Performance and accessibility matter more than feature richness. A fast, accessible page that converts is better than a slow, fancy page nobody can use.
+
+---
+
 ### Framework & Technology
 
 **Recommended Stack** (choose one):
@@ -781,6 +833,17 @@ xl: 1280px
 
 ## PART 5: ASSET REQUIREMENTS
 
+**Overview**: This section specifies all photos, icons, and other assets needed to build the landing page. Real client photos are critical—they build trust and authenticity. Generic stock photos will undermine the community-first positioning.
+
+**Asset Timeline**:
+- **Week 1 EOW**: Coach photos (Shalini & Jatin) + 4 client headshots (Jacqui, Donald, Ajay, Antonia)
+- **Week 2**: Community grid photos (60+ total)
+- **Week 3**: Final optimization before build
+
+**Delivery Method**: All assets should be organized in a shared Google Drive folder with clear naming and folders per section.
+
+---
+
 ### Photos
 
 **Client Headshots** (4 clients for Section 2):
@@ -848,6 +911,17 @@ xl: 1280px
 
 ## PART 6: CTA & CONVERSION SETUP
 
+**Overview**: This section defines all call-to-action buttons, email links, and conversion setup. The primary goal is discovery call bookings. Secondary goal is email capture for marketing follow-up.
+
+**Critical Decision**: Before starting development, confirm with Shalini & Jatin which booking system to use (Calendly, Acuity, or HubSpot). This affects your HTML/JS setup.
+
+**CTA Strategy**:
+- **Primary**: "Let's Talk About This" (Section 1) and "Let's Have That Conversation" (Section 10) → Opens discovery call booking
+- **Secondary**: "Ask us anything" (email fallback) → Opens mailto link to contact@kairos.com
+- **Optional**: Email sign-up form (if using HubSpot or Mailchimp for nurturing sequence)
+
+---
+
 ### Button CTAs
 
 **Primary CTA: "Let's Talk About This" & "Let's Have That Conversation"**
@@ -911,6 +985,20 @@ Appears in:
 ---
 
 ## PART 7: ANALYTICS & TRACKING
+
+**Overview**: GA4 tracking helps understand how visitors engage with the landing page: where they click, how long they stay, which sections get the most attention, and most importantly—who books discovery calls.
+
+**What to Track**:
+- **Page views**: Count total visits
+- **CTA clicks**: Where are people clicking? (Section 1 hero button vs Section 10 closing button)
+- **Discovery call bookings**: The primary conversion metric
+- **Email sign-ups**: If using email capture form
+- **Scroll depth**: Are people reading past the fold? (20%, 50%, 75%, 100%)
+- **Outbound links**: Are people clicking away?
+
+**Post-Launch Monitoring**: After Week 4 launch, monitor these metrics weekly (see REVAMP_MASTER_PLAN.md Section 9 for full monitoring dashboard specs).
+
+---
 
 ### Google Analytics 4 Setup
 
@@ -988,6 +1076,32 @@ Appears in:
 ---
 
 ## PART 8: QA CHECKLIST & HANDOFF
+
+**Overview**: Quality assurance happens in three phases:
+1. **Design QA**: Before code is written, mockups reviewed for consistency and correctness
+2. **Development QA**: During build, functionality, performance, accessibility, and cross-browser testing
+3. **Final Review**: Before launch, full team sign-off on all requirements
+
+**Who Should Run QA**:
+- **Design QA**: Designer + Shalini & Jatin (stakeholders)
+- **Development QA**: Developer + QA engineer (if available) + accessibility checker
+- **Final Review**: Team + client sign-off
+
+**Timeline**:
+- Week 3 (Mon-Tue): Design QA
+- Week 3 (Wed-Fri): Development QA
+- Week 4 (Mon): Final QA + client approval
+- Week 4 (Tue-Wed): Staging deployment + final review
+- Week 4 (Thu-Fri): Production launch + monitoring
+
+**Tools Recommended**:
+- Lighthouse (performance)
+- WAVE (accessibility)
+- Axe DevTools (accessibility)
+- Chrome DevTools (cross-browser, mobile)
+- Responsively.app (responsive design testing)
+
+---
 
 ### Design QA (Before Build)
 
@@ -1067,6 +1181,18 @@ Appears in:
 
 ## PART 9: HANDOFF PROCESS & TIMELINE
 
+**Overview**: This is the execution timeline for Week 3 (design + build) and Week 4 (QA + launch). Clear deadlines and owner assignments prevent bottlenecks.
+
+**Key Principles**:
+- **Design before code**: Mockups must be approved before development starts (saves rework)
+- **Daily standups**: 15-minute standup to unblock issues immediately
+- **Client feedback loops**: Get Shalini & Jatin approval at design stage, not after building
+- **Saturday/Sunday**: Full QA testing (not waiting until last minute)
+
+**Success = All QA tests pass + Shalini & Jatin approve + Analytics ready before Friday launch**
+
+---
+
 ### Week 3 Schedule
 
 **Monday-Tuesday**: Design Phase
@@ -1115,7 +1241,16 @@ Appears in:
 
 ## PART 10: FILES & RESOURCES TO SEND
 
-### From Client
+**Overview**: This section clarifies what files the designer/developer should receive from the client (Shalini & Jatin), and what deliverables the designer/developer should provide back before launch.
+
+**Timeline**:
+- **Before Week 3 starts**: Designer/developer receives all documents + photos from Week 1-2
+- **Week 3 EOW**: Designer/developer delivers mockups + build artifacts
+- **Week 4 EOW**: Designer/developer delivers final code + QA reports
+
+---
+
+### From Client (Shalini & Jatin)
 
 **Photos** (organized Google Drive folder):
 ```
@@ -1153,6 +1288,12 @@ Kairos Landing Page Assets/
 ---
 
 ## FINAL NOTES FOR DESIGNER/DEVELOPER
+
+**Before You Start**: Read this section carefully. The design philosophy and common mistakes explain WHY the specifications matter, not just WHAT to do.
+
+This landing page serves a specific audience: burnt-out achievers who feel disconnected despite external success. The design must support vulnerability and belonging, not impress with technical prowess.
+
+---
 
 ### Design Philosophy
 - **Contemplative not flashy**: This is about feeling SEEN, not being impressed

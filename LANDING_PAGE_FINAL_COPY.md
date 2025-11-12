@@ -1,8 +1,12 @@
 # Kairos Landing Page: Final Copy Strategy
 
-**Status**: Ready to hand to designer/developer
-**Tone**: Vulnerable, honest, human-centered (see EMAIL_TO_TEAM.md for reference)
-**Purpose**: Every word shows WHY we're saying it
+**Audience**: Whoever will implement the landing page copy (designer, developer, copywriter).
+
+**Status**: 95% complete (waiting for coach photos only).
+
+**Tone**: Vulnerable, honest, human-centered. Lead with stories, not credentials. Show struggle before strength. See REVAMP_MASTER_PLAN.md Section 2 for full tone guidelines.
+
+**How to Use This Document**: Match all copy word-for-word. Don't paraphrase. Every word serves a purpose (see the "WHY THIS" explanation under each section).
 
 ---
 
@@ -28,6 +32,12 @@
 ---
 
 ## PART 2: 10-SECTION LANDING PAGE COPY
+
+**Strategic Architecture**: The following 10 sections are sequenced to move visitors from problem recognition → belonging → proof → commitment. Each section serves a specific purpose in the journey. Read them in order—they build on each other to create an integrated experience that leads to the CTA ("Let's Talk About This").
+
+**Design Principle**: Each section should be readable in under 2 minutes. Use whitespace, short paragraphs (2–3 lines max), and emotional resonance over information density. See REVAMP_MASTER_PLAN.md Section 2 for complete tone guidelines.
+
+---
 
 ### SECTION 1: RECOGNITION (Hero Equivalent)
 
@@ -92,7 +102,9 @@ Ready?
 
 **Purpose**: Show real people. Real names. Real proof that others have walked this path.
 
-**WHY THIS SECOND**: After recognition, people need proof they're not alone. Not statistics ("200+ clients"). Real names and real stories. This builds immediate belonging.
+**WHY THIS SECOND**: After recognition (Section 1), visitors need immediate proof they're not alone. Not statistics ("200+ clients"). Real names and real stories. This shift from "Am I the only one?" to "Oh, other people feel this too" builds immediate belonging and safety.
+
+**Visitor Experience**: Scrolling down, they see 3–4 real client names with brief stories (2–3 sentences each) + photos. Each story mirrors their own pain: burnout, disconnection, overwhelm. Seeing familiar faces builds trust instantly.
 
 **COPY FORMAT** (3-4 client spots):
 ```
@@ -200,7 +212,9 @@ And she is finally alive.
 
 **Purpose**: Show specific, tangible transformations. Not "98% improvement." Real life changes.
 
-**WHY THIS THIRD**: Proof that change is real. But proof through LIVES, not metrics. Sleep. Presence. Relationships. Clarity. These matter more than percentages.
+**WHY THIS THIRD**: After seeing people like themselves (Section 2), visitors need proof that change is real and tangible. But proof through LIVES, not metrics. Sleep. Presence. Relationships. Clarity. These matter more than percentages.
+
+**Visitor Experience**: Six outcome statements appear, each starting with a real quote from clients, followed by what actually changed. The visitor recognizes their own desired future in these stories: "I want to sleep again too" or "I want to be present with my family again."
 
 **COPY**:
 ```
@@ -246,7 +260,9 @@ These are people who found their way back to themselves.
 
 **Purpose**: Show belonging. Visual proof that this is a community, not a program.
 
-**WHY HERE**: After specific changes, show the container they're joining. Photos of real people (not stock photos). Faces. Diversity. Warmth.
+**WHY HERE**: After seeing real stories and real transformations (Sections 2–3), visitors need to visualize the CONTAINER they're joining. Photos of real people (not stock photos). Faces. Diversity. Warmth. This section shifts from "Will change happen?" to "Who will I be surrounded by?"
+
+**Visitor Experience**: 30–50 real client photos appear in a warm grid layout (circular crops recommended). Viewers scroll through faces and realize: "These are real people. These are humans like me. This is a community, not a program."
 
 **COPY**:
 ```
@@ -283,7 +299,9 @@ These are the people you're walking alongside.
 
 **Purpose**: Set honest expectations. No quick fixes. Real work required. But guided.
 
-**WHY HERE**: Before showing the process, acknowledge reality. This isn't "12 weeks to clarity." This is a real journey with real work. Honesty builds trust.
+**WHY HERE**: After building belonging (Sections 2–4), visitors need to understand what they're signing up for. This isn't "12 weeks to clarity"—it's a real journey. Honesty about difficulty INCREASES trust because it's human and authentic.
+
+**Visitor Experience**: The copy walks through a realistic timeline: recognition → understanding why → the shift → ongoing integration. Visitors think: "This is going to be hard, but it's real. And I can do hard things."
 
 **COPY**:
 ```
@@ -342,7 +360,9 @@ You're just living.
 
 **Purpose**: Build trust through vulnerability. Personal origin stories from Shalini & Jatin.
 
-**WHY HERE**: Before asking for commitment, introduce the guides. Not their credentials. Their humanity. Their path. Why they can guide yours.
+**WHY HERE**: Before asking visitors for commitment (Section 10), they need to know WHO is guiding them. Not credentials first—vulnerability first. This shows: "These people walked this path themselves. They understand because they've been there. That's why they can guide me."
+
+**Visitor Experience**: Two parallel stories appear—Shalini's "Silicon Valley to Soul Valley" and Jatin's "The Integration Architect." Each story shows breakdown → breakthrough, with credentials at the bottom as supporting detail, not the main message. Visitors think: "They've been exactly where I am. And they made it through."
 
 **COPY FORMAT** (2 sections, one per guide):
 
@@ -439,6 +459,7 @@ Google Research, DeepMind, PhD in Cognitive Science + Human-Computer Interaction
 - Story flows conversationally
 
 **Content Status**: ⏳ Waiting for Shalini & Jatin to write personal origin stories (Week 1)
+<!-- ACTION: Swap this placeholder with the approved first-person bios + photos the moment they’re written so Section 6 stops blocking final design handoff. -->
 
 ---
 
@@ -446,7 +467,9 @@ Google Research, DeepMind, PhD in Cognitive Science + Human-Computer Interaction
 
 **Purpose**: Show structure simply. Not detailed methodology. Clear roadmap.
 
-**WHY HERE**: After guides, show what the journey looks like. Keep it simple—3 phases. No jargon.
+**WHY HERE**: After introducing the guides (Section 6), visitors need to see the path forward. This section shows: "I'm not just getting support. I'm getting a clear progression." Keep it simple—3 phases. No jargon. No framework deep-dive.
+
+**Visitor Experience**: Three cards appear: Discover → Integrate → Actualize. Each has a 2-3 line description and realistic duration (4-6 weeks, 6-8 weeks, ongoing). Visitors can envision their journey and understand they're not signing up for open-ended work.
 
 **COPY**:
 ```
@@ -507,7 +530,9 @@ Not alone. In community.
 
 **Purpose**: Reinforce belonging. This is what you're joining.
 
-**WHY HERE**: Second community photo section. First introduced belonging visually. This reinforces: you're not alone in this journey.
+**WHY HERE**: By this point, visitors have seen: the problem → proof others have walked it → what changes → real guides → the roadmap. Now, before the CTA, show them the SCALE of community they're joining. A larger photo grid (60+ people) reinforces: "This isn't a small program. This is a real community."
+
+**Visitor Experience**: An expanded community photo grid appears (much larger than Section 4). Visitors scroll through 60+ diverse faces—different ages, genders, backgrounds. The message: "Look who's already doing this. You're not starting alone. These people understand."
 
 **COPY**:
 ```
@@ -539,7 +564,9 @@ You're joining them.
 
 **Purpose**: AA-model testimony. Full transformation arc. "I was there. Now I'm here."
 
-**WHY HERE**: Near the end, show one COMPLETE story. Not a snippet. A full arc. This is the story that converts (because it's real and complete).
+**WHY HERE**: Near the end, show one COMPLETE story. Not a snippet. A full arc. This is the story that converts because it's real, detailed, and shows the PROGRESSION from desperate → safe → alive. By this point, visitors are ready to see the full journey (not the 30-second version from Section 2).
+
+**Visitor Experience**: Visitors read Jacqui's complete 5–7 minute story: THE BEGINNING (35 years of perfectionism) → THE TURNING POINT (marathon breakdown) → THE WORK (healing crisis, hitting bottom, discovering safety) → NOW (sailing, rest, authenticity). This is proof that deep transformation is real—not just marketing language, but a lived experience.
 
 **COPY FORMAT**:
 ```
@@ -665,7 +692,13 @@ It's about finally being safe enough to be who you always were."
 
 **Purpose**: Lower barrier to next step. Clear, simple, human CTA.
 
-**WHY HERE**: After seeing real stories and understanding the journey, invite them in. Not "Book a call." Not "Apply now." Something warmer.
+**WHY HERE**: After 9 sections of problem → proof → guides → roadmap → deep story, visitors are ready to take action. But NOT ready for "Apply now" or high-pressure sales language. They need: "This is just a conversation. No pressure. Just real talk." This removes friction while making the CTA irresistible.
+
+**Visitor Experience**: A single warm paragraph acknowledges their hesitation: "You've read this far. That means something in you recognizes this." Then two clear options:
+1. Primary CTA: "Let's Have That Conversation" (30 min, no obligation, just real talk)
+2. Secondary option: "Ask us anything" (email link for those not ready to call yet)
+
+The feeling: "This is safe. I can try this. No pressure."
 
 **COPY**:
 ```
@@ -721,6 +754,12 @@ See you on the other side of running.
 ---
 
 ## PART 3: SUPPORTING COPY
+
+**What This Contains**: While the landing page drives discovery, these supporting materials nurture the broader funnel: email sequences to warm audiences, discovery call script to convert conversations, and social media templates to sustain messaging. Use these consistently across all channels to reinforce the community-first positioning.
+
+**Consistency Rule**: Every piece uses the same tone (vulnerable, recognition-based, community-focused). See REVAMP_MASTER_PLAN.md Section 2 for full tone guidelines.
+
+---
 
 ### EMAIL SEQUENCE (4 emails over 4 weeks pre-launch + post-launch)
 
@@ -972,6 +1011,13 @@ You're joining them.
 
 ## PART 4: CONTENT SOURCING GUIDE
 
+**Purpose**: This table shows which content is ready, which is waiting for assets, and when each piece is due. Use this to track readiness as you move toward design/build.
+
+**How to Read This**:
+- **Status Column**: ✅ Ready (can be built now) | ⏳ Waiting (assets needed) | 🔄 In Progress
+- **Due Column**: When content must be finalized to unblock the next phase
+- **Action**: If status is ⏳, that item is blocking design handoff. Prioritize these.
+
 ### What Comes From Where
 
 | Content | Source | Status | Due |
@@ -994,26 +1040,28 @@ You're joining them.
 
 ## PART 5: HANDOFF TO DESIGNER/DEVELOPER
 
-### What They Get
-1. This document (copy + WHY + design notes)
-2. All 10 sections with exact copy
-3. Client names + stories (once approved)
-4. Coach origin stories (once approved)
-5. Photo requirements + dimensions
-6. CTA buttons + links
+**Overview**: This document is the complete handoff to whoever designs and builds the landing page. All copy is final and ready to implement word-for-word.
+
+### What They Receive
+1. **This entire document**: Copy, strategic rationale ("WHY THIS"), design notes, and visitor experience descriptions
+2. **All 10 sections**: Exact copy ready to implement (no paraphrasing)
+3. **Client stories + photos**: Final-approved names, quotes, and warm photos (once Week 2 interviews are complete)
+4. **Coach origin stories + photos**: Final-approved Shalini & Jatin bios (once Week 1 is complete)
+5. **Technical specifications**: See DESIGNER_DEVELOPER_HANDOFF.md for design system, component specs, GA4 events, and QA requirements
+6. **Photo requirements**: Dimensions, formats, file sizes (see DESIGNER_DEVELOPER_HANDOFF.md Part 5)
 
 ### What They Build
-1. 10-section responsive landing page
-2. Mobile-first layout
-3. Warm, contemplative aesthetic (matching website)
-4. Accessibility compliant (WCAG AA)
-5. Fast-loading (optimize images)
-6. Analytics ready (GA4 events)
+1. **10-section responsive landing page**: Follows exact copy from this document
+2. **Mobile-first design**: 320px to 1200px+ with appropriate responsive breakpoints
+3. **Warm, contemplative aesthetic**: Dark cosmic background + moonlight text + glass-morphism cards (see REVAMP_MASTER_PLAN.md Section 7 for full design system)
+4. **Accessibility compliance**: WCAG AA (4.5:1 contrast, keyboard navigation, alt text, 44×44px touch targets)
+5. **Performance**: <3 second load time, Lighthouse score >90
+6. **Analytics ready**: GA4 event tracking for 7 events (see REVAMP_MASTER_PLAN.md Section 9)
 
 ### Timeline
-- Week 2: Copy finalized + approved
-- Week 3: Design + build complete
-- Week 4: QA + deploy
+- **Week 2 EOW**: All copy finalized + approved (stories, photos, client/coach bios locked)
+- **Week 3 EOW**: Design mockups + HTML/CSS build complete, responsive + accessible
+- **Week 4**: Final QA (cross-browser, mobile, accessibility, performance, analytics), deploy to production
 
 ---
 
