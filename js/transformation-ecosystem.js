@@ -229,14 +229,14 @@ function showStreamDetails(stream, index, isPersistent = false) {
             frameworks: ["Gene Keys", "IFS (Internal Family Systems)", "Shadow Work", "Archetypal Psychology", "Contemplative Practice"],
             benefits: ["Sacred context for life purpose", "Core motivation mapping", "Inner fragment healing", "Authentic blueprint access"]
         },
-        1: { // Embodied Presence  
+        1: { // Embodied Presence
             title: "Embodied Presence Stream",
             fullDescription: "Cultivate interoceptive awareness and nervous system regulation through evidence-based somatic practices. Develop equanimity to sensation and moment-to-moment awareness using Vipassana mindfulness to embody transformation.",
             frameworks: ["Somatics", "Vipassana Mindfulness", "Breathwork", "Nervous System Regulation", "Interoception"],
             benefits: ["Embodied self-awareness", "Stress release", "Present-moment anchoring", "Autonomic regulation"]
         },
         2: { // Conscious Relating
-            title: "Conscious Relating Stream", 
+            title: "Conscious Relating Stream",
             fullDescription: "Transform ego patterns through psycho-spiritual Enneagram awareness and create coherent group dynamics using Prosocial frameworks. Move from unconscious reactivity to conscious relating through understanding core motivations and attachment patterns.",
             frameworks: ["Enneagram", "Prosocial", "Attachment Theory", "Relational Intelligence", "Group Dynamics"],
             benefits: ["Ego pattern recognition", "Unconscious motivation clarity", "Relational coherence", "Cultural space navigation"]
@@ -248,18 +248,19 @@ function showStreamDetails(stream, index, isPersistent = false) {
             benefits: ["Holistic perspective", "Systemic intervention design", "Leadership presence", "Collective transformation catalyst"]
         }
     };
-    
+
     const data = streamData[index];
     if (!data) return;
-    
-    // Create or update details panel
-    let detailsPanel = stream.querySelector('.stream-details-panel');
+
+    // Check if details panel already exists globally, if not create it
+    let detailsPanel = document.querySelector('.stream-details-panel');
     if (!detailsPanel) {
         detailsPanel = document.createElement('div');
         detailsPanel.className = 'stream-details-panel';
-        stream.appendChild(detailsPanel);
+        document.body.appendChild(detailsPanel);
     }
-    
+
+    // Update content
     detailsPanel.innerHTML = `
         <div class="details-content">
             <h4 class="details-title">${data.title}</h4>
@@ -276,13 +277,25 @@ function showStreamDetails(stream, index, isPersistent = false) {
             </div>
         </div>
     `;
-    
+
+    // Position panel relative to stream element
+    const streamRect = stream.getBoundingClientRect();
+    const panelHeight = 400; // approximate height
+    let panelTop = streamRect.bottom + window.scrollY + 20;
+
+    // Check if panel would go off-screen and adjust
+    if (panelTop + panelHeight > window.innerHeight + window.scrollY) {
+        panelTop = streamRect.top + window.scrollY - panelHeight - 20;
+    }
+
+    detailsPanel.style.top = panelTop + 'px';
+
     // Animate in
     requestAnimationFrame(() => {
         detailsPanel.style.opacity = '1';
-        detailsPanel.style.transform = 'translateY(0)';
+        detailsPanel.style.transform = 'translateX(-50%) translateY(0)';
     });
-    
+
     // Add persistent class for mobile
     if (isPersistent) {
         detailsPanel.classList.add('persistent');
@@ -290,18 +303,12 @@ function showStreamDetails(stream, index, isPersistent = false) {
 }
 
 function hideStreamDetails(stream) {
-    const detailsPanel = stream.querySelector('.stream-details-panel');
+    const detailsPanel = document.querySelector('.stream-details-panel');
     if (detailsPanel) {
         // Remove persistent class and hide
         detailsPanel.classList.remove('persistent');
         detailsPanel.style.opacity = '0';
-        detailsPanel.style.transform = 'translateY(10px)';
-        
-        setTimeout(() => {
-            if (detailsPanel.parentNode) {
-                detailsPanel.remove();
-            }
-        }, 300);
+        detailsPanel.style.transform = 'translateX(-50%) translateY(10px)';
     }
 }
 
