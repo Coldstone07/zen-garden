@@ -1,15 +1,49 @@
 # Kairos Landing Page Revamp — Consolidated Plan
 
+**Audience**: Shalini and Jatin. Use this document to understand the full revamp strategy, decisions required, timeline, design system, technical specs, and QA process.
+
+**What This Document Contains**: One master plan covering mission, messaging, 10-section architecture, website status, asset pipeline, decisions, design system, technical specs, CTA setup, QA process, timeline, and immediate tasks.
+
+---
+
 ## 1. Mission & Current Context
-- **Goal**: Ship a community-first landing page + refactored site that makes burnt-out achievers feel seen, shows proof through real lives, and converts via low-friction conversations.
-- **Team**: Shalini (guide/story), Jatin (you: product, copy, implementation). No other owners—every task sits with one of us.
-- **Current Site State**: Hero rewritten, methodology deep dive hidden, framework cards shortened. Bios, global copy trim, community/story assets, and tooling decisions still open.
-- **Success signal**: Qualified visitors booking discovery calls because they feel recognized, safe, and curious—not because we overwhelmed them with methodology.
+
+**Goal**: Ship a community-first landing page and refactored website. The site must help burnt-out achievers feel seen, show proof through real lives, and convert visitors into discovery call bookings through low-friction conversations.
+
+**Team Ownership**:
+- **Shalini**: Guide story, client identification, community photos
+- **Jatin**: Product strategy, copy, implementation, technical setup
+
+Each task has one owner. There are no unassigned tasks.
+
+**Current Website State**:
+- ✅ Hero section rewritten (recognition-based)
+- ✅ Methodology deep dive hidden (in HTML comments)
+- ✅ Framework cards simplified (tag names only)
+- ⏳ Coach bios, global copy polish, community/story assets, tooling decisions still needed
+
+**Success Signal**: Qualified visitors book discovery calls because they feel recognized, safe, and curious. They don't book because we overwhelmed them with methodology.
 
 ## 2. Core Message & Tone (Use Everywhere)
-- **Message**: “External success doesn’t guarantee internal peace. You’re not broken, you’re human, and you don’t have to run alone.”
-- **Tone**: Vulnerable, honest, community-first. No jargon, no credentials-first intros, no “12‑week optimization” promises. Stories before stats.
-- **CTA Style**: Conversational (“Let’s talk about this”), single primary action, optional email fallback for the hesitant.
+
+Use these principles consistently across copy, email, social media, and the discovery call script.
+
+**The Core Message**:
+"External success doesn't guarantee internal peace. You're not broken, you're human, and you don't have to run alone."
+
+**Tone Guidelines**:
+- Write vulnerably. Share struggles, not just credentials.
+- Write honestly. Use real stories, not generalizations.
+- Prioritize community. "We're in this together" beats "Here's our methodology."
+- Avoid jargon (no "psycho-spiritual," "evidence-informed," "integral frameworks").
+- Avoid credentials-first introductions (lead with humanity, add credentials last).
+- Avoid quick-fix promises ("12-week transformation," "optimize your life").
+- Show proof through lives changed, not metrics (sleep returned, presence restored, purpose found).
+
+**CTA Style**:
+- Use conversational language: "Let's Talk About This," not "Schedule Consultation."
+- Offer one primary action. Make it easy to click.
+- Add an email fallback for hesitant visitors ("Or ask us anything" option).
 
 ## 3. Ten-Section Landing Page Architecture
 | # | Section | Purpose | What Must Appear |
@@ -34,13 +68,16 @@
 - **Testing**: Keep verifying on desktop + mobile + different ports (`localhost:8002` etc.) after each change.
 
 ## 5. Asset & Story Pipeline (Who Does What)
-| Deliverable | Owner | Notes / Due |
-|-------------|-------|-------------|
-| Shalini origin story (2–3 paras) + 2–3 warm photos | Shalini | Emphasize “breakdown → breakthrough,” credentials footnote only. Target: Week 1 Wednesday. |
-| Jatin origin story + 2–3 warm photos | Jatin | Write in first person about research background + human insight; gather own photos. |
-| Deep client stories (Jacqui/Donald/Ajay/Antonia style) | Shalini (identify) + Jatin (interview + edit) | Identify 4 clients, run 45‑min interviews Week 2, secure approvals/photos. |
-| Community gallery photos (30–50) | Shalini | Pull from existing archives; ensure consent + diversity. |
-| Metrics or qualitative proof | Jatin | If hard numbers aren’t verified, craft qualitative statements (e.g., “Most clients sleep through the night again within 2 months”). |
+
+This section defines what assets you need to gather and who owns each deliverable.
+
+| Deliverable | Owner | Timeline & Notes |
+|-------------|-------|------------------|
+| Personal origin story (2–3 paragraphs) + 2–3 warm photos | Shalini | Emphasize "breakdown → breakthrough." Put credentials at bottom only. Target: Wednesday of Week 1. |
+| Personal origin story (2–3 paragraphs) + 2–3 warm photos | Jatin | Write in first person. Connect research background to human insight. Gather own photos. Target: Wednesday of Week 1. |
+| Four deep client stories (Jacqui, Donald, Ajay, Antonia examples) | Shalini identifies + Jatin interviews/edits | Shalini: Identify 4 clients by Wednesday. Jatin: Run 45-min interviews Week 2, edit transcripts, secure approvals + photos. |
+| Community gallery photos (30–50 minimum) | Shalini | Pull from existing archives. Confirm consent from all clients. Ensure diversity (age, gender, background). Target: Friday of Week 1 (at least 15). |
+| Qualitative proof statements (if metrics unavailable) | Jatin | If hard numbers aren't verified, write qualitative statements instead. Example: "Most clients sleep through the night again within 2 months." |
 
 ## 6. Ops & Experience Decisions We Still Need
 - **Primary CTA Path**: Decide Monday whether to stick with “Schedule Discovery Call” + Calendly (default) or reintroduce the assessment if it’s genuinely ready. Default to Calendly for MVP.
@@ -84,10 +121,30 @@ Glass (Overlays)
   - Light weight (300) for readability
 
 ### Components
-- **Buttons**: Gold background (#C8A882), dark text, 16px semibold, 16px×40px padding, 8px radius, hover: +10% brightness + shadow + -2px translateY
-- **Cards**: Glass panel (0.1 opacity + 16px blur), 1px border, 24px radius, 32px padding, hover: shadow + -4px translateY
-- **Forms**: Cosmic surface background, glass border, focus: gold border + subtle shadow
-- **Spacing**: 8-level system (4px to 96px), sections: 64px padding top/bottom
+
+**Buttons (CTAs)**:
+- Background: Gold (#C8A882)
+- Text: Dark, 16px semibold
+- Padding: 16px horizontal × 40px vertical (min 44×44px for touch targets)
+- Border radius: 8px
+- Hover state: +10% brightness, shadow, -2px translateY (lifts on hover)
+
+**Cards**:
+- Background: Glass panel (0.1 opacity + 16px blur)
+- Border: 1px, cosmic surface color
+- Radius: 24px
+- Padding: 32px
+- Hover state: Shadow + -4px translateY (lifts on hover)
+
+**Forms** (if needed for email capture):
+- Background: Cosmic surface
+- Border: 1px glass border
+- Focus state: Gold border + subtle shadow (signals interactivity)
+
+**Spacing System**:
+- 8 levels: 4px, 8px, 16px, 24px, 32px, 48px, 64px, 96px
+- Sections: 64px padding top/bottom (creates breathing room)
+- Cards: 24px gap between items (groups content logically)
 
 ### Animations
 - Fade-in: 0.6s ease-out
@@ -158,95 +215,173 @@ Mobile-first breakpoints:
 - **Auto-response**: Confirm receipt + next steps
 
 ### Analytics & Event Tracking (GA4)
-```
-Events to Track:
-1. page_view (auto)
-2. click_cta_primary (Section 1 & 10 button clicks)
-3. booking_initiated (user opens calendar)
-4. email_signup (if form-based email capture)
-5. click_email_link (email contact clicks)
-6. scroll_depth (20%, 50%, 75%, 100% milestones—engagement signal)
-7. click_outbound (external links, if any)
 
-Conversion Goals:
-- Primary: booking_initiated
-- Secondary: email_signup
-- Tertiary: 50%+ scroll depth (high engagement)
+Set up the following events in Google Analytics 4 to measure performance:
 
-Dashboard: Track weekly—unique users, session duration (target >2 min), bounce rate (<40%), CTA click-through rate (>5%), conversion rate (>2% to booking)
-```
+**Events to Track**:
+1. `page_view` (auto-tracked)
+2. `click_cta_primary` (when user clicks "Let's Talk About This")
+3. `booking_initiated` (when user opens calendar widget)
+4. `email_signup` (if form-based email capture used)
+5. `click_email_link` (when user clicks email contact link)
+6. `scroll_depth` (20%, 50%, 75%, 100% milestones = engagement signal)
+7. `click_outbound` (clicks to external links, if any)
+
+**Conversion Goals** (in order of priority):
+1. **Primary**: `booking_initiated` (user opened calendar booking)
+2. **Secondary**: `email_signup` (user provided email, interested but not ready)
+3. **Tertiary**: 50%+ scroll depth (high engagement, likely to convert later)
+
+**Weekly Dashboard Metrics** (monitor these every Monday):
+- Unique users (who visited)
+- Session duration (target: >2 min, means they read content)
+- Bounce rate (target: <40%, lower is better)
+- CTA click-through rate (target: >5%, higher means page resonates)
+- Conversion rate (target: >2%, visitors booking calls)
 
 ### Email Integration
-- **Platform**: Mailchimp, ConvertKit, HubSpot, or custom (Firebase)
-- **Sequence**: 4 emails pre/post-launch (see LANDING_PAGE_FINAL_COPY.md for templates)
-- **Goal**: Nurture interested but not-yet-booking visitors
+
+Many visitors will be interested but not ready to book immediately. Email nurtures these prospects.
+
+- **Choose One Platform**: Mailchimp (free, simple), ConvertKit (creator-focused), HubSpot (CRM), or custom (Firebase)
+- **Email Sequence**: 4 emails over pre/post-launch period (see LANDING_PAGE_FINAL_COPY.md for exact copy templates)
+- **Goal**: Convert interested-but-hesitant visitors into eventual booking
+- **Success Metric**: Click-to-book conversion rate >10% from email (not all will book)
 
 ---
 
 ## 10. QA & Handoff Process
 
-### Design QA (Before Build)
-- [ ] Colors match spec (cosmic dark, moonlight text, gold accents)
-- [ ] Typography matches (Lora headers, Manrope body)
-- [ ] Spacing consistent (use spacing system)
-- [ ] Photos integrated (correct sizes, quality, diversity)
-- [ ] Hover/focus states designed (buttons, cards, links)
-- [ ] Mobile layouts designed (all breakpoints)
-- [ ] Mockups reviewed + signed off by Shalini & Jatin
+Before launch, verify all three areas: design, code, and content. Each has specific acceptance criteria.
 
-### Development QA
-**Functionality**: CTAs link correctly, forms submit, keyboard nav works, no console errors
-**Performance**: Lighthouse >90, load <3s, images optimized, no unused CSS/JS
-**Cross-Browser**: Chrome, Firefox, Safari, iOS Safari, Android Chrome all latest versions
-**Accessibility**: WAVE zero errors, 4.5:1 contrast, heading hierarchy clean, alt text on all images, keyboard focus visible
-**Mobile**: Touch targets ≥44px, readable text (no zoom needed), no horizontal scroll, forms mobile-friendly
-**Analytics**: GA4 code installed, events firing correctly, conversion tracking working
+### Design QA (Before Build Starts)
+
+Designer: Complete this checklist before handing mockups to developer.
+
+- [ ] **Colors**: Verify all colors match Section 7 specs (cosmic backgrounds, moonlight text, gold accents)
+- [ ] **Typography**: Confirm Lora headers + Manrope body at correct sizes
+- [ ] **Spacing**: Check spacing matches Section 7 system (4px through 96px levels)
+- [ ] **Photos**: Verify correct sizes, quality, and diversity represented
+- [ ] **Hover States**: Design hover effects for buttons, cards, links (clarity on interaction)
+- [ ] **Mobile Layouts**: Design layouts for desktop, tablet, mobile (all breakpoints in Section 8)
+- [ ] **Final Sign-Off**: Get Shalini & Jatin approval before handoff to developer
+
+### Development QA (Before Launch)
+
+Developer: Run through each category below. Document any failures.
+
+**Functionality Tests**:
+- All CTAs link to correct booking system or email
+- All forms submit without errors
+- Keyboard navigation works (Tab through all elements)
+- No console errors or warnings (check DevTools)
+
+**Performance Tests**:
+- Lighthouse score >90 in all categories (use PageSpeed Insights)
+- Page load time <3 seconds on 4G (test with throttling)
+- All images optimized (WebP format, lazy-loaded where appropriate)
+- No unused CSS or JavaScript (audit with DevTools Coverage tab)
+
+**Cross-Browser Tests** (latest 2 versions of each):
+- Google Chrome
+- Firefox
+- Safari (macOS)
+- Mobile Safari (iOS)
+- Chrome Mobile (Android)
+
+**Accessibility Tests**:
+- WAVE extension: Zero errors (run extension on page)
+- Color contrast: 4.5:1 minimum (use contrast checker on all text)
+- Heading hierarchy: Clean H1 → H2 → H3 structure (no skipped levels)
+- Alt text: Every image has descriptive alt text (describe what image shows, not "image")
+- Keyboard focus: Tab through page, focus state visible on all buttons/links
+
+**Mobile Tests**:
+- Touch targets ≥44px×44px (buttons large enough to tap)
+- Text readable without zoom (minimum 16px font)
+- No horizontal scroll (page fits width on mobile)
+- Forms mobile-friendly (labels above, inputs full-width)
+
+**Analytics Tests**:
+- GA4 code installed correctly (check in page source)
+- All 7 events firing (open GA4 Real-time, click CTAs, scroll, verify)
+- Conversion goals configured (booking_initiated, email_signup, scroll depth)
 
 ### Content QA
-- [ ] All copy matches LANDING_PAGE_FINAL_COPY.md
-- [ ] No typos or formatting issues
-- [ ] Links point to correct URLs
-- [ ] Client names spelled correctly
-- [ ] All quotes attributed
+
+Editor: Verify copy matches approved version and is error-free.
+
+- [ ] All copy word-for-word matches LANDING_PAGE_FINAL_COPY.md (no ad-lib changes)
+- [ ] No typos, grammatical errors, or formatting inconsistencies (spell-check + proofread)
+- [ ] All links point to correct URLs (test each link)
+- [ ] Client names spelled correctly (verify against approved stories)
+- [ ] All quotes attributed correctly (match to source story)
+- [ ] Section headers match approved copy exactly
 
 ### Launch Checklist
-- [ ] Design approved by Shalini & Jatin
-- [ ] All QA tests passed
-- [ ] Analytics tracking verified
-- [ ] Booking system tested end-to-end
-- [ ] Backup/rollback plan documented
-- [ ] Post-launch monitoring setup
-- [ ] Deploy → monitor 24 hours → celebrate 🚀
+
+Before going live, verify all the following:
+
+- [ ] **Design**: Approved by Shalini & Jatin ✅
+- [ ] **QA Tests**: All three categories (functionality, performance, accessibility) passed ✅
+- [ ] **Analytics**: GA4 tracking verified in Real-time tab ✅
+- [ ] **Booking System**: Test full flow (click CTA → booking page loads → confirm calendar works)
+- [ ] **Rollback Plan**: Document how to revert if major issues arise (git revert command documented)
+- [ ] **Monitoring Setup**: Know how to check GA4 dashboard, error logs, form submissions
+- [ ] **Deploy**: Push to production, monitor 24 hours, gather early feedback
 
 ---
 
 ## 11. Timeline & Rhythm
-- **Week 1 (Alignment & Asset Intake)**  
-  - Monday 9–10 AM kickoff (present vision, lock CTA/pricing/methodology decisions).  
-  - Daily 9 AM standups (15 min) to unblock.  
-  - Deliverables: origin story drafts, photo selects, client candidate list, CTA/pricing decisions, methodology plan.
-- **Week 2 (Story Capture + Build)**  
-  - Conduct and transcribe client interviews.  
-  - Draft new copy across 10 sections, weaving in stories.  
-  - Integrate bios, CTA flow, community gallery placeholders.
-- **Week 3 (Design/Dev Polish)**  
-  - Final photo sets, responsive tweaks, methodology page (if chosen), booking + email integration, GA4 script.
-- **Week 4 (QA + Launch)**  
-  - Accessibility + mobile QA, copy proof, analytics validation, final approvals, deploy + monitor.
+
+Four-week execution plan. Each week has a clear focus and specific deliverables.
+
+**Week 1: Alignment & Asset Intake**
+- **Monday 9–10 AM**: Kickoff meeting. Present vision, lock decisions (CTA system, pricing transparency, methodology destination).
+- **Daily 9 AM**: 15-minute standups (Tue-Fri) to unblock.
+- **Deliverables by Friday EOW**: Origin story drafts (Shalini + Jatin), 2–3 warm photos each, 4 client candidates identified, CTA/pricing/methodology decisions documented.
+
+**Week 2: Story Capture + Build**
+- Conduct 45-minute interviews with 4 clients (Shalini identifies, Jatin conducts).
+- Transcribe and edit interviews into story format.
+- Draft landing page copy across all 10 sections, integrating finalized stories.
+- Integrate coach bios (origin stories + photos).
+- **Deliverables by Friday EOW**: Finalized stories, approved photos, all copy locked, booking system + email platform selected and configured.
+
+**Week 3: Design/Dev Polish**
+- Designer: Create mockups for all 10 sections (approve with Shalini & Jatin).
+- Developer: Build responsive HTML/CSS/JS from approved designs.
+- Complete missing assets (final photo sets, community gallery photos).
+- Integrate booking system (Calendly/Acuity/HubSpot).
+- Set up GA4 event tracking.
+- Build methodology page (if chosen in Week 1).
+- **Deliverables by Friday EOW**: Landing page fully built and tested, website refactoring complete, all QA passed.
+
+**Week 4: QA + Launch**
+- Run final accessibility + mobile QA (Section 10 checklist).
+- Copy proof (verify word-for-word match to LANDING_PAGE_FINAL_COPY.md).
+- Validate analytics tracking (GA4 Real-time test).
+- Get final approvals from Shalini & Jatin.
+- Deploy to production.
+- Monitor first 48 hours (watch GA4 dashboard, check for errors).
+- Celebrate launch 🚀
 
 ## 12. Immediate To-Do List (No Empty Slots)
+
+Every task below has one owner and a specific due date. Complete these before Week 1 Friday EOW to unblock Week 2.
+
 | Task | Owner | Due | Details |
 |------|-------|-----|---------|
-| Send kickoff email + invites referencing this plan | Jatin | Today | Use condensed email body; attach this doc only. |
-| Prepare kickoff walkthrough (slides or doc) | Jatin | Before Monday | Highlight 10 sections, status, decisions needed. |
-| Draft Shalini origin story outline + photo shortlist | Shalini | Tue | Provide bullet outline + link to candidate photos for feedback. |
-| Draft Jatin origin story + photo shortlist | Jatin | Tue | 2–3 paras; ensure tone matches hero copy. |
-| Identify 4 client candidates + note transformations | Shalini | Wed | Include contact info + why each fits (sleep, presence, purpose, belonging). |
-| Build client outreach emails + schedule interviews | Jatin | Thu | Customize template, offer 45‑min call slots for Week 2. |
-| Confirm CTA path + pricing language + methodology destination | Shalini + Jatin | Thu | Document decisions in shared note; informs copy + dev scope. |
-| Gather community gallery assets (start) | Shalini | Fri | At least 15 approved photos to start layout. |
+| Send kickoff email + calendar invites to team | Jatin | Today | Email should reference this REVAMP_MASTER_PLAN.md doc (attachment or link). Include Monday 9 AM kickoff invite + Tue-Fri standup invites. |
+| Prepare Monday kickoff walkthrough | Jatin | Before Monday | Prepare brief slides or doc covering: 10-section architecture, current status (PHASES 1-3 live), decisions needed (CTA, pricing, methodology). |
+| Draft personal origin story outline + photo shortlist | Shalini | Tuesday | Write 2–3 paragraph outline emphasizing "breakdown → breakthrough." Shortlist 3 candidate photos (warm, genuine, approachable). |
+| Draft personal origin story + photo shortlist | Jatin | Tuesday | Write 2–3 paragraphs in first person, connecting research background to human insight. Gather own 2–3 candidate photos. |
+| Identify 4 client candidates + note transformations | Shalini | Wednesday | List client names, contact info, key transformation (sleep returned? relationships healed? clarity found?). Why does each fit Kairos positioning? |
+| Build client outreach emails + schedule interviews | Jatin | Thursday | Customize outreach email (see examples in LANDING_PAGE_FINAL_COPY.md). Offer 45-minute slots for Week 2 (Tue-Thu). |
+| Confirm 3 strategic decisions | Shalini + Jatin | Thursday | Lock in writing: (1) CTA system (Calendly vs. Acuity vs. HubSpot), (2) pricing transparency (ranges vs. "discuss on call"), (3) methodology destination (/methodology page vs. PDF vs. keep hidden). |
+| Gather community gallery photos (first batch) | Shalini | Friday | Pull at least 15–20 approved photos from existing archives (ensure consent + diversity). Target: 50 total by Week 2 Friday. |
 
-Once these are done, move straight into Week 2 story capture + copy drafting without waiting for additional stakeholders.
+**Success Metric for Week 1 Friday**: All tasks complete. Move directly into Week 2 story capture without waiting for additional stakeholders or approvals.
 
 ## 13. Site Quality & Accessibility Fixes (Based on Nov 12 UX Audit)
 | Priority | Issue | Required Fix | Owner |
@@ -266,16 +401,29 @@ Tackle Critical/High items in parallel with content work so functional issues do
 
 ## 14. Reference Documents
 
-This master plan is the single source of truth. Supporting documents:
+**REVAMP_MASTER_PLAN.md** (this document) is the single source of truth. Use these supporting docs for specific contexts:
 
-- **LANDING_PAGE_FINAL_COPY.md**: All copy for 10 sections (finalized, ready to implement). Reference for actual text, client stories, coach origin stories, email templates, discovery call script, social media posts.
+**LANDING_PAGE_FINAL_COPY.md** (Ready-to-implement reference):
+- All copy for 10 sections (finalized, word-for-word approved)
+- Real client stories (Jacqui, Donald, Ajay, Antonia)
+- Coach origin stories (Shalini, Jatin)
+- Email sequence (4 emails, templates)
+- Discovery call opening script
+- Social media post templates (4 types)
+- Use: Hand this to whoever writes final copy
 
-- **DESIGNER_DEVELOPER_HANDOFF.md**: Detailed technical handoff document for design + dev team. Includes expanded color codes, responsive specs, photo dimensions, asset management, advanced QA checklist. Intended for designer/developer reference during Week 3 build.
+**DESIGNER_DEVELOPER_HANDOFF.md** (Technical reference):
+- Expanded design system (colors, typography, components, spacing, animations)
+- Technical specifications (framework, hosting, performance, accessibility, browsers)
+- CTA & analytics setup (GA4 events, conversion goals)
+- Advanced QA checklists with specific tools/commands
+- Photo specifications (dimensions, formats, file sizes)
+- Use: Hand this to designer + developer at start of Week 3
 
-All other planning documents have been consolidated into this master plan and can be archived.
+**All other documents have been consolidated** into this master plan and can be archived.
 
 ---
 
-**Status**: Ready to Execute
+**Status**: Ready to Execute | Ready to Share
 **Last Updated**: November 12, 2025
-**Next**: Monday 9 AM Kickoff
+**Next**: Send to Shalini & Jatin today, Monday 9 AM Kickoff
