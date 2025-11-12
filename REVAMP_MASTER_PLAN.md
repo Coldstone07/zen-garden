@@ -380,8 +380,12 @@ Every task below has one owner and a specific due date. Complete these before We
 | Build client outreach emails + schedule interviews | Jatin | Thursday | Customize outreach email (see examples in LANDING_PAGE_FINAL_COPY.md). Offer 45-minute slots for Week 2 (Tue-Thu). |
 | Confirm 3 strategic decisions | Shalini + Jatin | Thursday | Lock in writing: (1) CTA system (Calendly vs. Acuity vs. HubSpot), (2) pricing transparency (ranges vs. "discuss on call"), (3) methodology destination (/methodology page vs. PDF vs. keep hidden). |
 | Gather community gallery photos (first batch) | Shalini | Friday | Pull at least 15–20 approved photos from existing archives (ensure consent + diversity). Target: 50 total by Week 2 Friday. |
+| **CRITICAL: Fix form endpoints** | Jatin | ASAP (Today) | Hook contact + newsletter forms to working Formspree (or Netlify/serverless) endpoint. Add inline success/error states. Keep aria-labels intact. No placeholder IDs. |
+| **CRITICAL: Implement mobile navigation** | Jatin | ASAP (Today) | Add hamburger menu <768px breakpoint, drawer collapse/expand, 44×44px tap targets, active state with contrast + bold. Test on iPhone 8 + Android. |
+| **HIGH: Audit & fix CTA contrast** | Jatin | ASAP (Today) | Test all buttons for ≥4.5:1 contrast (gold on dark must pass). If gold (#C8A882) fails, use darker solid or add outline. Document ratio for each CTA. |
+| **HIGH: Refactor dense copy sections** | Jatin | ASAP (Today) | Break Sections 5 & 9 into 2–3 sentence paragraphs. Add manual line breaks for mobile readability. Ensure all body text ≥16px on mobile. |
 
-**Success Metric for Week 1 Friday**: All tasks complete. Move directly into Week 2 story capture without waiting for additional stakeholders or approvals.
+**Success Metric for Week 1 Friday**: All tasks complete, including Critical/High audit fixes. Move directly into Week 2 story capture without waiting for additional stakeholders or approvals.
 
 ## 13. Site Quality & Accessibility Fixes (Based on Nov 12 UX Audit)
 | Priority | Issue | Required Fix | Owner |

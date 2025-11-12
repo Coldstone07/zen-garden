@@ -699,6 +699,48 @@ Button Layout:
 
 ---
 
+## CRITICAL FIXES REQUIRED (Blocking Design/Build)
+
+**⚠️ IMPORTANT**: The following issues must be resolved BEFORE Week 3 design mockups begin. If these are not functional by the time you start design, the entire layout may need rework.
+
+### Forms
+- **Current State**: Contact + newsletter forms use placeholder Formspree ID (`YOUR_FORM_ID`)
+- **Required**: Wire to live endpoint (Formspree, Netlify, or serverless function)
+- **Validation**: Inline validation messages (required fields, email format)
+- **Feedback**: Success message (green, auto-dismiss) + error state (red, persistent until fix)
+- **Accessibility**: Preserve aria-labels on all inputs, add aria-live="polite" to success/error messages
+- **No Placeholders**: Remove "coming soon" or test IDs before handing to design
+
+### Mobile Navigation
+- **Current State**: Navigation + hero text don't adapt below 768px
+- **Required**: Hamburger menu activates below 768px breakpoint (icon + label)
+- **Drawer Behavior**: Collapses smoothly from right or top, no layout shift, close on link click
+- **Tap Targets**: Minimum 44×44px (burger icon + nav links)
+- **Active State**: Currently selected section must be visually distinct (bold, different color, underline, or background) with ≥4.5:1 contrast
+- **Testing**: Must work on iPhone 8 (375px) + Android phone (360px) + tablet (768px)
+
+### CTA Contrast
+- **Current Issue**: Gold buttons (#C8A882) on dark background may fail 4.5:1 WCAG AA ratio
+- **Required**: All CTAs must test ≥4.5:1 contrast minimum
+- **If Gold Fails**: Either use darker solid color OR add 2px outline/border for visual weight + contrast
+- **Test Tool**: Use WebAIM contrast checker (https://webaim.org/resources/contrastchecker/) for each button combo
+- **Document**: Record actual contrast ratios for all CTA states (normal, hover, focus) in commit message or QA report
+
+### Copy Readability
+- **Current Issue**: Sections 5 (The Journey) and 9 (One Deep Story - Jacqui) have dense, long paragraphs (4–5 sentences each)
+- **Required**: Break into 2–3 sentence paragraphs max
+- **Mobile**: Add manual line breaks in long headlines (especially Section 1 hero) so text doesn't become hard to read on small screens
+- **Font Size**: Ensure all body text ≥16px on mobile (minimum for accessibility)
+- **Line Height**: ≥1.5 (already in spec, but verify in built HTML)
+
+**Success Criteria** (before Week 3 mockups):
+- ✅ Forms post to live endpoint + show success/error states
+- ✅ Mobile nav hamburger present below 768px + 44×44px tap targets + visible active state
+- ✅ All buttons pass 4.5:1 contrast check (documented)
+- ✅ Sections 5 & 9 broken into short paragraphs + hero text responsive on mobile
+
+---
+
 ### Framework & Technology
 
 **Recommended Stack** (choose one):

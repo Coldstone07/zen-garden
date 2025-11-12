@@ -293,6 +293,26 @@ These are the people you're walking alongside.
 
 **Content Status**: ⏳ Waiting for client photos (Week 1) + additional community photos (Week 2-3)
 
+**PLACEHOLDER STRATEGY** (while photos pending):
+- **Show**: Neutral gradient card background or subtle blurred community collage in warm tones (beige, gold, warm grays)
+- **Why**: Keeps grid layout stable during design phase. Placeholder is visually cohesive (not jarring "coming soon" text), so design can proceed without real photos
+- **Swap Trigger**: The moment first batch of 15 community photos arrives EOW Week 1, replace placeholders in order (left-to-right, top-to-bottom)
+
+**ASSET SPECIFICATIONS**:
+- **Format**: JPG, PNG, or WebP (JPG preferred for file size)
+- **Minimum width**: 1200px (will be downsampled to 200px desktop, 180px tablet, 120px mobile)
+- **File size**: <500 KB per image (optimize for web to keep page load <3s)
+- **Color grading**: Warm natural lighting (daylight, golden hour, or soft tungsten; no heavy filters or oversaturation)
+- **Diversity**: Mix of ages, genders, ethnicities, expressions (smiles, neutral, laughing—all genuine)
+- **Consent**: All photos require written subject consent (store in shared consent log; attach to asset folder)
+- **Quality**: Professional or naturally warm candid photos (no formal corporate headshots, no stock photo watermarks)
+
+**ASSET DELIVERY WINDOW**:
+- **EOW Week 1 Friday**: First batch of 15 community photos (unoptimized originals + one optimization pass) + 2 coach portraits (Shalini & Jatin)
+- **EOW Week 2 Friday**: Remaining 35+ community photos (totaling 50+ for both community sections) + 4 client headshots (Jacqui, Donald, Ajay, Antonia)
+- **Week 3 Monday**: Final optimization pass (resize, crop, WebP conversion); ready for design integration
+- **Trigger to swap placeholders**: Design can start using real photos on Monday Week 2 (once first full batch arrives Friday Week 1)
+
 ---
 
 ### SECTION 5: THE JOURNEY
@@ -459,7 +479,33 @@ Google Research, DeepMind, PhD in Cognitive Science + Human-Computer Interaction
 - Story flows conversationally
 
 **Content Status**: ⏳ Waiting for Shalini & Jatin to write personal origin stories (Week 1)
-<!-- ACTION: Swap this placeholder with the approved first-person bios + photos the moment they’re written so Section 6 stops blocking final design handoff. -->
+
+**PLACEHOLDER STRATEGY** (while coach bios pending):
+- **Show**: Gray or tan portrait silhouettes with "Coach bio coming soon" subtitle (warm neutral tones)
+- **Why**: Keeps two-column layout intact during design phase. Placeholders are visually balanced so design can proceed without final stories/photos
+- **Swap Trigger**: The moment Shalini & Jatin submit final origin stories + photos EOW Week 1, replace text + images (no layout shift required)
+
+**ASSET SPECIFICATIONS** (Coach Portraits):
+- **Format**: JPG (preferred for portraits)
+- **Dimensions**: 400px wide × 500px tall (3:4 portrait ratio, desktop); will downsize to 300px × 400px on mobile
+- **File size**: <100 KB each (high quality, not compressed)
+- **Color grading**: Warm natural lighting (daylight or soft tungsten), approachable expression (slight smile or neutral, not formal/stiff)
+- **Quality**: Professional portrait or naturally warm candid (headshot visible shoulders, warm background or blurred)
+- **Consent**: Explicit written consent from Shalini & Jatin to use photos (self-authored, so presumed, but document)
+
+**COPY SPECIFICATIONS** (Coach Origin Stories):
+- **Length**: 2–3 paragraphs each (Shalini + Jatin)
+- **Tone**: First-person, vulnerability-first (breakdown → breakthrough narrative)
+- **Structure**: Career context → realization/crisis → transformation → what they offer now
+- **Credentials**: Keep to 1 line at bottom (MIT, Google, PhD, etc.—supporting detail, not lead)
+- **Deadline**: Submit final text + photo by Thursday EOW Week 1 (so design can integrate Monday Week 2)
+
+**ASSET DELIVERY WINDOW**:
+- **Wednesday EOW Week 1**: Outline review (story structure + photo selection; final draft due next day)
+- **Thursday EOW Week 1**: Final bios + high-res photos submitted to shared folder
+- **Friday EOW Week 1**: Design team can start integrating (replaces "[WARM PHOTO]" placeholders)
+
+<!-- ACTION: Swap this placeholder with the approved first-person bios + photos the moment they're written so Section 6 stops blocking final design handoff. -->
 
 ---
 
@@ -557,6 +603,26 @@ You're joining them.
 - Simple, minimal text (let photos speak)
 
 **Content Status**: ⏳ Waiting for additional community photos
+
+**PLACEHOLDER STRATEGY** (while photos pending):
+- **Show**: Neutral gradient background with subtle motion (warm tones: beige → gold → warm gray), or repeating blurred community pattern
+- **Why**: Keeps grid layout visually interesting during design phase without real photos. Placeholder reinforces "community" theme even while empty
+- **Swap Trigger**: EOW Week 2 when full batch of 60+ photos arrives, replace placeholders in order (fills grid completely)
+
+**ASSET SPECIFICATIONS**:
+- **Format**: JPG, PNG, or WebP
+- **Dimensions**: 1200px minimum width (will be downsampled to 120px desktop, 100px tablet, 80px mobile for circular crop)
+- **File size**: <500 KB per image (aggregate file size critical for performance <3s load)
+- **Color grading**: Warm natural lighting (consistent color grade across all 60+ photos for visual cohesion)
+- **Diversity**: Intentional mix of ages (20s–70s), genders, ethnicities, expressions (candid + genuine, not posed)
+- **Circular crop**: Photos will be cropped to 1:1 square, then bordered-radius 50% in CSS—ensure faces are centered and visible
+- **Consent**: All 60+ photos require written subject consent; maintain consent log
+
+**ASSET DELIVERY WINDOW**:
+- **EOW Week 1 Friday**: First 15 community photos (batch 1; see Section 4)
+- **EOW Week 2 Friday**: Remaining 45+ community photos (batches 2–3, totaling 60+)
+- **Week 3 Monday**: Bulk optimization pass (resize, circular crop, WebP conversion); ready for grid integration
+- **Trigger to swap placeholders**: EOW Week 2, design can integrate full 60+ grid; replaces entire placeholder background
 
 ---
 
@@ -685,6 +751,32 @@ It's about finally being safe enough to be who you always were."
 - Breathing room (whitespace between sections)
 
 **Content Status**: ⏳ Waiting for deep client interviews (Week 2)
+
+**PLACEHOLDER STRATEGY** (while Jacqui's photo pending):
+- **Show**: Warm portrait silhouette (tan/gold) with "Jacqui's Story" text overlay (simple, centered)
+- **Why**: Keeps full-width layout clean and readable. Placeholder is subtle so story is the focus, not a jarring blank space
+- **Swap Trigger**: EOW Week 2 when Jacqui's deep interview is complete + photo sourced, replace silhouette with real photo (top or integrated with text)
+
+**ASSET SPECIFICATIONS** (Jacqui's Featured Photo):
+- **Format**: JPG (preferred for lifestyle/story photos)
+- **Dimensions**: 200px wide × 300px tall (portrait, 2:3 ratio, desktop); 300px full-width on mobile
+- **File size**: <80 KB (keep page load under 3s)
+- **Color grading**: Warm, genuine candid photo (not formal headshot; ideally in-context setting—sailing, nature, home environment to reinforce transformation)
+- **Expression**: Peaceful, alive, genuine (smile or neutral; shows "after" state)
+- **Quality**: Professional or naturally warm; no filters or heavy post-processing
+- **Consent**: Explicit written consent from Jacqui; verify no privacy concerns with story details (names, family, etc.)
+
+**COPY SPECIFICATIONS** (Jacqui's Deep Story):
+- **Length**: Full 5–7 minute read (4 sections: The Beginning, Turning Point, The Work, Now)
+- **Tone**: First-person memoir style; vulnerability + specific details (mother's emotions, 35-year pattern, healing crisis, sailing)
+- **Structure**: Already finalized in template (see lines 686–744); just needs final interview transcript edit + approval
+- **Deadline**: Submit final interview transcript + verified copy by Thursday EOW Week 2 (so design can integrate Friday Week 2)
+
+**ASSET DELIVERY WINDOW**:
+- **Week 2 Tue–Thu**: Conduct deep interview with Jacqui (45 min, record + transcribe)
+- **Thursday EOW Week 2**: Final copy edit + approve story text
+- **Friday EOW Week 2**: Jacqui submits warm photo + signs consent form
+- **Week 3 Monday**: Design integrates photo + final story text (replaces silhouette placeholder)
 
 ---
 
