@@ -400,7 +400,21 @@ section {
     font-size: 1.25rem;
   }
 
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
   .cosmic-section-title {
     font-size: 1.5rem;
+  }
+
+  /* Improve readability of long blocks */
+  div[style*="gap"] {
+    gap: 1.5rem;
   }
 }

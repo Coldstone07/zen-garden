@@ -8,6 +8,8 @@ export default function Home() {
   const [formMessage, setFormMessage] = useState('');
 
   const trackEvent = (eventName, eventParams = {}) => {
+    // Analytics disabled until GA4 ID is configured
+    // To enable: add your GA4 tracking script back to Head component
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', eventName, eventParams);
     }
@@ -141,15 +143,7 @@ export default function Home() {
         <meta name="description" content="A community for high achievers finding peace beyond success." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_ID"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'YOUR_GA4_ID');
-          `,
-        }} />
+        {/* GA4 analytics placeholder - add your GA4 ID here when ready */}
       </Head>
 
       <main style={{ background: 'var(--cosmic-void)', color: 'var(--moonlight-primary)' }}>
@@ -240,7 +234,7 @@ export default function Home() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
               {clientStories.map((story, idx) => (
                 <div key={idx} className="fade-in" style={{ display: 'flex', flexDirection: 'column', animationDelay: `${0.1 + idx * 0.1}s` }}>
-                  <div className="photo-placeholder" style={{ marginBottom: '2rem' }}></div>
+                  <div className="photo-placeholder" style={{ marginBottom: '2rem' }} role="img" aria-label={`${story.name}'s photo placeholder`}></div>
                   <h3 style={{ fontSize: '1.5rem', fontFamily: 'var(--font-serif)', fontWeight: 'bold', marginBottom: '1rem' }}>{story.name}</h3>
                   <p className="moonlight-secondary" style={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
                     "{story.quote}"
@@ -311,7 +305,7 @@ export default function Home() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
               {communityPhotos.map((idx) => (
-                <div key={idx} className="photo-placeholder" style={{ width: '100%', height: 'auto', aspectRatio: '1/1' }}></div>
+                <div key={idx} className="photo-placeholder" style={{ width: '100%', height: 'auto', aspectRatio: '1/1' }} role="img" aria-label={`Community member ${idx + 1} photo placeholder`}></div>
               ))}
             </div>
 
@@ -471,7 +465,7 @@ export default function Home() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '0.75rem', marginBottom: '2rem' }}>
               {communityPhotosLarge.map((idx) => (
-                <div key={idx} className="photo-placeholder" style={{ width: '100%', height: 'auto', aspectRatio: '1/1' }}></div>
+                <div key={idx} className="photo-placeholder" style={{ width: '100%', height: 'auto', aspectRatio: '1/1' }} role="img" aria-label={`Community member ${idx + 1} photo placeholder`}></div>
               ))}
             </div>
 
