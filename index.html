@@ -210,12 +210,18 @@
         }
 
         .cosmic-headline {
-            text-shadow: 
-                0 0 20px rgba(247, 243, 233, 0.9),
-                0 0 40px rgba(200, 168, 130, 0.5),
-                0 2px 6px rgba(0, 0, 0, 0.6),
-                0 1px 2px rgba(0, 0, 0, 0.8);
+            text-shadow:
+                0 0 30px rgba(247, 243, 233, 1),
+                0 0 50px rgba(200, 168, 130, 0.6),
+                0 3px 8px rgba(0, 0, 0, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.9);
             letter-spacing: -0.02em;
+            /* Enhanced readability backdrop */
+            background: rgba(10, 10, 15, 0.3);
+            padding: 1.5rem;
+            border-radius: 16px;
+            backdrop-filter: var(--blur-subtle);
+            -webkit-backdrop-filter: var(--blur-subtle);
         }
 
         .integrated-wholeness-text {
@@ -729,17 +735,185 @@
         }
 
         .floating-subtext {
-            backdrop-filter: var(--blur-subtle);
-            -webkit-backdrop-filter: var(--blur-subtle);
-            background: rgba(10, 10, 15, 0.15);
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            background: rgba(10, 10, 15, 0.35);
             border-radius: 16px;
             padding: 1rem 2rem;
-            border: 1px solid rgba(247, 243, 233, 0.08);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(247, 243, 233, 0.12);
+            text-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.8),
+                0 1px 2px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-overlay {
+            background: rgba(10, 10, 15, 0.25) !important;
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            padding: 2.5rem !important;
         }
 
         .floating-cta-group {
             margin-top: 2rem;
+        }
+
+        /* SECTION 2: YOU'RE NOT ALONE - Client Stories */
+        .client-stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .client-story-card {
+            background: var(--glass-primary);
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all var(--transition-medium);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .client-story-card:hover {
+            transform: translateY(-4px);
+            background: var(--glass-highlight);
+            border-color: var(--accent-interactive);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: var(--font-serif);
+            text-shadow: 0 0 15px rgba(200, 168, 130, 0.5);
+        }
+
+        .client-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--moonlight-secondary);
+            font-style: italic;
+        }
+
+        .client-photo-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(200, 168, 130, 0.1), rgba(230, 208, 179, 0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--moonlight-muted);
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        @media (max-width: 768px) {
+            .client-stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SECTION 3: WHAT SHIFTED - Outcome Cards */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .outcome-card {
+            background: var(--glass-primary);
+            backdrop-filter: var(--blur-medium);
+            -webkit-backdrop-filter: var(--blur-medium);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all var(--transition-medium);
+            text-align: left;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-4px);
+            background: var(--glass-highlight);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .outcome-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: var(--font-serif);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(200, 168, 130, 0.5);
+        }
+
+        .outcome-quote {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--moonlight-secondary);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* SECTION 4 & 8: COMMUNITY GALLERIES */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .community-photo-placeholder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(200, 168, 130, 0.08), rgba(230, 208, 179, 0.12));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--moonlight-muted);
+            font-size: 0.8rem;
+            border: 2px solid var(--glass-border);
+            transition: all var(--transition-medium);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .community-photo-placeholder:hover {
+            border-color: var(--accent-primary);
+            background: linear-gradient(135deg, rgba(200, 168, 130, 0.15), rgba(230, 208, 179, 0.2));
+            transform: scale(1.05);
+        }
+
+        .community-grid-large {
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        }
+
+        @media (max-width: 768px) {
+            .community-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 1rem;
+            }
+
+            .community-grid-large {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            }
         }
 
         /* COSMIC BUTTONS - Redesigned for seamless integration */
@@ -3680,27 +3854,331 @@
 
     <!-- Main Content -->
     <main id="main-content" class="relative" role="main">
-        <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center px-4 pt-20" aria-labelledby="hero-title">
+        <!-- Section 1: Recognition (Hero) -->
+        <section id="recognition" class="min-h-screen flex items-center justify-center px-4 pt-20" aria-labelledby="recognition-title">
             <div class="container mx-auto max-w-5xl text-center">
                 <div class="floating-content fade-in">
                     <div class="hero-overlay glass-panel">
-                        <h1 id="hero-title" class="text-4xl md:text-6xl font-bold mb-10 moonlight-text leading-relaxed cosmic-headline" style="font-family: var(--font-serif);">
-                            You've achieved everything you were supposed to achieve.<br>So why does it feel so empty?
+                        <h1 id="recognition-title" class="text-4xl md:text-6xl font-bold mb-8 moonlight-text leading-relaxed cosmic-headline" style="font-family: var(--font-serif);">
+                            You've Achieved Everything You Were Supposed To.
                         </h1>
-                        <p class="text-lg md:text-xl moonlight-secondary mb-0 leading-relaxed max-w-3xl mx-auto font-medium">
-                            You're not broken. You're not lazy. You're not ungrateful.<br><br>You're human. And you're not alone.
+                        <p class="text-2xl md:text-3xl moonlight-text mb-12 font-semibold" style="font-family: var(--font-serif);">
+                            So why does it feel so empty?
                         </p>
+
+                        <div class="space-y-6 text-lg md:text-xl moonlight-secondary leading-relaxed max-w-3xl mx-auto">
+                            <p class="mb-4">You've hit the goals. Built the career. Made the money.<br>Checked the boxes.</p>
+                            <p class="mb-4 text-xl font-medium">But inside?</p>
+                            <p class="mb-6 font-semibold moonlight-primary">You're running on fumes.</p>
+
+                            <div class="space-y-2 mb-8">
+                                <p>Connected to everyone and everything except yourself.</p>
+                                <p>Optimizing everything except your own life.</p>
+                                <p>Succeeding at everything except being present.</p>
+                            </div>
+
+                            <div class="space-y-2 mb-8 text-xl font-semibold moonlight-primary">
+                                <p>You're not broken.</p>
+                                <p>You're not lazy.</p>
+                                <p>You're not ungrateful.</p>
+                            </div>
+
+                            <p class="text-2xl font-bold moonlight-text mb-4" style="font-family: var(--font-serif);">You're human.</p>
+                            <p class="text-2xl font-bold moonlight-text" style="font-family: var(--font-serif);">And you're not alone.</p>
+                        </div>
                     </div>
-                    <div class="mt-8 floating-subtext glass-subtle px-6 py-4 max-w-4xl mx-auto">
-                        <p class="text-lg md:text-xl moonlight-primary leading-relaxed font-semibold">
-                            A private community of leaders who recognize that external success doesn't guarantee internal peace.<br><br>Here's what becomes possible when you stop running and start living.
+
+                    <div class="mt-12 floating-subtext glass-subtle px-6 py-6 max-w-4xl mx-auto">
+                        <p class="text-xl md:text-2xl moonlight-text mb-6 font-semibold leading-relaxed" style="font-family: var(--font-serif);">
+                            What if stopping the running was the beginning?
                         </p>
+                        <div class="space-y-3 text-lg md:text-xl moonlight-secondary leading-relaxed">
+                            <p>What if you could have success <em>and</em> presence?</p>
+                            <p>Achievement <em>and</em> peace?</p>
+                            <p>Ambition <em>and</em> aliveness?</p>
+                        </div>
+                        <p class="text-xl md:text-2xl moonlight-primary mt-8 mb-6 font-bold leading-relaxed">
+                            That's what becomes possible here.
+                        </p>
+                        <div class="space-y-2 text-base md:text-lg moonlight-secondary">
+                            <p>Not in 12 weeks. In real time. With real people.</p>
+                            <p>Through real work.</p>
+                        </div>
+                        <p class="text-xl moonlight-text mt-8 font-semibold" style="font-family: var(--font-serif);">Ready?</p>
                     </div>
+
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center floating-cta-group mt-12">
                         <a href="#discovery" class="cosmic-button-primary text-lg" aria-label="Let's talk about this">
                             Let's Talk About This
                         </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: You're Not Alone - Client Stories -->
+        <section id="stories" class="py-32 px-4 cosmic-section" aria-labelledby="stories-title">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center mb-20 fade-in">
+                    <h2 id="stories-title" class="text-4xl md:text-5xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                        Meet People Like You
+                    </h2>
+                    <p class="text-lg md:text-xl moonlight-secondary max-w-3xl mx-auto">
+                        Real people. Real names. Real stories of transformation.
+                    </p>
+                </div>
+
+                <div class="client-stories-grid fade-in">
+                    <!-- Jacqui's Story -->
+                    <div class="client-story-card">
+                        <div class="client-photo-placeholder">
+                            [Photo arriving soon]
+                        </div>
+                        <h3 class="client-name">JACQUI</h3>
+                        <div class="client-quote">
+                            <p class="mb-4">Eight days ago, I wondered if anyone would notice if I died.<br>Today I'm going sailing.</p>
+                            <p class="mb-4">I spent 35 years being perfect so I'd be loved.<br>Never showing needs. Never resting. Never allowing myself joy without earning it.</p>
+                            <p class="mb-4">The work here broke that pattern open.<br>Now I can distinguish "forced" from "inspired."<br>I can rest without guilt.<br>I can feel excitement about my future.</p>
+                            <p>Not because I'm different.<br>Because I'm finally safe enough to be who I always was.</p>
+                        </div>
+                    </div>
+
+                    <!-- Donald's Story -->
+                    <div class="client-story-card">
+                        <div class="client-photo-placeholder">
+                            [Photo arriving soon]
+                        </div>
+                        <h3 class="client-name">DONALD</h3>
+                        <div class="client-quote">
+                            <p class="mb-4">The grief I've been carrying about my mother...<br>I didn't even know it was there.</p>
+                            <p class="mb-4">I was the successful one. Great career. Loving family.<br>But emotionally distant. Stuck in cycles of busyness.</p>
+                            <p class="mb-4">Through somatic work, I found sharp physical pain in my chest—<br>unprocessed grief driving all my patterns.</p>
+                            <p>Now I'm learning to express authentic needs.<br>Instead of performing success until I'm worthy of love.</p>
+                        </div>
+                    </div>
+
+                    <!-- Ajay's Story -->
+                    <div class="client-story-card">
+                        <div class="client-photo-placeholder">
+                            [Photo arriving soon]
+                        </div>
+                        <h3 class="client-name">AJAY</h3>
+                        <div class="client-quote">
+                            <p class="mb-4">I was living entirely in my head, analyzing everything.<br>Now I can feel emotions in my body as they happen.</p>
+                            <p class="mb-4">A Google executive running at full speed.<br>Buying 40 cars in a year. Interrupting mid-sentence. Running out of time.</p>
+                            <p class="mb-4">I've learned to catch stress before it escalates.<br>To choose connection instead of withholding love from myself.</p>
+                            <p>To live from my heart instead of my head.</p>
+                        </div>
+                    </div>
+
+                    <!-- Antonia's Story -->
+                    <div class="client-story-card">
+                        <div class="client-photo-placeholder">
+                            [Photo arriving soon]
+                        </div>
+                        <h3 class="client-name">ANTONIA</h3>
+                        <div class="client-quote">
+                            <p class="mb-4">I lost my organizing principle when my kids left.<br>Now I'm finding myself.</p>
+                            <p class="mb-4">The empty nest could have been a breakdown.<br>Instead, it became a portal.</p>
+                            <p class="mb-4">Through energy work and ancestral healing,<br>I'm discovering who I am beyond the roles I've played.</p>
+                            <p>And she is finally alive.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: What Shifted - Tangible Transformations -->
+        <section id="outcomes" class="py-32 px-4 cosmic-section" aria-labelledby="outcomes-title">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center mb-20 fade-in">
+                    <h2 id="outcomes-title" class="text-4xl md:text-5xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                        What Actually Changes
+                    </h2>
+                    <p class="text-xl md:text-2xl moonlight-secondary max-w-2xl mx-auto">
+                        Not Statistics. Lives.
+                    </p>
+                </div>
+
+                <div class="outcomes-grid fade-in">
+                    <!-- Sleep Returns -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">Sleep Returns</h3>
+                        <p class="outcome-quote">"I hadn't slept through the night in 3 years. Now I sleep."</p>
+                    </div>
+
+                    <!-- Presence With People You Love -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">Presence With People You Love</h3>
+                        <p class="outcome-quote">"My kids know me again. Not the exhausted version. The actual me."</p>
+                    </div>
+
+                    <!-- Clarity On What Matters -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">Clarity On What Matters</h3>
+                        <p class="outcome-quote">"I stopped doing what looked good and started doing what felt true."</p>
+                    </div>
+
+                    <!-- Purpose Without Burning Out -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">Purpose Without Burning Out</h3>
+                        <p class="outcome-quote">"I can be ambitious without losing myself."</p>
+                    </div>
+
+                    <!-- The Ability To Stop Running -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">The Ability To Stop Running</h3>
+                        <p class="outcome-quote">"I realized: I don't have to earn my existence. I can just... live it."</p>
+                    </div>
+
+                    <!-- The Recognition That You're Human -->
+                    <div class="outcome-card">
+                        <h3 class="outcome-title">The Recognition That You're Human</h3>
+                        <p class="outcome-quote">"I'm not broken. I'm not weak. I'm human. And that's enough."</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-16 fade-in">
+                    <p class="text-lg md:text-xl moonlight-secondary max-w-3xl mx-auto leading-relaxed">
+                        These aren't "before and after" stories.<br>
+                        These are people who found their way back to themselves.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Community - First Gallery -->
+        <section id="community" class="py-32 px-4 cosmic-section" aria-labelledby="community-title">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center mb-20 fade-in">
+                    <h2 id="community-title" class="text-4xl md:text-5xl font-bold moonlight-text mb-8" style="font-family: var(--font-serif);">
+                        You're Joining A Community
+                    </h2>
+                    <div class="max-w-4xl mx-auto space-y-4 moonlight-secondary text-lg md:text-xl leading-relaxed">
+                        <p>This isn't a program.<br>It's not a course.<br>It's not "business coaching" or "life optimization."</p>
+                        <p class="mt-6">It's a community of people who recognized something:<br>
+                        That external success doesn't equal internal peace.<br>
+                        That you can be ambitious AND alive.<br>
+                        That belonging matters more than performance.</p>
+                        <p class="mt-6 moonlight-primary font-semibold">People like you. People who've walked this path.<br>People who understand.</p>
+                    </div>
+                </div>
+
+                <div class="community-grid fade-in">
+                    <!-- Generate 30 photo placeholders for the first community grid -->
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                    <div class="community-photo-placeholder">Photo shared with permission</div>
+                </div>
+
+                <div class="text-center mt-12 fade-in">
+                    <p class="text-lg moonlight-secondary italic">These are the people you're walking alongside.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: The Journey - Honest Expectations -->
+        <section id="journey" class="py-32 px-4 cosmic-section" aria-labelledby="journey-title">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-16 fade-in">
+                    <h2 id="journey-title" class="text-4xl md:text-5xl font-bold moonlight-text mb-6" style="font-family: var(--font-serif);">
+                        What This Actually Looks Like
+                    </h2>
+                </div>
+
+                <div class="glass-panel p-8 md:p-12 fade-in">
+                    <div class="space-y-8 text-lg md:text-xl moonlight-secondary leading-relaxed">
+                        <div class="text-center space-y-2">
+                            <p>This isn't magic.</p>
+                            <p>This isn't a weekend retreat.</p>
+                            <p>This isn't optimization.</p>
+                        </div>
+
+                        <div class="text-center space-y-2 moonlight-primary font-semibold">
+                            <p>This is real work.</p>
+                            <p>Guided work.</p>
+                            <p>Supported work.</p>
+                        </div>
+
+                        <p class="text-center">But real work nonetheless.</p>
+
+                        <div class="border-t border-b border-glass-border py-8 my-8 space-y-6">
+                            <p class="moonlight-primary font-semibold">It starts with recognition:</p>
+                            <p class="italic">"I'm running on fumes. And I don't have to."</p>
+
+                            <p class="moonlight-primary font-semibold mt-6">Then comes the hard part:</p>
+                            <div class="space-y-2">
+                                <p>Understanding why you're running.</p>
+                                <p>What you're actually chasing.</p>
+                                <p>What you're actually afraid of.</p>
+                            </div>
+
+                            <p class="moonlight-primary font-semibold mt-6">Then comes the shift:</p>
+                            <div class="space-y-2">
+                                <p>When you realize stopping doesn't mean failure.</p>
+                                <p>When presence starts feeling like productivity.</p>
+                                <p>When being human feels like enough.</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center space-y-4">
+                            <p class="text-xl md:text-2xl moonlight-text font-bold" style="font-family: var(--font-serif);">The timeline?</p>
+                            <div class="space-y-2">
+                                <p>Not 12 weeks.</p>
+                                <p>Not 90 days.</p>
+                                <p class="moonlight-primary font-semibold">Real time.</p>
+                            </div>
+
+                            <div class="mt-8 space-y-2">
+                                <p>Some shifts happen in days.</p>
+                                <p>Some in months.</p>
+                                <p class="moonlight-primary font-semibold">All of them stick because you built them.</p>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-glass-border pt-8 mt-8 text-center space-y-6">
+                            <p class="text-xl moonlight-primary font-semibold">This is what you're signing up for:</p>
+                            <div class="space-y-2">
+                                <p>A guide.</p>
+                                <p>A community.</p>
+                                <p>Real work.</p>
+                            </div>
+
+                            <p class="text-xl md:text-2xl moonlight-text font-bold mt-8" style="font-family: var(--font-serif);">
+                                And the possibility of waking up one day and realizing:
+                            </p>
+                            <div class="mt-4 space-y-2 moonlight-primary font-semibold text-xl">
+                                <p>You're not running anymore.</p>
+                                <p>You're just living.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
