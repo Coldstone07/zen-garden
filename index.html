@@ -4972,88 +4972,114 @@
                     </p>
                 </div>
 
-                <!-- Two-Phase Structure -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Two-Phase Structure - Accordion Style -->
+                <div class="program-phases-container space-y-6 mb-16">
                     <!-- Phase 1: Individual Foundation -->
-                    <div class="glass-panel p-8 md:p-10 rounded-lg fade-in">
-                        <div class="mb-6">
-                            <div class="h-12 w-12 rounded-lg bg-moonlight-primary/10 flex items-center justify-center mb-4">
-                                <span class="text-2xl font-bold moonlight-primary">1</span>
+                    <div class="program-phase-card glass-panel rounded-lg overflow-hidden fade-in">
+                        <button class="phase-header w-full p-8 md:p-10 text-left flex items-start justify-between hover:bg-moonlight-primary/5 transition-colors" data-phase="individual">
+                            <div class="flex items-start gap-6 flex-grow">
+                                <div class="h-14 w-14 rounded-lg bg-moonlight-primary/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-3xl font-bold moonlight-primary">1</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl md:text-3xl moonlight-text font-bold">Individual Foundation</h3>
+                                    <p class="text-base moonlight-muted uppercase tracking-widest mt-2 font-semibold">6-7 Week Deep Dive with Your Coach</p>
+                                </div>
                             </div>
-                            <h3 class="text-2xl md:text-3xl moonlight-text font-bold">Individual Foundation</h3>
-                            <p class="text-base moonlight-muted uppercase tracking-widest mt-2 font-semibold">6-7 Week Deep Dive</p>
-                        </div>
+                            <div class="phase-toggle text-2xl moonlight-primary ml-4 flex-shrink-0">+</div>
+                        </button>
 
-                        <p class="moonlight-secondary leading-relaxed mb-6">
-                            One-on-one work with our coaches (Shalini & Jatin) to establish the foundation for lasting transformation.
-                        </p>
+                        <div class="phase-content hidden border-t border-moonlight-primary/10 p-8 md:p-10 space-y-8">
+                            <p class="moonlight-secondary leading-relaxed text-lg">
+                                One-on-one work with our coaches (Shalini & Jatin) to establish the somatic, emotional, and psychological foundation for lasting transformation.
+                            </p>
 
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">What Happens</h4>
-                                <ul class="space-y-2 text-moonlight-secondary text-sm">
-                                    <li class="flex items-start"><span class="mr-2">•</span>Establish somatic awareness and nervous system regulation</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Begin inner parts work using IFS framework</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Identify and map core patterns</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Experience energy clearings and trauma integration</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Build capacity for deeper group work</li>
-                                </ul>
-                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">What Happens</h4>
+                                    <ul class="space-y-3 text-moonlight-secondary text-sm">
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Establish somatic awareness & nervous system regulation</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Begin inner parts work (IFS framework)</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Identify & map core patterns</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Experience energy clearings & trauma integration</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Build capacity for group work</span></li>
+                                    </ul>
+                                </div>
 
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">How Often</h4>
-                                <p class="text-moonlight-secondary text-sm">
-                                    Weekly 90-minute sessions focused on your unique journey and readiness
-                                </p>
-                            </div>
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">How It Works</h4>
+                                    <div class="space-y-3 text-moonlight-secondary text-sm">
+                                        <p><strong>Frequency:</strong> Weekly 90-minute sessions</p>
+                                        <p><strong>Duration:</strong> 6-7 weeks (typically 6-8 sessions)</p>
+                                        <p><strong>Format:</strong> 1-on-1 with your dedicated coach</p>
+                                        <p><strong>Timing:</strong> Flexible scheduling based on your availability</p>
+                                    </div>
+                                </div>
 
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">What You'll Gain</h4>
-                                <p class="text-moonlight-secondary text-sm">
-                                    A clear understanding of your patterns, access to your somatic wisdom, and the capacity to hold yourself with compassion
-                                </p>
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">What You'll Gain</h4>
+                                    <ul class="space-y-3 text-moonlight-secondary text-sm">
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Deep understanding of your patterns</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Access to your somatic wisdom</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Capacity to hold yourself with compassion</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Readiness for group experience</span></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Phase 2: Group Cohort -->
-                    <div class="glass-panel p-8 md:p-10 rounded-lg fade-in">
-                        <div class="mb-6">
-                            <div class="h-12 w-12 rounded-lg bg-moonlight-primary/10 flex items-center justify-center mb-4">
-                                <span class="text-2xl font-bold moonlight-primary">2</span>
+                    <div class="program-phase-card glass-panel rounded-lg overflow-hidden fade-in">
+                        <button class="phase-header w-full p-8 md:p-10 text-left flex items-start justify-between hover:bg-moonlight-primary/5 transition-colors" data-phase="group">
+                            <div class="flex items-start gap-6 flex-grow">
+                                <div class="h-14 w-14 rounded-lg bg-moonlight-primary/10 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-3xl font-bold moonlight-primary">2</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl md:text-3xl moonlight-text font-bold">Group Cohort Experience</h3>
+                                    <p class="text-base moonlight-muted uppercase tracking-widest mt-2 font-semibold">Ongoing Integration & Collective Witnessing</p>
+                                </div>
                             </div>
-                            <h3 class="text-2xl md:text-3xl moonlight-text font-bold">Group Cohort Experience</h3>
-                            <p class="text-base moonlight-muted uppercase tracking-widest mt-2 font-semibold">Ongoing Integration</p>
-                        </div>
+                            <div class="phase-toggle text-2xl moonlight-primary ml-4 flex-shrink-0">+</div>
+                        </button>
 
-                        <p class="moonlight-secondary leading-relaxed mb-6">
-                            Small cohorts (3-4 people) experiencing transformation together in a field of collective wisdom and witness.
-                        </p>
+                        <div class="phase-content hidden border-t border-moonlight-primary/10 p-8 md:p-10 space-y-8">
+                            <p class="moonlight-secondary leading-relaxed text-lg">
+                                Small cohorts (3-4 people) experiencing transformation together in a field of collective wisdom, witness, and co-regulation.
+                            </p>
 
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">What Happens</h4>
-                                <ul class="space-y-2 text-moonlight-secondary text-sm">
-                                    <li class="flex items-start"><span class="mr-2">•</span>Witness each other's journeys without fixing</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Practice compassionate challenge and reflection</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Integrate the frameworks together (IFS, Gene Keys, Enneagram, Somatics)</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Experience collective healing and co-regulation</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span>Deepen trust in your own wisdom and the group's</li>
-                                </ul>
-                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">What Happens</h4>
+                                    <ul class="space-y-3 text-moonlight-secondary text-sm">
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Witness each other's journeys without fixing</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Practice compassionate challenge & reflection</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Integrate frameworks together (IFS, Gene Keys, Enneagram, Somatics)</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Experience collective healing & co-regulation</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">▪</span><span>Deepen trust in collective wisdom</span></li>
+                                    </ul>
+                                </div>
 
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">How Often</h4>
-                                <p class="text-moonlight-secondary text-sm">
-                                    Bi-weekly sessions beginning after individual foundation (6-7 weeks) and continuing as needed
-                                </p>
-                            </div>
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">How It Works</h4>
+                                    <div class="space-y-3 text-moonlight-secondary text-sm">
+                                        <p><strong>Frequency:</strong> Bi-weekly 2-hour sessions</p>
+                                        <p><strong>Group Size:</strong> 3-4 people (maximum)</p>
+                                        <p><strong>Start Time:</strong> After individual foundation (week 8)</p>
+                                        <p><strong>Duration:</strong> Ongoing (recommended 3-6+ months)</p>
+                                    </div>
+                                </div>
 
-                            <div>
-                                <h4 class="text-lg moonlight-text font-bold mb-2">What You'll Gain</h4>
-                                <p class="text-moonlight-secondary text-sm">
-                                    The power of collective witnessing, accelerated integration, and the realization that your transformation ripples outward
-                                </p>
+                                <div class="glass-subtle p-6 rounded-lg">
+                                    <h4 class="text-lg moonlight-text font-bold mb-4">What You'll Gain</h4>
+                                    <ul class="space-y-3 text-moonlight-secondary text-sm">
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Power of collective witnessing</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Accelerated integration & insight</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Accountability & mutual support</span></li>
+                                        <li class="flex items-start"><span class="text-moonlight-primary mr-3">✓</span><span>Your transformation ripples outward</span></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -6125,6 +6151,39 @@
             });
         }
 
+        // Program Phase Accordion - Section 4
+        function initializeProgramPhases() {
+            const phaseHeaders = document.querySelectorAll('.phase-header');
+
+            phaseHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const card = header.closest('.program-phase-card');
+                    const content = card.querySelector('.phase-content');
+                    const toggle = header.querySelector('.phase-toggle');
+                    const isOpen = !content.classList.contains('hidden');
+
+                    // Toggle current phase
+                    if (isOpen) {
+                        content.classList.add('hidden');
+                        toggle.textContent = '+';
+                        header.classList.remove('active');
+                    } else {
+                        content.classList.remove('hidden');
+                        toggle.textContent = '−';
+                        header.classList.add('active');
+                    }
+                });
+
+                // Keyboard support
+                header.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        header.click();
+                    }
+                });
+            });
+        }
+
         // Kairos Transformation Ecosystem Interactions
         function initializeTransformationEcosystem() {
             const streams = document.querySelectorAll('.transformation-stream');
@@ -6470,6 +6529,9 @@
 
             // Initialize accordion interactions
             initializeStreamAccordion();
+
+            // Initialize program phase accordion (Section 4)
+            initializeProgramPhases();
 
             // Initialize journey phase interactions
             initializeJourneyPhaseInteractions();
