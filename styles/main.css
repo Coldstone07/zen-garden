@@ -11,10 +11,10 @@
     --cosmic-surface: #1C1C26;          /* Raised surface areas */
     
     /* Glassmorphism Surfaces */
-    --glass-primary: rgba(247, 243, 233, 0.1);      /* Primary glass surface - enhanced for better contrast */
-    --glass-secondary: rgba(247, 243, 233, 0.05);  /* Secondary glass surface */
-    --glass-border: rgba(247, 243, 233, 0.15);      /* Glass border - enhanced visibility */
-    --glass-highlight: rgba(247, 243, 233, 0.18);   /* Glass highlights */
+    --glass-primary: rgba(247, 243, 233, 0.28);      /* Primary glass surface - frosted for better contrast */
+    --glass-secondary: rgba(247, 243, 233, 0.18);  /* Secondary glass surface */
+    --glass-border: rgba(247, 243, 233, 0.25);      /* Glass border - enhanced visibility */
+    --glass-highlight: rgba(247, 243, 233, 0.32);   /* Glass highlights */
     
     /* Accent Colors */
     --accent-primary: #C8A882;           /* Warm gold accent */
