@@ -656,11 +656,17 @@
     .stream-conscious-relating { order: 4; }
     .stream-systemic-impact { order: 5; }
     
-    /* Hide energy flows on mobile for cleaner look */
+    /* Show energy flows on mobile with reduced opacity for better visibility */
     .energy-flows {
-        display: none;
+        display: block;
+        opacity: 0.5;
     }
-    
+
+    .energy-flow {
+        height: 1.5px;
+        opacity: 0.4;
+    }
+
     /* Hide particle system on mobile for better performance */
     .transformation-particles {
         display: none;
