@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.68.0",
+    "python": "^0.0.4",
     "three": "^0.158.0"
   },
   "browserslist": [

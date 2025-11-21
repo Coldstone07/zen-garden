@@ -170,20 +170,61 @@ function initializeMicroInteractions() {
 function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    const email = form.querySelector('input[type="email"]').value;
+    const emailInput = form.querySelector('input[type="email"]');
+    const email = emailInput ? emailInput.value : '';
     
     if (email && isValidEmail(email)) {
         // Add loading state
         form.classList.add('loading');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) submitBtn.innerHTML = '<span class="loading-spinner"></span> Sending...';
         
-        // Simulate form submission
-        setTimeout(() => {
-            form.classList.remove('loading');
+        // Prepare data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Send to Formspree
+        // TODO: Replace 'FORM_ID_HERE' with your actual Formspree Form ID
+        const formId = 'FORM_ID_HERE'; 
+        const endpoint = `https://formspree.io/f/${formId}`;
+
+        fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        throw new Error(data.errors.map(error => error.message).join(", "));
+                    } else {
+                        throw new Error('Oops! There was a problem submitting your form');
+                    }
+                });
+            }
+        })
+        .then(data => {
+            // Success
             form.reset();
-            
-            // Show success message with custom notification
-            showNotification('Thank you! Your Blueprint Guide will be sent to your email within 24 hours.', 'success');
-        }, 1000);
+            showNotification('Thank you! Your message has been sent successfully.', 'success');
+        })
+        .catch(error => {
+            // Error
+            console.error('Form submission error:', error);
+            showNotification(error.message || 'Oops! There was a problem submitting your form', 'error');
+        })
+        .finally(() => {
+            // Reset state
+            form.classList.remove('loading');
+            if (submitBtn) submitBtn.innerHTML = originalBtnText;
+        });
     } else {
         showNotification('Please enter a valid email address.', 'error');
     }

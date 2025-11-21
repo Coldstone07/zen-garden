@@ -23,7 +23,16 @@
       "Bash(killall:*)",
       "Bash(cd:*)",
       "Bash(git commit -m \"$(cat <<''EOF''\nComplete PHASE 3: Simplify framework cards + create Week 1 coordination documents\n\nPHASE 3 IMPLEMENTATION:\n- Removed 50+ word stream descriptions from all 4 framework streams\n- Kept framework tag names only (3-4 tags per stream, 1-3 words each)\n- Removed \"Core Frameworks\" and \"Key Benefits\" sections\n- Streams now display as minimal tags, not detailed explanations\n- Framework references become hints, not lessons (aligns with simplified, community-first messaging)\n\nCOORDINATION DOCUMENTS CREATED:\n- CALENDAR_INVITES_TO_SEND.md: Calendar invite templates for Monday kickoff + daily standups\n- CLIENT_OUTREACH_STRATEGY.md: Complete guide for identifying and recruiting 3-4 clients for deep story interviews\n\nFRAMEWORK CHANGES:\nInner Wisdom Stream: \"Gene Keys, IFS, Shadow Work\" (down from 45 words)\nEmbodied Presence Stream: \"Somatics, Mindfulness, Breathwork\" (down from 36 words)\nConscious Relating Stream: \"Enneagram, Attachment Theory, Relational Intelligence\" (down from 41 words)\nSystemic Impact Stream: \"Systems Thinking, Integral Leadership, Collective Transformation\" (down from 42 words)\n\nWHY:\n- Lead with stories, not methodology\n- Frameworks become secondary references, not primary content\n- Visitors see community + transformation first, frameworks never (unless they dig)\n- Supports AA-model positioning (belonging-first, not performance-first)\n\nNEXT IMMEDIATE ACTIONS:\n1. Send calendar invites (Monday 9 AM kickoff + Tue-Fri daily standups)\n2. Identify 3-4 client candidates (Shalini & Jatin)\n3. Begin outreach to clients (Week 2)\n4. Collect coach origin stories (Shalini & Jatin)\n\nSTATUS: PHASE 3 Complete | PHASE 4 Pending (waiting for coach stories) | PHASE 5 Pending (Week 2)\n\n🧠 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(cd /Users/jatinalla/Desktop/Kairos\\ Projects/Website/zen-garden:*)",
+      "Bash(cd /Users/jatinalla/Desktop/Kairos\\ Projects/Website/zen-garden/landing && npx tailwindcss init -p:*)",
+      "Bash(git -C /Users/jatinalla/Desktop/Kairos Projects/Website/zen-garden/landing log --name-status --oneline)",
+      "Bash(git reset:*)",
+      "Bash(pkill:*)",
+      "Bash(perl -pi -e 's/class=\"\"py-32 px-4 cosmic-section\"\"/class=\"\"py-28 px-4 cosmic-section\"\"/g' index.html:*)",
+      "Bash(perl:*)",
+      "Bash(lsof:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []
