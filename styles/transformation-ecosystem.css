@@ -2916,7 +2916,7 @@ body.modal-open {
 
 /* How we work section */
 .framework-modality {
-    background: linear-gradient(135deg, rgba(247, 243, 233, 0.32), rgba(247, 243, 233, 0.22));
+    background: linear-gradient(135deg, rgba(247, 243, 233, 0.42), rgba(247, 243, 233, 0.32));
     border-left: 5px solid var(--accent-primary);
     border-radius: 14px;
     padding: 2.25rem;
@@ -2924,9 +2924,9 @@ body.modal-open {
     transition: all var(--transition-medium);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(200, 168, 130, 0.12);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 4px 16px rgba(200, 168, 130, 0.16);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
 }
 
 .framework-modality::before {
@@ -3071,5 +3071,43 @@ body.modal-open {
 
     .framework-modality h3 {
         font-size: 1.125rem;
+    }
+}
+
+/* Synergy Effect Section Styling */
+.synergy-card {
+    background: linear-gradient(135deg, rgba(247, 243, 233, 0.38), rgba(247, 243, 233, 0.28));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(200, 168, 130, 0.14);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.synergy-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200, 168, 130, 0.2);
+}
+
+/* Synergy info box */
+.synergy-info {
+    background: linear-gradient(135deg, rgba(247, 243, 233, 0.32), rgba(247, 243, 233, 0.22));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 12px rgba(200, 168, 130, 0.12);
+}
+
+@media (max-width: 768px) {
+    .synergy-card {
+        padding: 1.5rem;
+    }
+
+    .synergy-info {
+        padding: 1.5rem;
     }
 }
