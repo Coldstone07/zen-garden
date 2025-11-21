@@ -3074,6 +3074,33 @@ body.modal-open {
     }
 }
 
+/* How We Work Header Styling */
+.methodology-section-header {
+    background: linear-gradient(135deg, rgba(247, 243, 233, 0.35), rgba(247, 243, 233, 0.25));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 16px rgba(200, 168, 130, 0.12);
+    position: relative;
+}
+
+.methodology-section-header h3 {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-interactive));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .methodology-section-header {
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
 /* Synergy Effect Section Styling */
 .synergy-card {
     background: linear-gradient(135deg, rgba(247, 243, 233, 0.38), rgba(247, 243, 233, 0.28));
