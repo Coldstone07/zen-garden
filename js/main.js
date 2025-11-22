@@ -82,84 +82,8 @@
         console.log('✓ Enhanced features initialized');
     }
 
-    // Initialize accordion functionality
-    function initializeAccordions() {
-        // Handle phase accordions
-        const phaseButtons = document.querySelectorAll('.accordion-trigger[data-phase]');
-        phaseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const phaseId = button.getAttribute('data-phase');
-                const contentId = `phase-${phaseId}-content`;
-                const content = document.getElementById(contentId);
-
-                if (!content) return;
-
-                // Toggle expanded state
-                const isExpanded = button.classList.contains('expanded');
-
-                if (isExpanded) {
-                    // Close accordion
-                    button.classList.remove('expanded');
-                    content.classList.remove('expanded');
-                } else {
-                    // Open accordion - close others in same section
-                    const allPhaseButtons = document.querySelectorAll('.accordion-trigger[data-phase]');
-                    allPhaseButtons.forEach(b => {
-                        b.classList.remove('expanded');
-                        const bPhaseId = b.getAttribute('data-phase');
-                        const bContentId = `phase-${bPhaseId}-content`;
-                        const bContent = document.getElementById(bContentId);
-                        if (bContent) {
-                            bContent.classList.remove('expanded');
-                        }
-                    });
-
-                    // Open current
-                    button.classList.add('expanded');
-                    content.classList.add('expanded');
-                }
-            });
-        });
-
-        // Handle modality accordions
-        const modalityButtons = document.querySelectorAll('.accordion-trigger[data-section]');
-        modalityButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const sectionId = button.getAttribute('data-section');
-                const contentId = `${sectionId}-content`;
-                const content = document.getElementById(contentId);
-
-                if (!content) return;
-
-                // Toggle expanded state
-                const isExpanded = button.classList.contains('expanded');
-
-                if (isExpanded) {
-                    // Close accordion
-                    button.classList.remove('expanded');
-                    content.classList.remove('expanded');
-                } else {
-                    // Open accordion - close others in same section
-                    const allModalityButtons = document.querySelectorAll('.accordion-trigger[data-section]');
-                    allModalityButtons.forEach(b => {
-                        b.classList.remove('expanded');
-                        const bSectionId = b.getAttribute('data-section');
-                        const bContentId = `${bSectionId}-content`;
-                        const bContent = document.getElementById(bContentId);
-                        if (bContent) {
-                            bContent.classList.remove('expanded');
-                        }
-                    });
-
-                    // Open current
-                    button.classList.add('expanded');
-                    content.classList.add('expanded');
-                }
-            });
-        });
-
-        console.log('✓ Accordion functionality initialized');
-    }
+    // Accordion functionality moved to unified handler in /js/accordion.js
+    // The AccordionAPI is available globally for programmatic control
 
     // Initialize Three.js animation
     function initializeAnimation() {
@@ -320,8 +244,7 @@
             // Setup event listeners
             setupEventListeners();
 
-            // Initialize accordion functionality
-            initializeAccordions();
+            // Accordion functionality initialized by unified /js/accordion.js handler
 
             // Initialize animation if supported
             initializeAnimation();
