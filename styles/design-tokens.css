@@ -1,0 +1,126 @@
+/**
+ * Design Tokens
+ * Central source of truth for all CSS variables
+ * Organized by category for maintainability
+ */
+
+:root {
+    /* ==================================================
+       COLOR SYSTEM
+       ================================================== */
+
+    /* Moonlight Palette - Warm, Gentle, Eye-Friendly */
+    --moonlight-primary: #F7F3E9;
+    /* Soft warm off-white like moonlight */
+    --moonlight-secondary: #EDE7D3;
+    /* Warmer moonlight for secondary text */
+    --moonlight-muted: #D4CDB7;
+    /* Muted moonlight for subtle elements */
+    --moonlight-accent: #A5968A;
+    /* Earthy accent moonlight */
+
+    /* Dark Background System - Cosmic */
+    --cosmic-void: #0A0A0F;
+    /* Deep space background */
+    --cosmic-depth: #13131A;
+    /* Secondary dark areas */
+    --cosmic-surface: #1C1C26;
+    /* Raised surface areas */
+
+    /* Glassmorphism Surfaces - Frosted Glass Effect */
+    --glass-primary: rgba(247, 243, 233, 0.28);
+    /* Primary glass surface - frosted for better contrast */
+    --glass-secondary: rgba(247, 243, 233, 0.18);
+    /* Secondary glass surface */
+    --glass-border: rgba(247, 243, 233, 0.25);
+    /* Glass border - enhanced visibility */
+    --glass-highlight: rgba(247, 243, 233, 0.32);
+    /* Glass highlights */
+
+    /* Accent Colors - Interactive Elements */
+    --accent-primary: #C8A882;
+    /* Warm gold accent */
+    --accent-secondary: #8B7A6B;
+    /* Earth tone accent */
+    --accent-interactive: #E6D0B3;
+    /* Interactive elements */
+
+    /* ==================================================
+       TYPOGRAPHY
+       ================================================== */
+
+    --font-serif: 'Lora', serif;
+    --font-sans: 'Manrope', sans-serif;
+
+    /* Font Sizes - Responsive via Tailwind */
+    /* Using Tailwind's text-* utilities: text-sm, text-base, text-lg, text-xl, text-2xl, etc. */
+
+    /* Font Weights */
+    /* Using Tailwind's font-* utilities: font-light, font-normal, font-medium, font-semibold, font-bold */
+
+    /* ==================================================
+       GLASSMORPHISM
+       ================================================== */
+
+    --blur-strong: blur(24px);
+    --blur-medium: blur(16px);
+    --blur-subtle: blur(8px);
+
+    /* ==================================================
+       ANIMATIONS & TRANSITIONS
+       ================================================== */
+
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.4s ease-out;
+    --transition-slow: 0.6s ease-out;
+
+    /* ==================================================
+       SPACING (use Tailwind utilities)
+       ================================================== */
+    /* Tailwind handles spacing via Tailwind config */
+    /* Common: p-4, m-4, gap-8, mb-6, mt-8, px-4, py-6, etc. */
+
+    /* ==================================================
+       BORDER RADIUS
+       ================================================== */
+    /* Using Tailwind: rounded-none, rounded-sm, rounded, rounded-lg, rounded-xl, rounded-full */
+    /* Custom radii if needed: */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+
+    /* ==================================================
+       SHADOWS
+       ================================================== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 8px 24px rgba(200, 168, 130, 0.2);
+    --shadow-2xl: 0 12px 32px rgba(0, 0, 0, 0.3);
+
+    /* ==================================================
+       Z-INDEX SCALE
+       ================================================== */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-skip-link: 9999;
+}
+
+/* ==================================================
+   REDUCED MOTION SUPPORT
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition-fast: 0s;
+        --transition-medium: 0s;
+        --transition-slow: 0s;
+    }
+}

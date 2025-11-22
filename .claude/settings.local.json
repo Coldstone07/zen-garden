@@ -32,7 +32,9 @@
       "Bash(perl -pi -e 's/class=\"\"py-32 px-4 cosmic-section\"\"/class=\"\"py-28 px-4 cosmic-section\"\"/g' index.html:*)",
       "Bash(perl:*)",
       "Bash(lsof:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(git restore:*)",
+      "Bash(find js -name \"*.js\" -exec grep -l \"accordion\" {} ;)"
     ],
     "deny": [],
     "ask": []

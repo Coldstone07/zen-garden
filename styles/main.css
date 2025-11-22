@@ -1,53 +1,43 @@
 :root {
-    /* Moonlight Color Palette - Gentle and Eye-Friendly */
+    /* Moonlight Color Palette - Elevated */
     --moonlight-primary: #F7F3E9;
-    /* Soft warm off-white like moonlight */
     --moonlight-secondary: #EDE7D3;
-    /* Warmer moonlight for secondary text */
     --moonlight-muted: #D4CDB7;
-    /* Muted moonlight for subtle elements */
     --moonlight-accent: #A5968A;
-    /* Earthy accent moonlight */
 
-    /* Dark Background System */
-    --cosmic-void: #0A0A0F;
-    /* Deep space background */
-    --cosmic-depth: #13131A;
-    /* Secondary dark areas */
-    --cosmic-surface: #1C1C26;
-    /* Raised surface areas */
+    /* Deep Cosmic Background System */
+    --cosmic-void: #050508;
+    /* Darker base */
+    --cosmic-depth: #0f0f16;
+    --cosmic-surface: #181824;
 
-    /* Glassmorphism Surfaces */
-    --glass-primary: rgba(247, 243, 233, 0.28);
-    /* Primary glass surface - frosted for better contrast */
-    --glass-secondary: rgba(247, 243, 233, 0.18);
-    /* Secondary glass surface */
-    --glass-border: rgba(247, 243, 233, 0.25);
-    /* Glass border - enhanced visibility */
-    --glass-highlight: rgba(247, 243, 233, 0.32);
-    /* Glass highlights */
+    /* Glassmorphism Surfaces - Premium Feel */
+    --glass-primary: rgba(247, 243, 233, 0.03);
+    /* More subtle */
+    --glass-secondary: rgba(247, 243, 233, 0.06);
+    --glass-border: rgba(247, 243, 233, 0.08);
+    /* Thinner, more subtle border */
+    --glass-highlight: rgba(247, 243, 233, 0.15);
 
     /* Accent Colors */
     --accent-primary: #C8A882;
-    /* Warm gold accent */
     --accent-secondary: #8B7A6B;
-    /* Earth tone accent */
     --accent-interactive: #E6D0B3;
-    /* Interactive elements */
 
-    /* Typography */
+    /* Typography - Elegant & Readable */
     --font-serif: 'Lora', serif;
     --font-sans: 'Manrope', sans-serif;
 
     /* Glassmorphism Properties */
-    --blur-strong: blur(24px);
-    --blur-medium: blur(16px);
-    --blur-subtle: blur(8px);
+    --blur-strong: blur(32px);
+    /* Stronger blur for depth */
+    --blur-medium: blur(20px);
+    --blur-subtle: blur(10px);
 
-    /* Animation Timing */
-    --transition-fast: 0.2s ease-out;
-    --transition-medium: 0.4s ease-out;
-    --transition-slow: 0.6s ease-out;
+    /* Animation Timing - Cinematic */
+    --transition-fast: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base Styles */
@@ -63,7 +53,9 @@ html {
 }
 
 body {
-    background: var(--cosmic-void);
+    background: radial-gradient(circle at 50% 0%, #1a1a24 0%, #050508 100%);
+    background-attachment: fixed;
+    /* Parallax-like feel */
     color: var(--moonlight-primary);
     font-family: var(--font-sans);
     font-weight: 300;
@@ -155,6 +147,39 @@ body {
 
 .moonlight-accent {
     color: var(--moonlight-accent);
+}
+
+/* Staggered Animation Delays */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-200 {
+    animation-delay: 200ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-400 {
+    animation-delay: 400ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+.delay-600 {
+    animation-delay: 600ms;
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
+
+.delay-800 {
+    animation-delay: 800ms;
 }
 
 /* Animation Classes */
