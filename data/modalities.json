@@ -1,0 +1,145 @@
+[
+  {
+    "id": "modality-1",
+    "number": 1,
+    "title": "Understanding Your Patterns",
+    "question": "Why do you keep repeating the same patterns?",
+    "intro": "Every person has a core <strong>fear</strong> that drives predictable strategies. The Enneagram maps nine personality structures, each pursuing different rewards to feel safe.",
+    "example": "A Type 3 fears worthlessness and pursues achievement to prove their value. A Type 6 fears abandonment and pursues security. Understanding your type explains your triggers, not as character flaws, but as predictable patterns rooted in your core fear.",
+    "whyMatters": "This depersonalizes your pattern. Instead of self-blame, you can observe your own protective strategy with compassion. You understand HOW you got here.",
+    "learnMoreTitle": "Learn more about personality types",
+    "framework": "Enneagram",
+    "color": "accent-primary",
+    "expandableContent": {
+      "title": "The Structure of Personality",
+      "sections": [
+        {
+          "heading": "Three Centers of Intelligence",
+          "items": [
+            "Head Center (Types 5, 6, 7): Driven by fear—constantly analyzing, trying to predict threat",
+            "Heart Center (Types 2, 3, 4): Driven by shame—seeking connection, worth, authenticity",
+            "Body Center (Types 8, 9, 1): Driven by anger—seeking power, peace, or perfection"
+          ]
+        },
+        {
+          "heading": "What Each Type Reveals",
+          "items": [
+            "Type 1: Core fear of being flawed; pursues perfection and righteousness",
+            "Type 2: Core fear of being unloved; pursues being needed and valued",
+            "Type 3: Core fear of worthlessness; pursues achievement and image",
+            "Type 4: Core fear of being ordinary; pursues authenticity and meaning",
+            "Type 5: Core fear of incompetence; pursues knowledge and understanding",
+            "Type 6: Core fear of abandonment; pursues loyalty and security",
+            "Type 7: Core fear of deprivation; pursues pleasure and stimulation",
+            "Type 8: Core fear of vulnerability; pursues control and justice",
+            "Type 9: Core fear of disconnection; pursues peace and harmony"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "modality-2",
+    "number": 2,
+    "title": "Accessing Your Core Self",
+    "question": "How do you actually transform the pattern?",
+    "intro": "You're not one unified being—you're a system of \"parts,\" each with good intentions but sometimes misdirected. At your core is the Self, your wise, compassionate center.",
+    "example": "Your \"Perfectionist\" part is trying to protect a younger, wounded part that absorbed the message \"You're only safe if you're flawless.\" The Perfectionist isn't the problem—it's a loyal protector. Once the young part feels safe and releases the old belief, the Perfectionist can relax.",
+    "whyMatters": "This is how change actually happens. You access your Self-energy (characterized by calm, curiosity, compassion) and from that place, you help your protective parts trust that it's safe to be vulnerable. The nervous system responds to this felt safety.",
+    "learnMoreTitle": "Learn more about internal parts and the Self",
+    "framework": "Internal Family Systems (IFS)",
+    "color": "accent-interactive",
+    "expandableContent": {
+      "title": "The Core Insight",
+      "sections": [
+        {
+          "heading": "The Three Types of Parts",
+          "items": [
+            "Managers (Proactive Protectors): These parts work BEFORE a trauma is triggered. Examples: Perfectionist, Inner Critic, People-Pleaser, Over-Achiever. They use control, planning, and vigilance to prevent exiles from being activated.",
+            "Firefighters (Reactive Protectors): These parts jump in AFTER an exile is triggered. Examples: Rage, Dissociation, Numbing through substances, Procrastination, Compulsive behaviors. Their strategy: whatever this painful feeling is, I'll do anything to make it stop—now.",
+            "Exiles (Wounded Parts): Young, vulnerable parts holding old trauma and painful beliefs. Protectors keep these parts hidden to prevent their pain from overwhelming your system."
+          ]
+        },
+        {
+          "heading": "The Self (Your True Center)",
+          "items": [
+            "Calm: Unshakeable equanimity",
+            "Curiosity: Genuine interest without judgment",
+            "Compassion: Deep empathy for yourself and others",
+            "Confidence: Trust in your wisdom",
+            "Courage: Willingness to face what's difficult",
+            "Clarity: Clear seeing without distortion",
+            "Creativity: Access to new possibilities",
+            "Connection: Deep attunement to others"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "modality-3",
+    "number": 3,
+    "title": "Rewiring Your Nervous System",
+    "question": "How does your body learn it's safe to change?",
+    "intro": "Patterns live in your nervous system, not just your mind. Your body holds trauma and old protective responses. We access this directly through somatic practices, breathwork, and embodied awareness.",
+    "example": "That Perfectionist pattern creates chronic chest tension and shallow breathing. Your nervous system learned: \"When you relax, bad things happen.\" Through breathwork and somatic awareness, your body experiences that it's actually SAFE to be calm. Your nervous system rewires.",
+    "whyMatters": "Intellectual insight alone isn't enough. Your nervous system won't trust your mind's new beliefs. But when your body FEELS safety through regulation, transformation sticks.",
+    "learnMoreTitle": "Learn more about nervous system states",
+    "framework": "Somatic Work & Polyvagal Theory",
+    "color": "accent-primary",
+    "expandableContent": {
+      "title": "The Core Truth",
+      "sections": [
+        {
+          "heading": "The Three Nervous System States (Polyvagal Theory)",
+          "items": [
+            "Ventral Vagal (Safe & Social) — The Healing State: Your nervous system is regulated, relaxed, and open. This is where all real transformation happens.",
+            "Sympathetic (Fight/Flight) — The Activated State: Your nervous system is in emergency mode. Chronically staying here leads to burnout and anxiety.",
+            "Dorsal Vagal (Freeze/Shutdown) — The Collapse State: Your nervous system has given up. Many people oscillate between Sympathetic and Dorsal Vagal."
+          ]
+        },
+        {
+          "heading": "Key Practices",
+          "items": [
+            "Interoception — Learning to Feel from Within: Turn your awareness inward and notice subtle sensations",
+            "Theta State Access: Deep healing through guided somatic practices and breathwork",
+            "Equanimity to Sensation: Witness sensations with curious, compassionate awareness"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "modality-4",
+    "number": 4,
+    "title": "Finding the Sacred Purpose",
+    "question": "What is this pattern for? Why does this matter?",
+    "intro": "Every pattern carries a hidden gift—a potential you're trying to express through a wounded lens. Your core wound is your raw material for genius.",
+    "example": "Your compulsion to perform reveals your gift of total commitment. Once healed, you commit to what's TRUE, not what's performed. Your wound becomes your greatest strength.",
+    "whyMatters": "Clients need meaning, not just symptom relief. This reframes the pattern from \"fix me\" to \"what am I becoming?\" It prevents relapse by showing the pattern's sacred purpose.",
+    "learnMoreTitle": "Learn more about finding your purpose",
+    "framework": "Gene Keys",
+    "color": "accent-interactive",
+    "expandableContent": {
+      "title": "The Sacred Blueprint",
+      "sections": [
+        {
+          "heading": "The Three Frequencies of Every Gene Key",
+          "items": [
+            "Shadow Frequency (Fear-Based): The wounded expression of this frequency. This is your core wound—the painful belief or pattern driving your survival strategies.",
+            "Gift Frequency (Creative Expression): The healed, creative expression of this same energy. When you move through your wound, the shadow transforms into your greatest strength.",
+            "Siddhi Frequency (Transcendent Realization): The highest expression—enlightened, compassionate, serving the collective."
+          ]
+        },
+        {
+          "heading": "Your Hologenetic Profile — Three Life Sequences",
+          "items": [
+            "Life's Work (Activation Sequence): Your four primary archetypal gifts—your natural genius and what you're here to contribute.",
+            "Relationships (Venus Sequence): Your relational wounds and your path to opening your heart.",
+            "Prosperity (Pearl Sequence): Your path to true abundance through authentic service."
+          ]
+        }
+      ]
+    }
+  }
+]
